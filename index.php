@@ -266,7 +266,8 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <div class="bg-white p-4 rounded-xl border border-emerald-200 bg-emerald-50/30 shadow-sm">
                     <p class="text-xs font-bold text-emerald-900">Kehadiran (Non-Akad)</p>
                     <p class="text-2xl font-extrabold text-emerald-800 mt-1" x-text="(db.meta.class_attendance_avg || 98.16) + '%'"></p>
-                    <p class="text-[11px] text-emerald-700 mt-0.5 font-medium">Tingkat Disiplin Kelas X.13</p>
+                    <p class="text-[11px] text-emerald-700 mt-0.5 font-medium"
+                       x-text="'Total: S:' + (db.meta.class_attendance_totals?.sakit || 60) + ' | I:' + (db.meta.class_attendance_totals?.izin || 20) + ' | A:' + (db.meta.class_attendance_totals?.alpa || 0)"></p>
                 </div>
                 <div @click="openSubjectDetail('KALAM')" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm cursor-pointer hover:border-emerald-500 hover:shadow-md transition group">
                     <div class="flex items-center justify-between">
@@ -318,7 +319,9 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <th class="py-2.5 px-3 text-center bg-emerald-900">Rank</th>
                                 <th class="py-2.5 px-3 text-center">Total</th>
                                 <th class="py-2.5 px-3 text-center">Rata-Rata</th>
-                                <th class="py-2.5 px-3 text-center">Mapel Tuntas</th>
+                                <th class="py-2.5 px-2 text-center" title="Sakit (Hari)">S</th>
+                                <th class="py-2.5 px-2 text-center" title="Izin (Hari)">I</th>
+                                <th class="py-2.5 px-2 text-center" title="Alpa / Tanpa Keterangan (Hari)">A</th>
                                 <th class="py-2.5 px-3 text-center">Kehadiran</th>
                                 <th class="py-2.5 px-3 text-center">Aksi</th>
                             </tr>
@@ -337,19 +340,17 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                               :class="st.avg >= db.meta.class_overall_avg ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-100 text-slate-700'"
                                               x-text="st.avg.toFixed(2)"></span>
                                     </td>
-                                    <td class="py-2.5 px-3 text-center">
-                                        <span class="px-2 py-0.5 rounded text-[11px] font-semibold"
-                                              :class="st.completed_count === 17 ? 'text-emerald-700 bg-emerald-50' : 'text-amber-800 bg-amber-200/70'"
-                                              x-text="st.completed_count + '/17 Mapel'"></span>
-                                    </td>
+                                    <td class="py-2.5 px-2 text-center font-bold text-slate-700" x-text="st.attendance?.sakit ?? (st.attendance?.s ?? 0)"></td>
+                                    <td class="py-2.5 px-2 text-center font-bold text-slate-700" x-text="st.attendance?.izin ?? (st.attendance?.i ?? 0)"></td>
+                                    <td class="py-2.5 px-2 text-center font-bold"
+                                        :class="(st.attendance?.alpa || st.attendance?.a || 0) > 0 ? 'text-rose-600 bg-rose-50' : 'text-slate-400'"
+                                        x-text="st.attendance?.alpa ?? (st.attendance?.a ?? 0)"></td>
                                     <td class="py-2.5 px-3 text-center">
                                         <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold"
-                                              :class="(st.attendance?.persentase || 100) >= 95 ? 'bg-emerald-100 text-emerald-800' : ((st.attendance?.persentase || 100) >= 90 ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800')"
-                                              :title="'Sakit: ' + (st.attendance?.s || 0) + ' hr, Izin: ' + (st.attendance?.i || 0) + ' hr, Alpa: ' + (st.attendance?.a || 0) + ' hr'">
+                                              :class="(st.attendance?.persentase || 100) >= 95 ? 'bg-emerald-100 text-emerald-800' : ((st.attendance?.persentase || 100) >= 90 ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800')">
                                             <span x-text="(st.attendance?.persentase || 100).toFixed(1) + '%'"></span>
                                             <span class="text-[9px] font-semibold opacity-75" x-text="'(' + (st.attendance?.predikat || 'A') + ')'"></span>
                                         </div>
-                                        <div class="text-[9px] text-slate-400 mt-0.5" x-text="'S:' + (st.attendance?.s || 0) + ' I:' + (st.attendance?.i || 0) + ' A:' + (st.attendance?.a || 0)"></div>
                                     </td>
                                     <td class="py-2.5 px-3 text-center space-x-1">
                                         <button @click="viewStudentReport(st)" class="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-700 text-white font-semibold">
@@ -542,6 +543,16 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <span class="inline-block mt-0.5 px-2 py-0.5 rounded text-[11px] font-extrabold"
                                       :class="(currentStudent.attendance?.persentase || 100) >= 95 ? 'bg-emerald-100 text-emerald-800' : ((currentStudent.attendance?.persentase || 100) >= 90 ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800')"
                                       x-text="(currentStudent.attendance?.predikat || 'A') + ' • ' + (currentStudent.attendance?.keterangan || 'Sangat Baik')"></span>
+                            </div>
+                        </div>
+                        <!-- Rincian Rekapitulasi per Bulan (Sesuai Excel Presensi) -->
+                        <div class="bg-slate-50 border-t border-slate-200 px-3.5 py-2 text-[11px] text-slate-600 flex flex-wrap justify-between items-center gap-2">
+                            <span class="font-bold text-slate-700">Rincian Riwayat Absensi (Juli - September):</span>
+                            <div class="flex items-center gap-3 sm:gap-4 text-slate-700 font-semibold flex-wrap">
+                                <span class="bg-white px-2 py-0.5 rounded border border-slate-200">Juli: <strong class="text-slate-900" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.juli?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.juli?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.juli?.alpa || 0)"></strong></span>
+                                <span class="bg-white px-2 py-0.5 rounded border border-slate-200">Agustus: <strong class="text-slate-900" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.alpa || 0)"></strong></span>
+                                <span class="bg-white px-2 py-0.5 rounded border border-slate-200">September: <strong class="text-slate-900" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.september?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.september?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.september?.alpa || 0)"></strong></span>
+                                <span class="bg-emerald-50 text-emerald-900 px-2 py-0.5 rounded border border-emerald-200">Total: <strong x-text="(currentStudent.attendance?.total_absen || 0) + ' Hari Absen'"></strong></span>
                             </div>
                         </div>
                     </div>
@@ -1986,11 +1997,24 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         this.db.meta.class_overall_avg = Number((activeAvgs.reduce((a, b) => a + b, 0) / activeAvgs.length).toFixed(2));
                     }
 
-                    // 5. Class overall attendance average
+                    // 5. Class overall attendance average & totals
                     const atts = this.db.students.map(s => s.attendance?.persentase).filter(p => p !== undefined && p !== null);
                     if (atts.length > 0) {
                         this.db.meta.class_attendance_avg = Number((atts.reduce((a, b) => a + b, 0) / atts.length).toFixed(2));
                     }
+                    let totS = 0, totI = 0, totA = 0, totAbs = 0;
+                    this.db.students.forEach(s => {
+                        totS += Number(s.attendance?.sakit ?? (s.attendance?.s ?? 0));
+                        totI += Number(s.attendance?.izin ?? (s.attendance?.i ?? 0));
+                        totA += Number(s.attendance?.alpa ?? (s.attendance?.a ?? 0));
+                        totAbs += Number(s.attendance?.total_absen ?? 0);
+                    });
+                    this.db.meta.class_attendance_totals = {
+                        sakit: totS,
+                        izin: totI,
+                        alpa: totA,
+                        total_absen: totAbs
+                    };
                 },
 
                 async saveToServer() {

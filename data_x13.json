@@ -13,7 +13,13 @@
     "total_students": 32,
     "active_subjects_count": 17,
     "class_attendance_avg": 98.16,
-    "total_effective_sessions": 136
+    "total_effective_sessions": 136,
+    "class_attendance_totals": {
+      "sakit": 60,
+      "izin": 20,
+      "alpa": 0,
+      "total_absen": 80
+    }
   },
   "subjects": [
     {
@@ -276,10 +282,34 @@
         "s": 6,
         "i": 0,
         "a": 0,
+        "sakit": 6,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 6,
         "persentase": 95.59,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 6,
+            "izin": 0,
+            "alpa": 0,
+            "total": 6
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -287,9 +317,33 @@
           "s": 6,
           "i": 0,
           "a": 0,
+          "sakit": 6,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 6,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 6,
+              "izin": 0,
+              "alpa": 0,
+              "total": 6
+            }
+          }
         }
       }
     },
@@ -364,10 +418,34 @@
         "s": 1,
         "i": 6,
         "a": 0,
+        "sakit": 1,
+        "izin": 6,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 7,
         "persentase": 94.85,
         "predikat": "B",
-        "keterangan": "Baik (Disiplin Terjaga)"
+        "keterangan": "Baik (Disiplin Terjaga)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 6,
+            "alpa": 0,
+            "total": 6
+          },
+          "september": {
+            "sakit": 1,
+            "izin": 0,
+            "alpa": 0,
+            "total": 1
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -375,9 +453,33 @@
           "s": 1,
           "i": 6,
           "a": 0,
+          "sakit": 1,
+          "izin": 6,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 7,
           "predikat": "B",
-          "keterangan": "Baik (Disiplin Terjaga)"
+          "keterangan": "Baik (Disiplin Terjaga)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 6,
+              "alpa": 0,
+              "total": 6
+            },
+            "september": {
+              "sakit": 1,
+              "izin": 0,
+              "alpa": 0,
+              "total": 1
+            }
+          }
         }
       }
     },
@@ -452,10 +554,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -463,9 +589,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -540,10 +690,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -551,9 +725,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -628,10 +826,34 @@
         "s": 4,
         "i": 0,
         "a": 0,
+        "sakit": 4,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 4,
         "persentase": 97.06,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 3,
+            "izin": 0,
+            "alpa": 0,
+            "total": 3
+          },
+          "september": {
+            "sakit": 1,
+            "izin": 0,
+            "alpa": 0,
+            "total": 1
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -639,9 +861,33 @@
           "s": 4,
           "i": 0,
           "a": 0,
+          "sakit": 4,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 4,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 3,
+              "izin": 0,
+              "alpa": 0,
+              "total": 3
+            },
+            "september": {
+              "sakit": 1,
+              "izin": 0,
+              "alpa": 0,
+              "total": 1
+            }
+          }
         }
       }
     },
@@ -716,10 +962,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -727,9 +997,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -804,10 +1098,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -815,9 +1133,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -892,10 +1234,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -903,9 +1269,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -980,10 +1370,34 @@
         "s": 4,
         "i": 0,
         "a": 0,
+        "sakit": 4,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 4,
         "persentase": 97.06,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 4,
+            "izin": 0,
+            "alpa": 0,
+            "total": 4
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -991,9 +1405,33 @@
           "s": 4,
           "i": 0,
           "a": 0,
+          "sakit": 4,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 4,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 4,
+              "izin": 0,
+              "alpa": 0,
+              "total": 4
+            }
+          }
         }
       }
     },
@@ -1068,10 +1506,34 @@
         "s": 0,
         "i": 1,
         "a": 0,
+        "sakit": 0,
+        "izin": 1,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 1,
         "persentase": 99.26,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 1,
+            "alpa": 0,
+            "total": 1
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1079,9 +1541,33 @@
           "s": 0,
           "i": 1,
           "a": 0,
+          "sakit": 0,
+          "izin": 1,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 1,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 1,
+              "alpa": 0,
+              "total": 1
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -1156,10 +1642,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1167,9 +1677,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -1244,10 +1778,34 @@
         "s": 1,
         "i": 3,
         "a": 0,
+        "sakit": 1,
+        "izin": 3,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 4,
         "persentase": 97.06,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 3,
+            "alpa": 0,
+            "total": 3
+          },
+          "september": {
+            "sakit": 1,
+            "izin": 0,
+            "alpa": 0,
+            "total": 1
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1255,9 +1813,33 @@
           "s": 1,
           "i": 3,
           "a": 0,
+          "sakit": 1,
+          "izin": 3,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 4,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 3,
+              "alpa": 0,
+              "total": 3
+            },
+            "september": {
+              "sakit": 1,
+              "izin": 0,
+              "alpa": 0,
+              "total": 1
+            }
+          }
         }
       }
     },
@@ -1332,10 +1914,34 @@
         "s": 2,
         "i": 1,
         "a": 0,
+        "sakit": 2,
+        "izin": 1,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 3,
         "persentase": 97.79,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 1,
+            "izin": 0,
+            "alpa": 0,
+            "total": 1
+          },
+          "september": {
+            "sakit": 1,
+            "izin": 1,
+            "alpa": 0,
+            "total": 2
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1343,9 +1949,33 @@
           "s": 2,
           "i": 1,
           "a": 0,
+          "sakit": 2,
+          "izin": 1,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 3,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 1,
+              "izin": 0,
+              "alpa": 0,
+              "total": 1
+            },
+            "september": {
+              "sakit": 1,
+              "izin": 1,
+              "alpa": 0,
+              "total": 2
+            }
+          }
         }
       }
     },
@@ -1420,10 +2050,34 @@
         "s": 3,
         "i": 1,
         "a": 0,
+        "sakit": 3,
+        "izin": 1,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 4,
         "persentase": 97.06,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 3,
+            "izin": 1,
+            "alpa": 0,
+            "total": 4
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1431,9 +2085,33 @@
           "s": 3,
           "i": 1,
           "a": 0,
+          "sakit": 3,
+          "izin": 1,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 4,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 3,
+              "izin": 1,
+              "alpa": 0,
+              "total": 4
+            }
+          }
         }
       }
     },
@@ -1508,10 +2186,34 @@
         "s": 0,
         "i": 1,
         "a": 0,
+        "sakit": 0,
+        "izin": 1,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 1,
         "persentase": 99.26,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 1,
+            "alpa": 0,
+            "total": 1
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1519,9 +2221,33 @@
           "s": 0,
           "i": 1,
           "a": 0,
+          "sakit": 0,
+          "izin": 1,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 1,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 1,
+              "alpa": 0,
+              "total": 1
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -1596,10 +2322,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1607,9 +2357,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -1684,10 +2458,34 @@
         "s": 11,
         "i": 1,
         "a": 0,
+        "sakit": 11,
+        "izin": 1,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 12,
         "persentase": 91.18,
         "predikat": "B",
-        "keterangan": "Baik (Disiplin Terjaga)"
+        "keterangan": "Baik (Disiplin Terjaga)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 4,
+            "izin": 0,
+            "alpa": 0,
+            "total": 4
+          },
+          "september": {
+            "sakit": 7,
+            "izin": 1,
+            "alpa": 0,
+            "total": 8
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1695,9 +2493,33 @@
           "s": 11,
           "i": 1,
           "a": 0,
+          "sakit": 11,
+          "izin": 1,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 12,
           "predikat": "B",
-          "keterangan": "Baik (Disiplin Terjaga)"
+          "keterangan": "Baik (Disiplin Terjaga)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 4,
+              "izin": 0,
+              "alpa": 0,
+              "total": 4
+            },
+            "september": {
+              "sakit": 7,
+              "izin": 1,
+              "alpa": 0,
+              "total": 8
+            }
+          }
         }
       }
     },
@@ -1772,10 +2594,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1783,9 +2629,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -1860,10 +2730,34 @@
         "s": 1,
         "i": 0,
         "a": 0,
+        "sakit": 1,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 1,
         "persentase": 99.26,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 1,
+            "izin": 0,
+            "alpa": 0,
+            "total": 1
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1871,9 +2765,33 @@
           "s": 1,
           "i": 0,
           "a": 0,
+          "sakit": 1,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 1,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 1,
+              "izin": 0,
+              "alpa": 0,
+              "total": 1
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -1948,10 +2866,34 @@
         "s": 1,
         "i": 0,
         "a": 0,
+        "sakit": 1,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 1,
         "persentase": 99.26,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 1,
+            "izin": 0,
+            "alpa": 0,
+            "total": 1
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -1959,9 +2901,33 @@
           "s": 1,
           "i": 0,
           "a": 0,
+          "sakit": 1,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 1,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 1,
+              "izin": 0,
+              "alpa": 0,
+              "total": 1
+            }
+          }
         }
       }
     },
@@ -2036,10 +3002,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2047,9 +3037,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -2127,10 +3141,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2138,9 +3176,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -2215,10 +3277,34 @@
         "s": 1,
         "i": 2,
         "a": 0,
+        "sakit": 1,
+        "izin": 2,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 3,
         "persentase": 97.79,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 1,
+            "alpa": 0,
+            "total": 1
+          },
+          "agustus": {
+            "sakit": 1,
+            "izin": 0,
+            "alpa": 0,
+            "total": 1
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 1,
+            "alpa": 0,
+            "total": 1
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2226,9 +3312,33 @@
           "s": 1,
           "i": 2,
           "a": 0,
+          "sakit": 1,
+          "izin": 2,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 3,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 1,
+              "alpa": 0,
+              "total": 1
+            },
+            "agustus": {
+              "sakit": 1,
+              "izin": 0,
+              "alpa": 0,
+              "total": 1
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 1,
+              "alpa": 0,
+              "total": 1
+            }
+          }
         }
       }
     },
@@ -2303,10 +3413,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2314,9 +3448,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -2391,10 +3549,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2402,9 +3584,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -2479,10 +3685,34 @@
         "s": 7,
         "i": 3,
         "a": 0,
+        "sakit": 7,
+        "izin": 3,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 10,
         "persentase": 92.65,
         "predikat": "B",
-        "keterangan": "Baik (Disiplin Terjaga)"
+        "keterangan": "Baik (Disiplin Terjaga)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 3,
+            "izin": 0,
+            "alpa": 0,
+            "total": 3
+          },
+          "september": {
+            "sakit": 4,
+            "izin": 3,
+            "alpa": 0,
+            "total": 7
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2490,9 +3720,33 @@
           "s": 7,
           "i": 3,
           "a": 0,
+          "sakit": 7,
+          "izin": 3,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 10,
           "predikat": "B",
-          "keterangan": "Baik (Disiplin Terjaga)"
+          "keterangan": "Baik (Disiplin Terjaga)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 3,
+              "izin": 0,
+              "alpa": 0,
+              "total": 3
+            },
+            "september": {
+              "sakit": 4,
+              "izin": 3,
+              "alpa": 0,
+              "total": 7
+            }
+          }
         }
       }
     },
@@ -2567,10 +3821,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2578,9 +3856,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -2655,10 +3957,34 @@
         "s": 2,
         "i": 0,
         "a": 0,
+        "sakit": 2,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 2,
         "persentase": 98.53,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 2,
+            "izin": 0,
+            "alpa": 0,
+            "total": 2
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2666,9 +3992,33 @@
           "s": 2,
           "i": 0,
           "a": 0,
+          "sakit": 2,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 2,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 2,
+              "izin": 0,
+              "alpa": 0,
+              "total": 2
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -2743,10 +4093,34 @@
         "s": 0,
         "i": 1,
         "a": 0,
+        "sakit": 0,
+        "izin": 1,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 1,
         "persentase": 99.26,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 1,
+            "alpa": 0,
+            "total": 1
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2754,9 +4128,33 @@
           "s": 0,
           "i": 1,
           "a": 0,
+          "sakit": 0,
+          "izin": 1,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 1,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 1,
+              "alpa": 0,
+              "total": 1
+            }
+          }
         }
       }
     },
@@ -2831,10 +4229,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2842,9 +4264,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -2919,10 +4365,34 @@
         "s": 0,
         "i": 0,
         "a": 0,
+        "sakit": 0,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 0,
         "persentase": 100,
         "predikat": "A",
-        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        "keterangan": "Sangat Baik (Disiplin Tinggi)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "september": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -2930,9 +4400,33 @@
           "s": 0,
           "i": 0,
           "a": 0,
+          "sakit": 0,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 0,
           "predikat": "A",
-          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+          "keterangan": "Sangat Baik (Disiplin Tinggi)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "september": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            }
+          }
         }
       }
     },
@@ -3007,10 +4501,34 @@
         "s": 16,
         "i": 0,
         "a": 0,
+        "sakit": 16,
+        "izin": 0,
+        "alpa": 0,
+        "tanpa_keterangan": 0,
         "total_absen": 16,
         "persentase": 88.24,
         "predikat": "C",
-        "keterangan": "Cukup (Perlu Pengingat)"
+        "keterangan": "Cukup (Perlu Pengingat)",
+        "rincian_bulanan": {
+          "juli": {
+            "sakit": 0,
+            "izin": 0,
+            "alpa": 0,
+            "total": 0
+          },
+          "agustus": {
+            "sakit": 2,
+            "izin": 0,
+            "alpa": 0,
+            "total": 2
+          },
+          "september": {
+            "sakit": 14,
+            "izin": 0,
+            "alpa": 0,
+            "total": 14
+          }
+        }
       },
       "nilai_non_akademik": {
         "kehadiran": {
@@ -3018,9 +4536,33 @@
           "s": 16,
           "i": 0,
           "a": 0,
+          "sakit": 16,
+          "izin": 0,
+          "alpa": 0,
+          "tanpa_keterangan": 0,
           "total_absen": 16,
           "predikat": "C",
-          "keterangan": "Cukup (Perlu Pengingat)"
+          "keterangan": "Cukup (Perlu Pengingat)",
+          "rincian_bulanan": {
+            "juli": {
+              "sakit": 0,
+              "izin": 0,
+              "alpa": 0,
+              "total": 0
+            },
+            "agustus": {
+              "sakit": 2,
+              "izin": 0,
+              "alpa": 0,
+              "total": 2
+            },
+            "september": {
+              "sakit": 14,
+              "izin": 0,
+              "alpa": 0,
+              "total": 14
+            }
+          }
         }
       }
     }
