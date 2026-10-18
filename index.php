@@ -679,7 +679,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <div class="flex items-center gap-2 flex-grow sm:flex-grow-0">
                     <!-- Search Input -->
                     <div class="relative flex-grow sm:w-60">
-                        <input type="text" x-model="subjectSearch" placeholder="Cari nama atau kode mapel..."
+                        <input type="text" x-model="subjectSearch" placeholder="Cari nama mapel, kode, atau guru..."
                                class="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 text-xs focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20">
                         <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     </div>
@@ -709,6 +709,10 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             </div>
 
                             <h3 class="font-bold text-base text-slate-900 group-hover:text-emerald-800 transition line-clamp-1" x-text="sub.name" :title="sub.name"></h3>
+                            <div class="flex items-center gap-1.5 mt-1 text-xs text-slate-600">
+                                <svg class="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                <span class="truncate font-medium text-slate-700" :title="'Guru Pengampu: ' + (sub.guru || 'Belum ditentukan')" x-text="sub.guru || 'Guru belum diisi'"></span>
+                            </div>
 
                             <!-- Rata-Rata Nilai Utama -->
                             <div class="mt-4 p-3 rounded-xl flex items-center justify-between border"
@@ -837,11 +841,12 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-slate-50 p-4 rounded-xl border border-slate-200 mb-5 text-xs">
                             <div class="space-y-1.5">
                                 <div class="flex"><span class="w-32 text-slate-500 font-medium">Mata Pelajaran</span><span class="font-extrabold text-slate-900">: <span x-text="activeSubjectStats.subject.name"></span> (<span class="font-mono text-emerald-800" x-text="activeSubjectStats.subject.code"></span>)</span></div>
+                                <div class="flex"><span class="w-32 text-slate-500 font-medium">Guru Pengampu</span><span class="font-bold text-emerald-900">: <span x-text="activeSubjectStats.subject.guru || 'Belum diisi'"></span></span></div>
                                 <div class="flex"><span class="w-32 text-slate-500 font-medium">Kelompok Rumpun</span><span class="font-semibold text-slate-800">: <span x-text="activeSubjectStats.subject.group"></span></span></div>
                                 <div class="flex"><span class="w-32 text-slate-500 font-medium">Kelas / Program</span><span class="font-bold text-slate-900">: <span x-text="db.meta.kelas"></span></span></div>
                             </div>
                             <div class="space-y-1.5">
-                                <div class="flex"><span class="w-32 text-slate-500 font-medium">Wali Kelas</span><span class="font-bold text-emerald-900">: <span x-text="db.meta.wali_kelas"></span></span></div>
+                                <div class="flex"><span class="w-32 text-slate-500 font-medium">Wali Kelas</span><span class="font-bold text-slate-900">: <span x-text="db.meta.wali_kelas"></span></span></div>
                                 <div class="flex"><span class="w-32 text-slate-500 font-medium">Standar KKTP</span><span class="font-bold text-slate-800">: <span class="font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-900" x-text="activeSubjectStats.threshold"></span> (Skala 0 - 100)</span></div>
                                 <div class="flex"><span class="w-32 text-slate-500 font-medium">Waktu Evaluasi</span><span class="font-semibold text-slate-800">: <span x-text="db.meta.tanggal_cetak"></span> (STS Ganjil)</span></div>
                             </div>
@@ -1165,7 +1170,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <p class="text-slate-600">Lamongan, <span x-text="db.meta.tanggal_cetak"></span></p>
                                 <p class="font-bold text-slate-800">Guru Pengampu <span x-text="activeSubjectStats.subject.name"></span></p>
                                 <div class="h-16"></div>
-                                <p class="font-bold text-slate-800">( ..................................................... )</p>
+                                <p class="font-extrabold text-slate-900 underline" x-text="activeSubjectStats.subject.guru || '( ..................................................... )'"></p>
                                 <p class="text-[11px] text-slate-500">NIP / NPK: -</p>
                             </div>
                         </div>
@@ -1350,7 +1355,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
 
                     if (this.subjectSearch && this.subjectSearch.trim() !== '') {
                         const q = this.subjectSearch.toLowerCase().trim();
-                        list = list.filter(s => s.name.toLowerCase().includes(q) || s.code.toLowerCase().includes(q));
+                        list = list.filter(s => s.name.toLowerCase().includes(q) || s.code.toLowerCase().includes(q) || (s.guru && s.guru.toLowerCase().includes(q)));
                     }
 
                     if (this.subjectSort === 'avg_desc') {
@@ -1620,9 +1625,10 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     let text = `*LAPORAN HASIL SUMATIF TENGAH SEMESTER (STS) GANJIL 2026/2027*\n`;
                     text += `*MA MATHOLI'UL ANWAR LAMONGAN*\n`;
                     text += `*Mata Pelajaran: ${stats.subject.name} (${stats.subject.code})*\n`;
-                    text += `Rumpun: ${stats.subject.group}\n`;
-                    text += `Kelas: ${this.db.meta.kelas}\n`;
-                    text += `Wali Kelas: ${this.db.meta.wali_kelas}\n\n`;
+                    text += `• Guru Pengampu: ${stats.subject.guru || '-'}\n`;
+                    text += `• Rumpun: ${stats.subject.group}\n`;
+                    text += `• Kelas: ${this.db.meta.kelas}\n`;
+                    text += `• Wali Kelas: ${this.db.meta.wali_kelas}\n\n`;
 
                     text += `📊 *RINGKASAN STATISTIK EVALUASI:*\n`;
                     text += `• Total Siswa Terdaftar: ${stats.totalStudents} Siswa\n`;
@@ -1699,6 +1705,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     let csvContent = "\uFEFF"; // UTF-8 BOM
                     csvContent += `LAPORAN EVALUASI NILAI STS GANJIL 2026/2027 - KELAS X.13\n`;
                     csvContent += `Mata Pelajaran,${stats.subject.name} (${stats.subject.code})\n`;
+                    csvContent += `Guru Pengampu,"${(stats.subject.guru || '-').replace(/"/g, '""')}"\n`;
                     csvContent += `Rumpun,${stats.subject.group}\n`;
                     csvContent += `Rata-Rata Kelas,${stats.avg}\n`;
                     csvContent += `Nilai Tertinggi,${stats.max}\n`;
