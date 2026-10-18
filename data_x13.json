@@ -11,7 +11,9 @@
     "pin_walas": "1313",
     "class_overall_avg": 52.19,
     "total_students": 32,
-    "active_subjects_count": 17
+    "active_subjects_count": 17,
+    "class_attendance_avg": 98.16,
+    "total_effective_sessions": 136
   },
   "subjects": [
     {
@@ -269,7 +271,27 @@
       ],
       "missing_subjects": [],
       "rank": 3,
-      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda ABELIA ZAHWA NATASYAFIRAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 66.94, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Sejarah (90), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Al-Qur'an Hadis."
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda ABELIA ZAHWA NATASYAFIRAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 66.94, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Sejarah (90), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Al-Qur'an Hadis.",
+      "attendance": {
+        "s": 6,
+        "i": 0,
+        "a": 0,
+        "total_absen": 6,
+        "persentase": 95.59,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 95.59,
+          "s": 6,
+          "i": 0,
+          "a": 0,
+          "total_absen": 6,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 2,
@@ -337,7 +359,27 @@
       ],
       "missing_subjects": [],
       "rank": 22,
-      "catatan_walas": "Terima kasih atas usaha Ananda AHMAD FADHIL ELFAJRI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 4 mata pelajaran). Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (76), Ilmu Kalam & Akhlak (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+      "catatan_walas": "Terima kasih atas usaha Ananda AHMAD FADHIL ELFAJRI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 4 mata pelajaran). Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (76), Ilmu Kalam & Akhlak (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis.",
+      "attendance": {
+        "s": 1,
+        "i": 6,
+        "a": 0,
+        "total_absen": 7,
+        "persentase": 94.85,
+        "predikat": "B",
+        "keterangan": "Baik (Disiplin Terjaga)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 94.85,
+          "s": 1,
+          "i": 6,
+          "a": 0,
+          "total_absen": 7,
+          "predikat": "B",
+          "keterangan": "Baik (Disiplin Terjaga)"
+        }
+      }
     },
     {
       "absen": 3,
@@ -405,7 +447,27 @@
       ],
       "missing_subjects": [],
       "rank": 1,
-      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AHMAD HASAN ARIFIN atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 68.47, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Sejarah (90). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Pendidikan Pancasila."
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AHMAD HASAN ARIFIN atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 68.47, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Sejarah (90). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Pendidikan Pancasila.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 4,
@@ -473,7 +535,27 @@
       ],
       "missing_subjects": [],
       "rank": 5,
-      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AHMAD HUSAIN ARIFIN atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 63.24, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AHMAD HUSAIN ARIFIN atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 63.24, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 5,
@@ -541,7 +623,27 @@
       ],
       "missing_subjects": [],
       "rank": 21,
-      "catatan_walas": "Terima kasih atas usaha Ananda AHMAD ULIL ALBAB ARRIDLO dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Sejarah, Matematika."
+      "catatan_walas": "Terima kasih atas usaha Ananda AHMAD ULIL ALBAB ARRIDLO dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Sejarah, Matematika.",
+      "attendance": {
+        "s": 4,
+        "i": 0,
+        "a": 0,
+        "total_absen": 4,
+        "persentase": 97.06,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 97.06,
+          "s": 4,
+          "i": 0,
+          "a": 0,
+          "total_absen": 4,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 6,
@@ -609,7 +711,27 @@
       ],
       "missing_subjects": [],
       "rank": 4,
-      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AULIYA VITA RAHMANI atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 63.29, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (100), Ilmu Tafsir (96). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Pendidikan Pancasila."
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AULIYA VITA RAHMANI atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 63.29, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (100), Ilmu Tafsir (96). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Pendidikan Pancasila.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 7,
@@ -677,7 +799,27 @@
       ],
       "missing_subjects": [],
       "rank": 30,
-      "catatan_walas": "Terima kasih atas usaha Ananda DEVA RAMADANI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ushul Fikih (80), Ilmu Kalam & Akhlak (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Fikih Keagamaan (KAG)."
+      "catatan_walas": "Terima kasih atas usaha Ananda DEVA RAMADANI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ushul Fikih (80), Ilmu Kalam & Akhlak (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Fikih Keagamaan (KAG).",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 8,
@@ -745,7 +887,27 @@
       ],
       "missing_subjects": [],
       "rank": 15,
-      "catatan_walas": "Terima kasih atas usaha Ananda DEWI MARTHA TSABITAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 9 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Ushul Fikih (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+      "catatan_walas": "Terima kasih atas usaha Ananda DEWI MARTHA TSABITAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 9 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Ushul Fikih (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 9,
@@ -813,7 +975,27 @@
       ],
       "missing_subjects": [],
       "rank": 27,
-      "catatan_walas": "Terima kasih atas usaha Ananda FITRI SALMA QURROTAA'YUN dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Sejarah Kebudayaan Islam (SKI) (72). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Matematika."
+      "catatan_walas": "Terima kasih atas usaha Ananda FITRI SALMA QURROTAA'YUN dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Sejarah Kebudayaan Islam (SKI) (72). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Matematika.",
+      "attendance": {
+        "s": 4,
+        "i": 0,
+        "a": 0,
+        "total_absen": 4,
+        "persentase": 97.06,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 97.06,
+          "s": 4,
+          "i": 0,
+          "a": 0,
+          "total_absen": 4,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 10,
@@ -881,7 +1063,27 @@
       ],
       "missing_subjects": [],
       "rank": 8,
-      "catatan_walas": "Alhamdulillah, Ananda GEA REGINA PUTRI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.59 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Sejarah."
+      "catatan_walas": "Alhamdulillah, Ananda GEA REGINA PUTRI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.59 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Sejarah.",
+      "attendance": {
+        "s": 0,
+        "i": 1,
+        "a": 0,
+        "total_absen": 1,
+        "persentase": 99.26,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 99.26,
+          "s": 0,
+          "i": 1,
+          "a": 0,
+          "total_absen": 1,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 11,
@@ -949,7 +1151,27 @@
       ],
       "missing_subjects": [],
       "rank": 9,
-      "catatan_walas": "Alhamdulillah, Ananda KHARISMA ALIFATUZZAHRAH AL-AZKA menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.41 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (88), Ilmu Kalam & Akhlak (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+      "catatan_walas": "Alhamdulillah, Ananda KHARISMA ALIFATUZZAHRAH AL-AZKA menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.41 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (88), Ilmu Kalam & Akhlak (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 12,
@@ -1017,7 +1239,27 @@
       ],
       "missing_subjects": [],
       "rank": 17,
-      "catatan_walas": "Terima kasih atas usaha Ananda KIRANA ARSELIA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 7 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (100), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ushul Fikih."
+      "catatan_walas": "Terima kasih atas usaha Ananda KIRANA ARSELIA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 7 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (100), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ushul Fikih.",
+      "attendance": {
+        "s": 1,
+        "i": 3,
+        "a": 0,
+        "total_absen": 4,
+        "persentase": 97.06,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 97.06,
+          "s": 1,
+          "i": 3,
+          "a": 0,
+          "total_absen": 4,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 13,
@@ -1085,7 +1327,27 @@
       ],
       "missing_subjects": [],
       "rank": 31,
-      "catatan_walas": "Terima kasih atas usaha Ananda M. ANFAL ALDI FIRMANSYAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 2 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Seni Budaya (60). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Bahasa Inggris."
+      "catatan_walas": "Terima kasih atas usaha Ananda M. ANFAL ALDI FIRMANSYAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 2 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Seni Budaya (60). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Bahasa Inggris.",
+      "attendance": {
+        "s": 2,
+        "i": 1,
+        "a": 0,
+        "total_absen": 3,
+        "persentase": 97.79,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 97.79,
+          "s": 2,
+          "i": 1,
+          "a": 0,
+          "total_absen": 3,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 14,
@@ -1153,7 +1415,27 @@
       ],
       "missing_subjects": [],
       "rank": 29,
-      "catatan_walas": "Terima kasih atas usaha Ananda M. NIDZOM MUHAKKAM dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Seni Budaya (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Bahasa Arab Keagamaan (KAG)."
+      "catatan_walas": "Terima kasih atas usaha Ananda M. NIDZOM MUHAKKAM dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Seni Budaya (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Bahasa Arab Keagamaan (KAG).",
+      "attendance": {
+        "s": 3,
+        "i": 1,
+        "a": 0,
+        "total_absen": 4,
+        "persentase": 97.06,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 97.06,
+          "s": 3,
+          "i": 1,
+          "a": 0,
+          "total_absen": 4,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 15,
@@ -1221,7 +1503,27 @@
       ],
       "missing_subjects": [],
       "rank": 13,
-      "catatan_walas": "Alhamdulillah, Ananda MILHATUR RAHMAH WULANDARI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 53.59 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (92), Ilmu Tafsir (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Indonesia, Matematika."
+      "catatan_walas": "Alhamdulillah, Ananda MILHATUR RAHMAH WULANDARI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 53.59 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (92), Ilmu Tafsir (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Indonesia, Matematika.",
+      "attendance": {
+        "s": 0,
+        "i": 1,
+        "a": 0,
+        "total_absen": 1,
+        "persentase": 99.26,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 99.26,
+          "s": 0,
+          "i": 1,
+          "a": 0,
+          "total_absen": 1,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 16,
@@ -1289,7 +1591,27 @@
       ],
       "missing_subjects": [],
       "rank": 18,
-      "catatan_walas": "Terima kasih atas usaha Ananda MOHAMMAD WILDAN dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 7 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Al-Qur'an Hadis."
+      "catatan_walas": "Terima kasih atas usaha Ananda MOHAMMAD WILDAN dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 7 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Al-Qur'an Hadis.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 17,
@@ -1357,7 +1679,27 @@
       ],
       "missing_subjects": [],
       "rank": 26,
-      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD AIDIL FITRO dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Seni Budaya (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Sejarah, Ilmu Hadis."
+      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD AIDIL FITRO dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Seni Budaya (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Sejarah, Ilmu Hadis.",
+      "attendance": {
+        "s": 11,
+        "i": 1,
+        "a": 0,
+        "total_absen": 12,
+        "persentase": 91.18,
+        "predikat": "B",
+        "keterangan": "Baik (Disiplin Terjaga)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 91.18,
+          "s": 11,
+          "i": 1,
+          "a": 0,
+          "total_absen": 12,
+          "predikat": "B",
+          "keterangan": "Baik (Disiplin Terjaga)"
+        }
+      }
     },
     {
       "absen": 18,
@@ -1425,7 +1767,27 @@
       ],
       "missing_subjects": [],
       "rank": 20,
-      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD SUAIDY AL ABRAR dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (80), Seni Budaya (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Ilmu Hadis."
+      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD SUAIDY AL ABRAR dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (80), Seni Budaya (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Ilmu Hadis.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 19,
@@ -1493,7 +1855,27 @@
       ],
       "missing_subjects": [],
       "rank": 24,
-      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD TAUFIQUR ROHMAN NASRULLAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Pendidikan Jasmani, Olahraga & Kesehatan (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Pendidikan Pancasila."
+      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD TAUFIQUR ROHMAN NASRULLAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Pendidikan Jasmani, Olahraga & Kesehatan (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Pendidikan Pancasila.",
+      "attendance": {
+        "s": 1,
+        "i": 0,
+        "a": 0,
+        "total_absen": 1,
+        "persentase": 99.26,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 99.26,
+          "s": 1,
+          "i": 0,
+          "a": 0,
+          "total_absen": 1,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 20,
@@ -1561,7 +1943,27 @@
       ],
       "missing_subjects": [],
       "rank": 11,
-      "catatan_walas": "Alhamdulillah, Ananda NIKEN AJENG LESTARI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 55.82 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (80), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+      "catatan_walas": "Alhamdulillah, Ananda NIKEN AJENG LESTARI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 55.82 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (80), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris.",
+      "attendance": {
+        "s": 1,
+        "i": 0,
+        "a": 0,
+        "total_absen": 1,
+        "persentase": 99.26,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 99.26,
+          "s": 1,
+          "i": 0,
+          "a": 0,
+          "total_absen": 1,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 21,
@@ -1629,7 +2031,27 @@
       ],
       "missing_subjects": [],
       "rank": 7,
-      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda NOLALINKA INDY PUTRI atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 60.65, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Biologi (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda NOLALINKA INDY PUTRI atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 60.65, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Biologi (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 22,
@@ -1700,7 +2122,27 @@
         "Bahasa Indonesia"
       ],
       "rank": 16,
-      "catatan_walas": "Terima kasih atas usaha Ananda NUR FARIHATUL LAILI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 5 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (92), Ilmu Tafsir (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Al-Qur'an Hadis, Pendidikan Pancasila. Segera tuntaskan nilai susulan untuk mata pelajaran: Ushul Fikih, Bahasa Indonesia."
+      "catatan_walas": "Terima kasih atas usaha Ananda NUR FARIHATUL LAILI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 5 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (92), Ilmu Tafsir (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Al-Qur'an Hadis, Pendidikan Pancasila. Segera tuntaskan nilai susulan untuk mata pelajaran: Ushul Fikih, Bahasa Indonesia.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 23,
@@ -1768,7 +2210,27 @@
       ],
       "missing_subjects": [],
       "rank": 23,
-      "catatan_walas": "Terima kasih atas usaha Ananda NUR GHILMAN BAIHAQI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Seni Budaya (80), Ilmu Tafsir (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+      "catatan_walas": "Terima kasih atas usaha Ananda NUR GHILMAN BAIHAQI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Seni Budaya (80), Ilmu Tafsir (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris.",
+      "attendance": {
+        "s": 1,
+        "i": 2,
+        "a": 0,
+        "total_absen": 3,
+        "persentase": 97.79,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 97.79,
+          "s": 1,
+          "i": 2,
+          "a": 0,
+          "total_absen": 3,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 24,
@@ -1836,7 +2298,27 @@
       ],
       "missing_subjects": [],
       "rank": 19,
-      "catatan_walas": "Terima kasih atas usaha Ananda NUR MAFAIDHATUN NABILA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 8 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Al-Qur'an Hadis, Bahasa Inggris."
+      "catatan_walas": "Terima kasih atas usaha Ananda NUR MAFAIDHATUN NABILA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 8 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Al-Qur'an Hadis, Bahasa Inggris.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 25,
@@ -1904,7 +2386,27 @@
       ],
       "missing_subjects": [],
       "rank": 12,
-      "catatan_walas": "Alhamdulillah, Ananda NUR SIELVA NABYLA PUTRI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 54.29 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Ilmu Tafsir (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+      "catatan_walas": "Alhamdulillah, Ananda NUR SIELVA NABYLA PUTRI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 54.29 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Ilmu Tafsir (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 26,
@@ -1972,7 +2474,27 @@
       ],
       "missing_subjects": [],
       "rank": 10,
-      "catatan_walas": "Alhamdulillah, Ananda RACHEL IMAMATUL KAMILAH menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.35 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+      "catatan_walas": "Alhamdulillah, Ananda RACHEL IMAMATUL KAMILAH menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.35 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris.",
+      "attendance": {
+        "s": 7,
+        "i": 3,
+        "a": 0,
+        "total_absen": 10,
+        "persentase": 92.65,
+        "predikat": "B",
+        "keterangan": "Baik (Disiplin Terjaga)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 92.65,
+          "s": 7,
+          "i": 3,
+          "a": 0,
+          "total_absen": 10,
+          "predikat": "B",
+          "keterangan": "Baik (Disiplin Terjaga)"
+        }
+      }
     },
     {
       "absen": 27,
@@ -2040,7 +2562,27 @@
       ],
       "missing_subjects": [],
       "rank": 25,
-      "catatan_walas": "Terima kasih atas usaha Ananda RADIFA RUZANA PUTRI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 2 mata pelajaran). Capaian sangat menonjol terlihat pada Seni Budaya (80), Biologi (70). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Indonesia."
+      "catatan_walas": "Terima kasih atas usaha Ananda RADIFA RUZANA PUTRI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 2 mata pelajaran). Capaian sangat menonjol terlihat pada Seni Budaya (80), Biologi (70). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Indonesia.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 28,
@@ -2108,7 +2650,27 @@
       ],
       "missing_subjects": [],
       "rank": 2,
-      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda SU'DAA ARINAL UDLHIYYAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 67.94, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (96), Ilmu Tafsir (92). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda SU'DAA ARINAL UDLHIYYAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 67.94, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (96), Ilmu Tafsir (92). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis.",
+      "attendance": {
+        "s": 2,
+        "i": 0,
+        "a": 0,
+        "total_absen": 2,
+        "persentase": 98.53,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 98.53,
+          "s": 2,
+          "i": 0,
+          "a": 0,
+          "total_absen": 2,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 29,
@@ -2176,7 +2738,27 @@
       ],
       "missing_subjects": [],
       "rank": 32,
-      "catatan_walas": "Terima kasih atas usaha Ananda SURYA PANCA OCTAVIAN PUTRA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (76), Seni Budaya (68). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Fikih Keagamaan (KAG), Matematika."
+      "catatan_walas": "Terima kasih atas usaha Ananda SURYA PANCA OCTAVIAN PUTRA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (76), Seni Budaya (68). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Fikih Keagamaan (KAG), Matematika.",
+      "attendance": {
+        "s": 0,
+        "i": 1,
+        "a": 0,
+        "total_absen": 1,
+        "persentase": 99.26,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 99.26,
+          "s": 0,
+          "i": 1,
+          "a": 0,
+          "total_absen": 1,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 30,
@@ -2244,7 +2826,27 @@
       ],
       "missing_subjects": [],
       "rank": 6,
-      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda UMI LATIFATUS SA'DIYAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 61.41, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Tafsir (92), Ilmu Kalam & Akhlak (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Matematika."
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda UMI LATIFATUS SA'DIYAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 61.41, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Tafsir (92), Ilmu Kalam & Akhlak (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Matematika.",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 31,
@@ -2312,7 +2914,27 @@
       ],
       "missing_subjects": [],
       "rank": 14,
-      "catatan_walas": "Terima kasih atas usaha Ananda WAHIDA RASYADA ARINI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 9 mata pelajaran). Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (92), Ilmu Kalam & Akhlak (92). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Fikih Keagamaan (KAG)."
+      "catatan_walas": "Terima kasih atas usaha Ananda WAHIDA RASYADA ARINI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 9 mata pelajaran). Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (92), Ilmu Kalam & Akhlak (92). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Fikih Keagamaan (KAG).",
+      "attendance": {
+        "s": 0,
+        "i": 0,
+        "a": 0,
+        "total_absen": 0,
+        "persentase": 100,
+        "predikat": "A",
+        "keterangan": "Sangat Baik (Disiplin Tinggi)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 100,
+          "s": 0,
+          "i": 0,
+          "a": 0,
+          "total_absen": 0,
+          "predikat": "A",
+          "keterangan": "Sangat Baik (Disiplin Tinggi)"
+        }
+      }
     },
     {
       "absen": 32,
@@ -2380,7 +3002,27 @@
       ],
       "missing_subjects": [],
       "rank": 28,
-      "catatan_walas": "Terima kasih atas usaha Ananda ZIDATUN NAYLA IZZA BILLAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 4 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (76), Ilmu Tafsir (72). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Fikih Keagamaan (KAG)."
+      "catatan_walas": "Terima kasih atas usaha Ananda ZIDATUN NAYLA IZZA BILLAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 4 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (76), Ilmu Tafsir (72). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Fikih Keagamaan (KAG).",
+      "attendance": {
+        "s": 16,
+        "i": 0,
+        "a": 0,
+        "total_absen": 16,
+        "persentase": 88.24,
+        "predikat": "C",
+        "keterangan": "Cukup (Perlu Pengingat)"
+      },
+      "nilai_non_akademik": {
+        "kehadiran": {
+          "skor": 88.24,
+          "s": 16,
+          "i": 0,
+          "a": 0,
+          "total_absen": 16,
+          "predikat": "C",
+          "keterangan": "Cukup (Perlu Pengingat)"
+        }
+      }
     }
   ]
 }
