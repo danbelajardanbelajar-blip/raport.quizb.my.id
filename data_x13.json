@@ -1,0 +1,2423 @@
+{
+  "meta": {
+    "madrasah": "MA MATHOLI'UL ANWAR",
+    "alamat": "Jl. Raya Simo Sungelebak, Karanggeneng, Lamongan, Jawa Timur",
+    "judul_raport": "LAPORAN HASIL BELAJAR MANDIRI (SUMATIF TENGAH SEMESTER)",
+    "semester": "Ganjil",
+    "tahun_ajaran": "2026/2027",
+    "kelas": "X.13 (Program Keagamaan / KAG)",
+    "wali_kelas": "Dr. Zainul Hakim, M.H.I.",
+    "tanggal_cetak": "Oktober 2026",
+    "pin_walas": "1313",
+    "class_overall_avg": 52.19,
+    "total_students": 33,
+    "active_subjects_count": 17
+  },
+  "subjects": [
+    {
+      "code": "QURDIS",
+      "name": "Al-Qur'an Hadis",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 43.12,
+      "min": 16.0,
+      "max": 64.0,
+      "median": 44.0,
+      "count": 32
+    },
+    {
+      "code": "KALAM",
+      "name": "Ilmu Kalam & Akhlak",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 86.5,
+      "min": 64.0,
+      "max": 100.0,
+      "median": 88.0,
+      "count": 32
+    },
+    {
+      "code": "FIKIH KAG",
+      "name": "Fikih Keagamaan (KAG)",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 52.5,
+      "min": 4.0,
+      "max": 100.0,
+      "median": 52.0,
+      "count": 32
+    },
+    {
+      "code": "SKI",
+      "name": "Sejarah Kebudayaan Islam (SKI)",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 70.88,
+      "min": 44.0,
+      "max": 92.0,
+      "median": 72.0,
+      "count": 32
+    },
+    {
+      "code": "B ARAB KAG",
+      "name": "Bahasa Arab Keagamaan (KAG)",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 45.0,
+      "min": 12.0,
+      "max": 76.0,
+      "median": 44.0,
+      "count": 32
+    },
+    {
+      "code": "ITAF",
+      "name": "Ilmu Tafsir",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 70.38,
+      "min": 44.0,
+      "max": 96.0,
+      "median": 72.0,
+      "count": 32
+    },
+    {
+      "code": "IHAD",
+      "name": "Ilmu Hadis",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 35.5,
+      "min": 12.0,
+      "max": 56.0,
+      "median": 36.0,
+      "count": 32
+    },
+    {
+      "code": "UFIK",
+      "name": "Ushul Fikih",
+      "group": "Rumpun Keagamaan (KAG)",
+      "avg": 61.42,
+      "min": 24.0,
+      "max": 88.0,
+      "median": 60.0,
+      "count": 31
+    },
+    {
+      "code": "PKN",
+      "name": "Pendidikan Pancasila",
+      "group": "Rumpun Umum & Sains",
+      "avg": 42.0,
+      "min": 24.0,
+      "max": 56.0,
+      "median": 44.0,
+      "count": 32
+    },
+    {
+      "code": "B IND",
+      "name": "Bahasa Indonesia",
+      "group": "Rumpun Umum & Sains",
+      "avg": 47.61,
+      "min": 24.0,
+      "max": 76.0,
+      "median": 44.0,
+      "count": 31
+    },
+    {
+      "code": "B ING",
+      "name": "Bahasa Inggris",
+      "group": "Rumpun Umum & Sains",
+      "avg": 32.5,
+      "min": 8.0,
+      "max": 68.0,
+      "median": 30.0,
+      "count": 32
+    },
+    {
+      "code": "MTK",
+      "name": "Matematika",
+      "group": "Rumpun Umum & Sains",
+      "avg": 24.06,
+      "min": 15.0,
+      "max": 50.0,
+      "median": 22.5,
+      "count": 32
+    },
+    {
+      "code": "BIOLOGI",
+      "name": "Biologi",
+      "group": "Rumpun Umum & Sains",
+      "avg": 55.62,
+      "min": 30.0,
+      "max": 80.0,
+      "median": 55.0,
+      "count": 32
+    },
+    {
+      "code": "SEJARAH",
+      "name": "Sejarah",
+      "group": "Rumpun Umum & Sains",
+      "avg": 51.56,
+      "min": 20.0,
+      "max": 90.0,
+      "median": 50.0,
+      "count": 32
+    },
+    {
+      "code": "INFOR",
+      "name": "Koding & AI - Informatika",
+      "group": "Rumpun Umum & Sains",
+      "avg": 48.88,
+      "min": 28.0,
+      "max": 80.0,
+      "median": 50.0,
+      "count": 32
+    },
+    {
+      "code": "SENI",
+      "name": "Seni Budaya",
+      "group": "Rumpun Umum & Sains",
+      "avg": 66.0,
+      "min": 36.0,
+      "max": 80.0,
+      "median": 68.0,
+      "count": 32
+    },
+    {
+      "code": "PJOK",
+      "name": "Pendidikan Jasmani, Olahraga & Kesehatan",
+      "group": "Rumpun Umum & Sains",
+      "avg": 54.0,
+      "min": 28.0,
+      "max": 84.0,
+      "median": 48.0,
+      "count": 32
+    }
+  ],
+  "students": [
+    {
+      "absen": 1,
+      "no_master": 409,
+      "nama": "ABELIA ZAHWA NATASYAFIRAH",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L11MA10410",
+      "scores": {
+        "QURDIS": 44.0,
+        "KALAM": 88.0,
+        "FIKIH KAG": 88.0,
+        "SKI": 88.0,
+        "B ARAB KAG": 64.0,
+        "ITAF": 84.0,
+        "IHAD": 48.0,
+        "UFIK": 76.0,
+        "PKN": 44.0,
+        "B IND": 68.0,
+        "B ING": 56.0,
+        "MTK": 30.0,
+        "BIOLOGI": 70.0,
+        "SEJARAH": 90.0,
+        "INFOR": 60.0,
+        "SENI": 76.0,
+        "PJOK": 64.0
+      },
+      "total": 1138.0,
+      "avg": 66.94,
+      "completed_count": 17,
+      "above_class_avg_count": 17,
+      "top_subjects": [
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 90.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 88.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 88.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 30.0
+        },
+        {
+          "code": "QURDIS",
+          "name": "Al-Qur'an Hadis",
+          "score": 44.0
+        },
+        {
+          "code": "PKN",
+          "name": "Pendidikan Pancasila",
+          "score": 44.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 3,
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda ABELIA ZAHWA NATASYAFIRAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 66.94, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Sejarah (90), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Al-Qur'an Hadis."
+    },
+    {
+      "absen": 2,
+      "no_master": 410,
+      "nama": "AHMAD FADHIL ELFAJRI",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L12MA10411",
+      "scores": {
+        "QURDIS": 36.0,
+        "KALAM": 76.0,
+        "FIKIH KAG": 32.0,
+        "SKI": 76.0,
+        "B ARAB KAG": 36.0,
+        "ITAF": 68.0,
+        "IHAD": 28.0,
+        "UFIK": 48.0,
+        "PKN": 44.0,
+        "B IND": 36.0,
+        "B ING": 32.0,
+        "MTK": 20.0,
+        "BIOLOGI": 40.0,
+        "SEJARAH": 70.0,
+        "INFOR": 56.0,
+        "SENI": 56.0,
+        "PJOK": 52.0
+      },
+      "total": 806.0,
+      "avg": 47.41,
+      "completed_count": 17,
+      "above_class_avg_count": 4,
+      "top_subjects": [
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 76.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 76.0
+        },
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 70.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 20.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 28.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 32.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 22,
+      "catatan_walas": "Terima kasih atas usaha Ananda AHMAD FADHIL ELFAJRI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 4 mata pelajaran). Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (76), Ilmu Kalam & Akhlak (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+    },
+    {
+      "absen": 3,
+      "no_master": 411,
+      "nama": "AHMAD HASAN ARIFIN",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L13MA10412",
+      "scores": {
+        "QURDIS": 56.0,
+        "KALAM": 96.0,
+        "FIKIH KAG": 88.0,
+        "SKI": 72.0,
+        "B ARAB KAG": 76.0,
+        "ITAF": 84.0,
+        "IHAD": 48.0,
+        "UFIK": 88.0,
+        "PKN": 44.0,
+        "B IND": 76.0,
+        "B ING": 44.0,
+        "MTK": 30.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 90.0,
+        "INFOR": 64.0,
+        "SENI": 76.0,
+        "PJOK": 72.0
+      },
+      "total": 1164.0,
+      "avg": 68.47,
+      "completed_count": 17,
+      "above_class_avg_count": 17,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 96.0
+        },
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 90.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 88.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 30.0
+        },
+        {
+          "code": "PKN",
+          "name": "Pendidikan Pancasila",
+          "score": 44.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 44.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 1,
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AHMAD HASAN ARIFIN atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 68.47, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Sejarah (90). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Pendidikan Pancasila."
+    },
+    {
+      "absen": 4,
+      "no_master": 412,
+      "nama": "AHMAD HUSAIN ARIFIN",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L14MA10413",
+      "scores": {
+        "QURDIS": 64.0,
+        "KALAM": 96.0,
+        "FIKIH KAG": 88.0,
+        "SKI": 84.0,
+        "B ARAB KAG": 60.0,
+        "ITAF": 88.0,
+        "IHAD": 40.0,
+        "UFIK": 68.0,
+        "PKN": 44.0,
+        "B IND": 48.0,
+        "B ING": 36.0,
+        "MTK": 35.0,
+        "BIOLOGI": 70.0,
+        "SEJARAH": 70.0,
+        "INFOR": 44.0,
+        "SENI": 72.0,
+        "PJOK": 68.0
+      },
+      "total": 1075.0,
+      "avg": 63.24,
+      "completed_count": 17,
+      "above_class_avg_count": 16,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 96.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 88.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 88.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 35.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 36.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 40.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 5,
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AHMAD HUSAIN ARIFIN atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 63.24, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+    },
+    {
+      "absen": 5,
+      "no_master": 413,
+      "nama": "AHMAD ULIL ALBAB ARRIDLO",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L11MA10414",
+      "scores": {
+        "QURDIS": 36.0,
+        "KALAM": 96.0,
+        "FIKIH KAG": 40.0,
+        "SKI": 76.0,
+        "B ARAB KAG": 32.0,
+        "ITAF": 60.0,
+        "IHAD": 32.0,
+        "UFIK": 40.0,
+        "PKN": 56.0,
+        "B IND": 68.0,
+        "B ING": 32.0,
+        "MTK": 30.0,
+        "BIOLOGI": 40.0,
+        "SEJARAH": 30.0,
+        "INFOR": 36.0,
+        "SENI": 72.0,
+        "PJOK": 40.0
+      },
+      "total": 816.0,
+      "avg": 48.0,
+      "completed_count": 17,
+      "above_class_avg_count": 6,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 96.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 76.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 72.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 30.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 30.0
+        },
+        {
+          "code": "B ARAB KAG",
+          "name": "Bahasa Arab Keagamaan (KAG)",
+          "score": 32.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 21,
+      "catatan_walas": "Terima kasih atas usaha Ananda AHMAD ULIL ALBAB ARRIDLO dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Sejarah, Matematika."
+    },
+    {
+      "absen": 6,
+      "no_master": 414,
+      "nama": "AULIYA VITA RAHMANI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L12MA10415",
+      "scores": {
+        "QURDIS": 52.0,
+        "KALAM": 88.0,
+        "FIKIH KAG": 100.0,
+        "SKI": 72.0,
+        "B ARAB KAG": 76.0,
+        "ITAF": 96.0,
+        "IHAD": 56.0,
+        "UFIK": 80.0,
+        "PKN": 40.0,
+        "B IND": 48.0,
+        "B ING": 52.0,
+        "MTK": 30.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 50.0,
+        "INFOR": 56.0,
+        "SENI": 72.0,
+        "PJOK": 48.0
+      },
+      "total": 1076.0,
+      "avg": 63.29,
+      "completed_count": 17,
+      "above_class_avg_count": 14,
+      "top_subjects": [
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 100.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 96.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 88.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 30.0
+        },
+        {
+          "code": "PKN",
+          "name": "Pendidikan Pancasila",
+          "score": 40.0
+        },
+        {
+          "code": "PJOK",
+          "name": "Pendidikan Jasmani, Olahraga & Kesehatan",
+          "score": 48.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 4,
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda AULIYA VITA RAHMANI atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 63.29, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (100), Ilmu Tafsir (96). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Pendidikan Pancasila."
+    },
+    {
+      "absen": 7,
+      "no_master": 415,
+      "nama": "DEVA RAMADANI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L14MA10417",
+      "scores": {
+        "QURDIS": 44.0,
+        "KALAM": 76.0,
+        "FIKIH KAG": 20.0,
+        "SKI": 48.0,
+        "B ARAB KAG": 44.0,
+        "ITAF": 56.0,
+        "IHAD": 36.0,
+        "UFIK": 80.0,
+        "PKN": 40.0,
+        "B IND": 32.0,
+        "B ING": 16.0,
+        "MTK": 20.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 30.0,
+        "INFOR": 48.0,
+        "SENI": 36.0,
+        "PJOK": 28.0
+      },
+      "total": 704.0,
+      "avg": 41.41,
+      "completed_count": 17,
+      "above_class_avg_count": 3,
+      "top_subjects": [
+        {
+          "code": "UFIK",
+          "name": "Ushul Fikih",
+          "score": 80.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 76.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 56.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 16.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 20.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 20.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 30,
+      "catatan_walas": "Terima kasih atas usaha Ananda DEVA RAMADANI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ushul Fikih (80), Ilmu Kalam & Akhlak (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Fikih Keagamaan (KAG)."
+    },
+    {
+      "absen": 8,
+      "no_master": 416,
+      "nama": "DEWI MARTHA TSABITAH",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L11MA10418",
+      "scores": {
+        "QURDIS": 52.0,
+        "KALAM": 88.0,
+        "FIKIH KAG": 64.0,
+        "SKI": 56.0,
+        "B ARAB KAG": 48.0,
+        "ITAF": 44.0,
+        "IHAD": 52.0,
+        "UFIK": 80.0,
+        "PKN": 48.0,
+        "B IND": 40.0,
+        "B ING": 28.0,
+        "MTK": 15.0,
+        "BIOLOGI": 30.0,
+        "SEJARAH": 70.0,
+        "INFOR": 56.0,
+        "SENI": 52.0,
+        "PJOK": 44.0
+      },
+      "total": 867.0,
+      "avg": 51.0,
+      "completed_count": 17,
+      "above_class_avg_count": 9,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 88.0
+        },
+        {
+          "code": "UFIK",
+          "name": "Ushul Fikih",
+          "score": 80.0
+        },
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 70.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 28.0
+        },
+        {
+          "code": "BIOLOGI",
+          "name": "Biologi",
+          "score": 30.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 15,
+      "catatan_walas": "Terima kasih atas usaha Ananda DEWI MARTHA TSABITAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 9 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Ushul Fikih (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+    },
+    {
+      "absen": 9,
+      "no_master": 417,
+      "nama": "FAZA NUR ZAHIROH ANTON",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L11MA10501",
+      "scores": {
+        "QURDIS": null,
+        "KALAM": null,
+        "FIKIH KAG": null,
+        "SKI": null,
+        "B ARAB KAG": null,
+        "ITAF": null,
+        "IHAD": null,
+        "UFIK": null,
+        "PKN": null,
+        "B IND": null,
+        "B ING": null,
+        "MTK": null,
+        "BIOLOGI": null,
+        "SEJARAH": null,
+        "INFOR": null,
+        "SENI": null,
+        "PJOK": null
+      },
+      "total": 0.0,
+      "avg": 0.0,
+      "completed_count": 0,
+      "above_class_avg_count": 0,
+      "top_subjects": [],
+      "priority_subjects": [],
+      "missing_subjects": [
+        "Al-Qur'an Hadis",
+        "Ilmu Kalam & Akhlak",
+        "Fikih Keagamaan (KAG)",
+        "Sejarah Kebudayaan Islam (SKI)",
+        "Bahasa Arab Keagamaan (KAG)",
+        "Ilmu Tafsir",
+        "Ilmu Hadis",
+        "Ushul Fikih",
+        "Pendidikan Pancasila",
+        "Bahasa Indonesia",
+        "Bahasa Inggris",
+        "Matematika",
+        "Biologi",
+        "Sejarah",
+        "Koding & AI - Informatika",
+        "Seni Budaya",
+        "Pendidikan Jasmani, Olahraga & Kesehatan"
+      ],
+      "rank": null,
+      "catatan_walas": "Ananda FAZA NUR ZAHIROH ANTON belum memiliki rekaman nilai pada pelaksanaan Sumatif Tengah Semester (STS) Ganjil ini. Mohon segera berkoordinasi dengan Wali Kelas dan Guru Mata Pelajaran terkait untuk pelaksanaan ujian susulan atau pemenuhan tugas pengganti."
+    },
+    {
+      "absen": 10,
+      "no_master": 418,
+      "nama": "FITRI SALMA QURROTAA'YUN",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L12MA10419",
+      "scores": {
+        "QURDIS": 36.0,
+        "KALAM": 84.0,
+        "FIKIH KAG": 16.0,
+        "SKI": 72.0,
+        "B ARAB KAG": 48.0,
+        "ITAF": 60.0,
+        "IHAD": 32.0,
+        "UFIK": 60.0,
+        "PKN": 36.0,
+        "B IND": 32.0,
+        "B ING": 8.0,
+        "MTK": 15.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 50.0,
+        "INFOR": 44.0,
+        "SENI": 52.0,
+        "PJOK": 48.0
+      },
+      "total": 753.0,
+      "avg": 44.29,
+      "completed_count": 17,
+      "above_class_avg_count": 3,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 84.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 72.0
+        },
+        {
+          "code": "BIOLOGI",
+          "name": "Biologi",
+          "score": 60.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 8.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 16.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 27,
+      "catatan_walas": "Terima kasih atas usaha Ananda FITRI SALMA QURROTAA'YUN dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Sejarah Kebudayaan Islam (SKI) (72). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Matematika."
+    },
+    {
+      "absen": 11,
+      "no_master": 419,
+      "nama": "GEA REGINA PUTRI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L13MA10420",
+      "scores": {
+        "QURDIS": 56.0,
+        "KALAM": 84.0,
+        "FIKIH KAG": 52.0,
+        "SKI": 72.0,
+        "B ARAB KAG": 40.0,
+        "ITAF": 80.0,
+        "IHAD": 36.0,
+        "UFIK": 60.0,
+        "PKN": 44.0,
+        "B IND": 68.0,
+        "B ING": 68.0,
+        "MTK": 50.0,
+        "BIOLOGI": 70.0,
+        "SEJARAH": 40.0,
+        "INFOR": 64.0,
+        "SENI": 68.0,
+        "PJOK": 44.0
+      },
+      "total": 996.0,
+      "avg": 58.59,
+      "completed_count": 17,
+      "above_class_avg_count": 11,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 84.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 80.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 72.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 36.0
+        },
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 40.0
+        },
+        {
+          "code": "B ARAB KAG",
+          "name": "Bahasa Arab Keagamaan (KAG)",
+          "score": 40.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 8,
+      "catatan_walas": "Alhamdulillah, Ananda GEA REGINA PUTRI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.59 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Sejarah."
+    },
+    {
+      "absen": 12,
+      "no_master": 420,
+      "nama": "KHARISMA ALIFATUZZAHRAH AL-AZKA",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L14MA10421",
+      "scores": {
+        "QURDIS": 52.0,
+        "KALAM": 84.0,
+        "FIKIH KAG": 52.0,
+        "SKI": 88.0,
+        "B ARAB KAG": 40.0,
+        "ITAF": 72.0,
+        "IHAD": 44.0,
+        "UFIK": 80.0,
+        "PKN": 44.0,
+        "B IND": 68.0,
+        "B ING": 28.0,
+        "MTK": 15.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 70.0,
+        "INFOR": 80.0,
+        "SENI": 68.0,
+        "PJOK": 48.0
+      },
+      "total": 993.0,
+      "avg": 58.41,
+      "completed_count": 17,
+      "above_class_avg_count": 11,
+      "top_subjects": [
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 88.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 84.0
+        },
+        {
+          "code": "INFOR",
+          "name": "Koding & AI - Informatika",
+          "score": 80.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 28.0
+        },
+        {
+          "code": "B ARAB KAG",
+          "name": "Bahasa Arab Keagamaan (KAG)",
+          "score": 40.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 9,
+      "catatan_walas": "Alhamdulillah, Ananda KHARISMA ALIFATUZZAHRAH AL-AZKA menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.41 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (88), Ilmu Kalam & Akhlak (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+    },
+    {
+      "absen": 13,
+      "no_master": 421,
+      "nama": "KIRANA ARSELIA",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L11MA10422",
+      "scores": {
+        "QURDIS": 36.0,
+        "KALAM": 100.0,
+        "FIKIH KAG": 64.0,
+        "SKI": 76.0,
+        "B ARAB KAG": 60.0,
+        "ITAF": 60.0,
+        "IHAD": 32.0,
+        "UFIK": 24.0,
+        "PKN": 44.0,
+        "B IND": 48.0,
+        "B ING": 28.0,
+        "MTK": 15.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 50.0,
+        "INFOR": 52.0,
+        "SENI": 64.0,
+        "PJOK": 44.0
+      },
+      "total": 847.0,
+      "avg": 49.82,
+      "completed_count": 17,
+      "above_class_avg_count": 7,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 100.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 76.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 64.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "UFIK",
+          "name": "Ushul Fikih",
+          "score": 24.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 28.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 17,
+      "catatan_walas": "Terima kasih atas usaha Ananda KIRANA ARSELIA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 7 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (100), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ushul Fikih."
+    },
+    {
+      "absen": 14,
+      "no_master": 422,
+      "nama": "M. ANFAL ALDI FIRMANSYAH",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L12MA10423",
+      "scores": {
+        "QURDIS": 32.0,
+        "KALAM": 88.0,
+        "FIKIH KAG": 32.0,
+        "SKI": 52.0,
+        "B ARAB KAG": 24.0,
+        "ITAF": 44.0,
+        "IHAD": 12.0,
+        "UFIK": 48.0,
+        "PKN": 40.0,
+        "B IND": 52.0,
+        "B ING": 20.0,
+        "MTK": 20.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 50.0,
+        "INFOR": 32.0,
+        "SENI": 60.0,
+        "PJOK": 44.0
+      },
+      "total": 700.0,
+      "avg": 41.18,
+      "completed_count": 17,
+      "above_class_avg_count": 2,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 88.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 60.0
+        },
+        {
+          "code": "B IND",
+          "name": "Bahasa Indonesia",
+          "score": 52.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 12.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 20.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 20.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 31,
+      "catatan_walas": "Terima kasih atas usaha Ananda M. ANFAL ALDI FIRMANSYAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 2 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Seni Budaya (60). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Bahasa Inggris."
+    },
+    {
+      "absen": 15,
+      "no_master": 423,
+      "nama": "M. NIDZOM MUHAKKAM",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L13MA10424",
+      "scores": {
+        "QURDIS": 28.0,
+        "KALAM": 96.0,
+        "FIKIH KAG": 20.0,
+        "SKI": 68.0,
+        "B ARAB KAG": 12.0,
+        "ITAF": 52.0,
+        "IHAD": 16.0,
+        "UFIK": 56.0,
+        "PKN": 40.0,
+        "B IND": 36.0,
+        "B ING": 8.0,
+        "MTK": 20.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 40.0,
+        "INFOR": 52.0,
+        "SENI": 80.0,
+        "PJOK": 44.0
+      },
+      "total": 718.0,
+      "avg": 42.24,
+      "completed_count": 17,
+      "above_class_avg_count": 3,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 96.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 80.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 68.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 8.0
+        },
+        {
+          "code": "B ARAB KAG",
+          "name": "Bahasa Arab Keagamaan (KAG)",
+          "score": 12.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 16.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 29,
+      "catatan_walas": "Terima kasih atas usaha Ananda M. NIDZOM MUHAKKAM dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Seni Budaya (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Bahasa Arab Keagamaan (KAG)."
+    },
+    {
+      "absen": 16,
+      "no_master": 424,
+      "nama": "MILHATUR RAHMAH WULANDARI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L14MA10425",
+      "scores": {
+        "QURDIS": 56.0,
+        "KALAM": 92.0,
+        "FIKIH KAG": 40.0,
+        "SKI": 68.0,
+        "B ARAB KAG": 40.0,
+        "ITAF": 84.0,
+        "IHAD": 44.0,
+        "UFIK": 48.0,
+        "PKN": 44.0,
+        "B IND": 28.0,
+        "B ING": 52.0,
+        "MTK": 35.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 60.0,
+        "INFOR": 52.0,
+        "SENI": 48.0,
+        "PJOK": 60.0
+      },
+      "total": 911.0,
+      "avg": 53.59,
+      "completed_count": 17,
+      "above_class_avg_count": 11,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 92.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 84.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 68.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "B IND",
+          "name": "Bahasa Indonesia",
+          "score": 28.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 35.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 40.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 13,
+      "catatan_walas": "Alhamdulillah, Ananda MILHATUR RAHMAH WULANDARI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 53.59 (berada di atas rata-rata kelas 52.19) dan unggul di 11 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (92), Ilmu Tafsir (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Indonesia, Matematika."
+    },
+    {
+      "absen": 17,
+      "no_master": 425,
+      "nama": "MOHAMMAD WILDAN",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L11MA10426",
+      "scores": {
+        "QURDIS": 24.0,
+        "KALAM": 84.0,
+        "FIKIH KAG": 60.0,
+        "SKI": 72.0,
+        "B ARAB KAG": 60.0,
+        "ITAF": 80.0,
+        "IHAD": 32.0,
+        "UFIK": 56.0,
+        "PKN": 36.0,
+        "B IND": 44.0,
+        "B ING": 20.0,
+        "MTK": 25.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 50.0,
+        "INFOR": 28.0,
+        "SENI": 68.0,
+        "PJOK": 48.0
+      },
+      "total": 847.0,
+      "avg": 49.82,
+      "completed_count": 17,
+      "above_class_avg_count": 7,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 84.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 80.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 72.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 20.0
+        },
+        {
+          "code": "QURDIS",
+          "name": "Al-Qur'an Hadis",
+          "score": 24.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 25.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 18,
+      "catatan_walas": "Terima kasih atas usaha Ananda MOHAMMAD WILDAN dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 7 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Al-Qur'an Hadis."
+    },
+    {
+      "absen": 18,
+      "no_master": 426,
+      "nama": "MUHAMMAD AIDIL FITRO",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L12MA10427",
+      "scores": {
+        "QURDIS": 40.0,
+        "KALAM": 84.0,
+        "FIKIH KAG": 32.0,
+        "SKI": 60.0,
+        "B ARAB KAG": 40.0,
+        "ITAF": 44.0,
+        "IHAD": 20.0,
+        "UFIK": 72.0,
+        "PKN": 40.0,
+        "B IND": 32.0,
+        "B ING": 28.0,
+        "MTK": 35.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 20.0,
+        "INFOR": 36.0,
+        "SENI": 76.0,
+        "PJOK": 48.0
+      },
+      "total": 757.0,
+      "avg": 44.53,
+      "completed_count": 17,
+      "above_class_avg_count": 3,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 84.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 76.0
+        },
+        {
+          "code": "UFIK",
+          "name": "Ushul Fikih",
+          "score": 72.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 20.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 20.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 28.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 26,
+      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD AIDIL FITRO dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Seni Budaya (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Sejarah, Ilmu Hadis."
+    },
+    {
+      "absen": 19,
+      "no_master": 427,
+      "nama": "MUHAMMAD SUAIDY AL ABRAR",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L13MA10428",
+      "scores": {
+        "QURDIS": 52.0,
+        "KALAM": 80.0,
+        "FIKIH KAG": 64.0,
+        "SKI": 60.0,
+        "B ARAB KAG": 32.0,
+        "ITAF": 68.0,
+        "IHAD": 24.0,
+        "UFIK": 44.0,
+        "PKN": 32.0,
+        "B IND": 44.0,
+        "B ING": 12.0,
+        "MTK": 25.0,
+        "BIOLOGI": 70.0,
+        "SEJARAH": 50.0,
+        "INFOR": 52.0,
+        "SENI": 76.0,
+        "PJOK": 44.0
+      },
+      "total": 829.0,
+      "avg": 48.76,
+      "completed_count": 17,
+      "above_class_avg_count": 6,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 80.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 76.0
+        },
+        {
+          "code": "BIOLOGI",
+          "name": "Biologi",
+          "score": 70.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 12.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 24.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 25.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 20,
+      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD SUAIDY AL ABRAR dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (80), Seni Budaya (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Ilmu Hadis."
+    },
+    {
+      "absen": 20,
+      "no_master": 428,
+      "nama": "MUHAMMAD TAUFIQUR ROHMAN NASRULLAH",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L14MA10429",
+      "scores": {
+        "QURDIS": 44.0,
+        "KALAM": 88.0,
+        "FIKIH KAG": 28.0,
+        "SKI": 76.0,
+        "B ARAB KAG": 32.0,
+        "ITAF": 48.0,
+        "IHAD": 24.0,
+        "UFIK": 52.0,
+        "PKN": 24.0,
+        "B IND": 44.0,
+        "B ING": 16.0,
+        "MTK": 25.0,
+        "BIOLOGI": 40.0,
+        "SEJARAH": 60.0,
+        "INFOR": 28.0,
+        "SENI": 64.0,
+        "PJOK": 80.0
+      },
+      "total": 773.0,
+      "avg": 45.47,
+      "completed_count": 17,
+      "above_class_avg_count": 6,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 88.0
+        },
+        {
+          "code": "PJOK",
+          "name": "Pendidikan Jasmani, Olahraga & Kesehatan",
+          "score": 80.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 76.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 16.0
+        },
+        {
+          "code": "PKN",
+          "name": "Pendidikan Pancasila",
+          "score": 24.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 24.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 24,
+      "catatan_walas": "Terima kasih atas usaha Ananda MUHAMMAD TAUFIQUR ROHMAN NASRULLAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (88), Pendidikan Jasmani, Olahraga & Kesehatan (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Bahasa Inggris, Pendidikan Pancasila."
+    },
+    {
+      "absen": 21,
+      "no_master": 429,
+      "nama": "NIKEN AJENG LESTARI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L12MA10431",
+      "scores": {
+        "QURDIS": 52.0,
+        "KALAM": 80.0,
+        "FIKIH KAG": 80.0,
+        "SKI": 80.0,
+        "B ARAB KAG": 48.0,
+        "ITAF": 80.0,
+        "IHAD": 44.0,
+        "UFIK": 56.0,
+        "PKN": 44.0,
+        "B IND": 52.0,
+        "B ING": 28.0,
+        "MTK": 25.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 40.0,
+        "INFOR": 48.0,
+        "SENI": 72.0,
+        "PJOK": 60.0
+      },
+      "total": 949.0,
+      "avg": 55.82,
+      "completed_count": 17,
+      "above_class_avg_count": 12,
+      "top_subjects": [
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 80.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 80.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 80.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 25.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 28.0
+        },
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 40.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 11,
+      "catatan_walas": "Alhamdulillah, Ananda NIKEN AJENG LESTARI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 55.82 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (80), Ilmu Tafsir (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+    },
+    {
+      "absen": 22,
+      "no_master": 430,
+      "nama": "NOLALINKA INDY PUTRI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L13MA10432",
+      "scores": {
+        "QURDIS": 44.0,
+        "KALAM": 96.0,
+        "FIKIH KAG": 76.0,
+        "SKI": 76.0,
+        "B ARAB KAG": 56.0,
+        "ITAF": 76.0,
+        "IHAD": 40.0,
+        "UFIK": 64.0,
+        "PKN": 52.0,
+        "B IND": 76.0,
+        "B ING": 40.0,
+        "MTK": 25.0,
+        "BIOLOGI": 80.0,
+        "SEJARAH": 50.0,
+        "INFOR": 44.0,
+        "SENI": 68.0,
+        "PJOK": 68.0
+      },
+      "total": 1031.0,
+      "avg": 60.65,
+      "completed_count": 17,
+      "above_class_avg_count": 15,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 96.0
+        },
+        {
+          "code": "BIOLOGI",
+          "name": "Biologi",
+          "score": 80.0
+        },
+        {
+          "code": "B IND",
+          "name": "Bahasa Indonesia",
+          "score": 76.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 25.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 40.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 40.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 7,
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda NOLALINKA INDY PUTRI atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 60.65, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Biologi (80). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+    },
+    {
+      "absen": 23,
+      "no_master": 431,
+      "nama": "NUR FARIHATUL LAILI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L14MA10433",
+      "scores": {
+        "QURDIS": 28.0,
+        "KALAM": 92.0,
+        "FIKIH KAG": 76.0,
+        "SKI": 60.0,
+        "B ARAB KAG": 40.0,
+        "ITAF": 84.0,
+        "IHAD": 32.0,
+        "UFIK": null,
+        "PKN": 28.0,
+        "B IND": null,
+        "B ING": 48.0,
+        "MTK": 40.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 30.0,
+        "INFOR": 48.0,
+        "SENI": 60.0,
+        "PJOK": 40.0
+      },
+      "total": 756.0,
+      "avg": 50.4,
+      "completed_count": 15,
+      "above_class_avg_count": 5,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 92.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 84.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 76.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "QURDIS",
+          "name": "Al-Qur'an Hadis",
+          "score": 28.0
+        },
+        {
+          "code": "PKN",
+          "name": "Pendidikan Pancasila",
+          "score": 28.0
+        },
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 30.0
+        }
+      ],
+      "missing_subjects": [
+        "Ushul Fikih",
+        "Bahasa Indonesia"
+      ],
+      "rank": 16,
+      "catatan_walas": "Terima kasih atas usaha Ananda NUR FARIHATUL LAILI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 5 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (92), Ilmu Tafsir (84). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Al-Qur'an Hadis, Pendidikan Pancasila. Segera tuntaskan nilai susulan untuk mata pelajaran: Ushul Fikih, Bahasa Indonesia."
+    },
+    {
+      "absen": 24,
+      "no_master": 432,
+      "nama": "NUR GHILMAN BAIHAQI",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L11MA10434",
+      "scores": {
+        "QURDIS": 28.0,
+        "KALAM": 64.0,
+        "FIKIH KAG": 28.0,
+        "SKI": 72.0,
+        "B ARAB KAG": 28.0,
+        "ITAF": 76.0,
+        "IHAD": 36.0,
+        "UFIK": 60.0,
+        "PKN": 32.0,
+        "B IND": 44.0,
+        "B ING": 20.0,
+        "MTK": 15.0,
+        "BIOLOGI": 40.0,
+        "SEJARAH": 50.0,
+        "INFOR": 52.0,
+        "SENI": 80.0,
+        "PJOK": 68.0
+      },
+      "total": 793.0,
+      "avg": 46.65,
+      "completed_count": 17,
+      "above_class_avg_count": 6,
+      "top_subjects": [
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 80.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 76.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 72.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 20.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 28.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 23,
+      "catatan_walas": "Terima kasih atas usaha Ananda NUR GHILMAN BAIHAQI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 6 mata pelajaran). Capaian sangat menonjol terlihat pada Seni Budaya (80), Ilmu Tafsir (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+    },
+    {
+      "absen": 25,
+      "no_master": 433,
+      "nama": "NUR MAFAIDHATUN NABILA",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L12MA10435",
+      "scores": {
+        "QURDIS": 16.0,
+        "KALAM": 84.0,
+        "FIKIH KAG": 44.0,
+        "SKI": 76.0,
+        "B ARAB KAG": 56.0,
+        "ITAF": 68.0,
+        "IHAD": 36.0,
+        "UFIK": 72.0,
+        "PKN": 28.0,
+        "B IND": 36.0,
+        "B ING": 20.0,
+        "MTK": 25.0,
+        "BIOLOGI": 60.0,
+        "SEJARAH": 60.0,
+        "INFOR": 40.0,
+        "SENI": 56.0,
+        "PJOK": 56.0
+      },
+      "total": 833.0,
+      "avg": 49.0,
+      "completed_count": 17,
+      "above_class_avg_count": 8,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 84.0
+        },
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 76.0
+        },
+        {
+          "code": "UFIK",
+          "name": "Ushul Fikih",
+          "score": 72.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "QURDIS",
+          "name": "Al-Qur'an Hadis",
+          "score": 16.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 20.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 25.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 19,
+      "catatan_walas": "Terima kasih atas usaha Ananda NUR MAFAIDHATUN NABILA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 8 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (84), Sejarah Kebudayaan Islam (SKI) (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Al-Qur'an Hadis, Bahasa Inggris."
+    },
+    {
+      "absen": 26,
+      "no_master": 434,
+      "nama": "NUR SIELVA NABYLA PUTRI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L13MA10436",
+      "scores": {
+        "QURDIS": 44.0,
+        "KALAM": 96.0,
+        "FIKIH KAG": 56.0,
+        "SKI": 72.0,
+        "B ARAB KAG": 44.0,
+        "ITAF": 76.0,
+        "IHAD": 36.0,
+        "UFIK": 68.0,
+        "PKN": 48.0,
+        "B IND": 40.0,
+        "B ING": 36.0,
+        "MTK": 15.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 50.0,
+        "INFOR": 52.0,
+        "SENI": 72.0,
+        "PJOK": 68.0
+      },
+      "total": 923.0,
+      "avg": 54.29,
+      "completed_count": 17,
+      "above_class_avg_count": 12,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 96.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 76.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 72.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 36.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 36.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 12,
+      "catatan_walas": "Alhamdulillah, Ananda NUR SIELVA NABYLA PUTRI menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 54.29 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Ilmu Tafsir (76). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+    },
+    {
+      "absen": 27,
+      "no_master": 435,
+      "nama": "RACHEL IMAMATUL KAMILAH",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L14MA10437",
+      "scores": {
+        "QURDIS": 44.0,
+        "KALAM": 96.0,
+        "FIKIH KAG": 88.0,
+        "SKI": 80.0,
+        "B ARAB KAG": 48.0,
+        "ITAF": 84.0,
+        "IHAD": 52.0,
+        "UFIK": 68.0,
+        "PKN": 56.0,
+        "B IND": 40.0,
+        "B ING": 32.0,
+        "MTK": 20.0,
+        "BIOLOGI": 80.0,
+        "SEJARAH": 60.0,
+        "INFOR": 36.0,
+        "SENI": 48.0,
+        "PJOK": 60.0
+      },
+      "total": 992.0,
+      "avg": 58.35,
+      "completed_count": 17,
+      "above_class_avg_count": 12,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 96.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 88.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 84.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 20.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 32.0
+        },
+        {
+          "code": "INFOR",
+          "name": "Koding & AI - Informatika",
+          "score": 36.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 10,
+      "catatan_walas": "Alhamdulillah, Ananda RACHEL IMAMATUL KAMILAH menunjukkan capaian belajar yang positif pada STS Ganjil ini dengan rata-rata 58.35 (berada di atas rata-rata kelas 52.19) dan unggul di 12 dari 17 mata pelajaran. Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (96), Fikih Keagamaan (KAG) (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Inggris."
+    },
+    {
+      "absen": 28,
+      "no_master": 436,
+      "nama": "RADIFA RUZANA PUTRI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L11MA10438",
+      "scores": {
+        "QURDIS": 28.0,
+        "KALAM": 68.0,
+        "FIKIH KAG": 40.0,
+        "SKI": 56.0,
+        "B ARAB KAG": 44.0,
+        "ITAF": 64.0,
+        "IHAD": 32.0,
+        "UFIK": 60.0,
+        "PKN": 40.0,
+        "B IND": 24.0,
+        "B ING": 24.0,
+        "MTK": 15.0,
+        "BIOLOGI": 70.0,
+        "SEJARAH": 40.0,
+        "INFOR": 36.0,
+        "SENI": 80.0,
+        "PJOK": 40.0
+      },
+      "total": 761.0,
+      "avg": 44.76,
+      "completed_count": 17,
+      "above_class_avg_count": 2,
+      "top_subjects": [
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 80.0
+        },
+        {
+          "code": "BIOLOGI",
+          "name": "Biologi",
+          "score": 70.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 68.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "B IND",
+          "name": "Bahasa Indonesia",
+          "score": 24.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 24.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 25,
+      "catatan_walas": "Terima kasih atas usaha Ananda RADIFA RUZANA PUTRI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 2 mata pelajaran). Capaian sangat menonjol terlihat pada Seni Budaya (80), Biologi (70). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Bahasa Indonesia."
+    },
+    {
+      "absen": 29,
+      "no_master": 437,
+      "nama": "SU'DAA ARINAL UDLHIYYAH",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L12MA10439",
+      "scores": {
+        "QURDIS": 56.0,
+        "KALAM": 92.0,
+        "FIKIH KAG": 96.0,
+        "SKI": 84.0,
+        "B ARAB KAG": 68.0,
+        "ITAF": 92.0,
+        "IHAD": 48.0,
+        "UFIK": 72.0,
+        "PKN": 56.0,
+        "B IND": 68.0,
+        "B ING": 48.0,
+        "MTK": 15.0,
+        "BIOLOGI": 70.0,
+        "SEJARAH": 70.0,
+        "INFOR": 72.0,
+        "SENI": 64.0,
+        "PJOK": 84.0
+      },
+      "total": 1155.0,
+      "avg": 67.94,
+      "completed_count": 17,
+      "above_class_avg_count": 15,
+      "top_subjects": [
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 96.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 92.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 92.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 48.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 48.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 2,
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda SU'DAA ARINAL UDLHIYYAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 67.94, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Fikih Keagamaan (KAG) (96), Ilmu Tafsir (92). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Ilmu Hadis."
+    },
+    {
+      "absen": 30,
+      "no_master": 438,
+      "nama": "SURYA PANCA OCTAVIAN PUTRA",
+      "jk": "L",
+      "kelas": "X.13",
+      "username": "L13MA10440",
+      "scores": {
+        "QURDIS": 40.0,
+        "KALAM": 76.0,
+        "FIKIH KAG": 4.0,
+        "SKI": 44.0,
+        "B ARAB KAG": 40.0,
+        "ITAF": 44.0,
+        "IHAD": 24.0,
+        "UFIK": 32.0,
+        "PKN": 52.0,
+        "B IND": 28.0,
+        "B ING": 32.0,
+        "MTK": 20.0,
+        "BIOLOGI": 40.0,
+        "SEJARAH": 30.0,
+        "INFOR": 40.0,
+        "SENI": 68.0,
+        "PJOK": 64.0
+      },
+      "total": 678.0,
+      "avg": 39.88,
+      "completed_count": 17,
+      "above_class_avg_count": 3,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 76.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 68.0
+        },
+        {
+          "code": "PJOK",
+          "name": "Pendidikan Jasmani, Olahraga & Kesehatan",
+          "score": 64.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 4.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 20.0
+        },
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 24.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 32,
+      "catatan_walas": "Terima kasih atas usaha Ananda SURYA PANCA OCTAVIAN PUTRA dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 3 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (76), Seni Budaya (68). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Fikih Keagamaan (KAG), Matematika."
+    },
+    {
+      "absen": 31,
+      "no_master": 439,
+      "nama": "UMI LATIFATUS SA'DIYAH",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L14MA10441",
+      "scores": {
+        "QURDIS": 56.0,
+        "KALAM": 88.0,
+        "FIKIH KAG": 72.0,
+        "SKI": 84.0,
+        "B ARAB KAG": 48.0,
+        "ITAF": 92.0,
+        "IHAD": 24.0,
+        "UFIK": 84.0,
+        "PKN": 56.0,
+        "B IND": 60.0,
+        "B ING": 40.0,
+        "MTK": 30.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 60.0,
+        "INFOR": 60.0,
+        "SENI": 72.0,
+        "PJOK": 68.0
+      },
+      "total": 1044.0,
+      "avg": 61.41,
+      "completed_count": 17,
+      "above_class_avg_count": 15,
+      "top_subjects": [
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 92.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 88.0
+        },
+        {
+          "code": "UFIK",
+          "name": "Ushul Fikih",
+          "score": 84.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "IHAD",
+          "name": "Ilmu Hadis",
+          "score": 24.0
+        },
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 30.0
+        },
+        {
+          "code": "B ING",
+          "name": "Bahasa Inggris",
+          "score": 40.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 6,
+      "catatan_walas": "Alhamdulillah, apresiasi yang tinggi untuk Ananda UMI LATIFATUS SA'DIYAH atas capaian belajar yang sangat baik pada STS Ganjil ini (rata-rata 61.41, melampaui rata-rata kelas 52.19). Capaian sangat menonjol terlihat pada Ilmu Tafsir (92), Ilmu Kalam & Akhlak (88). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Ilmu Hadis, Matematika."
+    },
+    {
+      "absen": 32,
+      "no_master": 440,
+      "nama": "WAHIDA RASYADA ARINI",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L11MA10442",
+      "scores": {
+        "QURDIS": 52.0,
+        "KALAM": 92.0,
+        "FIKIH KAG": 24.0,
+        "SKI": 92.0,
+        "B ARAB KAG": 36.0,
+        "ITAF": 72.0,
+        "IHAD": 44.0,
+        "UFIK": 48.0,
+        "PKN": 24.0,
+        "B IND": 48.0,
+        "B ING": 60.0,
+        "MTK": 20.0,
+        "BIOLOGI": 40.0,
+        "SEJARAH": 50.0,
+        "INFOR": 56.0,
+        "SENI": 80.0,
+        "PJOK": 44.0
+      },
+      "total": 882.0,
+      "avg": 51.88,
+      "completed_count": 17,
+      "above_class_avg_count": 9,
+      "top_subjects": [
+        {
+          "code": "SKI",
+          "name": "Sejarah Kebudayaan Islam (SKI)",
+          "score": 92.0
+        },
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 92.0
+        },
+        {
+          "code": "SENI",
+          "name": "Seni Budaya",
+          "score": 80.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 20.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 24.0
+        },
+        {
+          "code": "PKN",
+          "name": "Pendidikan Pancasila",
+          "score": 24.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 14,
+      "catatan_walas": "Terima kasih atas usaha Ananda WAHIDA RASYADA ARINI dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 9 mata pelajaran). Capaian sangat menonjol terlihat pada Sejarah Kebudayaan Islam (SKI) (92), Ilmu Kalam & Akhlak (92). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Fikih Keagamaan (KAG)."
+    },
+    {
+      "absen": 33,
+      "no_master": 441,
+      "nama": "ZIDATUN NAYLA IZZA BILLAH",
+      "jk": "P",
+      "kelas": "X.13",
+      "username": "L12MA10443",
+      "scores": {
+        "QURDIS": 52.0,
+        "KALAM": 76.0,
+        "FIKIH KAG": 16.0,
+        "SKI": 56.0,
+        "B ARAB KAG": 20.0,
+        "ITAF": 72.0,
+        "IHAD": 32.0,
+        "UFIK": 60.0,
+        "PKN": 44.0,
+        "B IND": 48.0,
+        "B ING": 28.0,
+        "MTK": 15.0,
+        "BIOLOGI": 50.0,
+        "SEJARAH": 20.0,
+        "INFOR": 40.0,
+        "SENI": 56.0,
+        "PJOK": 40.0
+      },
+      "total": 725.0,
+      "avg": 42.65,
+      "completed_count": 17,
+      "above_class_avg_count": 4,
+      "top_subjects": [
+        {
+          "code": "KALAM",
+          "name": "Ilmu Kalam & Akhlak",
+          "score": 76.0
+        },
+        {
+          "code": "ITAF",
+          "name": "Ilmu Tafsir",
+          "score": 72.0
+        },
+        {
+          "code": "UFIK",
+          "name": "Ushul Fikih",
+          "score": 60.0
+        }
+      ],
+      "priority_subjects": [
+        {
+          "code": "MTK",
+          "name": "Matematika",
+          "score": 15.0
+        },
+        {
+          "code": "FIKIH KAG",
+          "name": "Fikih Keagamaan (KAG)",
+          "score": 16.0
+        },
+        {
+          "code": "SEJARAH",
+          "name": "Sejarah",
+          "score": 20.0
+        }
+      ],
+      "missing_subjects": [],
+      "rank": 28,
+      "catatan_walas": "Terima kasih atas usaha Ananda ZIDATUN NAYLA IZZA BILLAH dalam mengikuti STS Ganjil ini (berhasil melampaui rata-rata kelas pada 4 mata pelajaran). Capaian sangat menonjol terlihat pada Ilmu Kalam & Akhlak (76), Ilmu Tafsir (72). Pertahankan kedisiplinan ini, dan mari tingkatkan lagi fokus belajar menjelang Sumatif Akhir Semester (SAS) terutama pada mata pelajaran Matematika, Fikih Keagamaan (KAG)."
+    }
+  ]
+}
