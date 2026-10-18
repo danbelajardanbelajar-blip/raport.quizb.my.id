@@ -124,7 +124,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <template x-if="mode === 'student' || mode === 'print_all'">
                     <button @click="window.print()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow transition flex items-center gap-1.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                        <span x-text="mode === 'print_all' ? 'Cetak Semua (33 Hal A4)' : 'Cetak / Simpan PDF'"></span>
+                        <span x-text="mode === 'print_all' ? 'Cetak Semua (' + db.students.length + ' Hal A4)' : 'Cetak / Simpan PDF'"></span>
                     </button>
                 </template>
 
@@ -234,7 +234,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <div>
                     <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">Mode Administrator Wali Kelas</span>
                     <h2 class="text-xl font-extrabold text-slate-800 mt-1">Dashboard Evaluasi & Manajemen Raport Kelas X.13</h2>
-                    <p class="text-xs text-slate-500">Anda dapat melihat peringkat lengkap, mengedit nilai susulan, mengubah catatan wali kelas, atau mencetak 33 raport sekaligus.</p>
+                    <p class="text-xs text-slate-500">Anda dapat melihat peringkat lengkap, mengedit nilai susulan, mengubah catatan wali kelas, atau mencetak <span x-text="db.students.length"></span> raport sekaligus.</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
                     <button @click="openSubjectList()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow transition flex items-center gap-1.5">
@@ -247,7 +247,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         ⬇️ Unduh data_x13.json
                     </button>
                     <button @click="mode = 'print_all'" class="px-3.5 py-2 rounded-xl bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold shadow transition">
-                        🖨️ Cetak Massal (33 Siswa)
+                        🖨️ Cetak Massal (<span x-text="db.students.length"></span> Siswa)
                     </button>
                 </div>
             </div>
@@ -257,7 +257,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                     <p class="text-xs font-semibold text-slate-500">Rata-Rata Kelas X.13</p>
                     <p class="text-2xl font-extrabold text-emerald-700 mt-1" x-text="db.meta.class_overall_avg"></p>
-                    <p class="text-[11px] text-slate-400 mt-0.5">Dari 32 siswa aktif mengikuti STS</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Dari <span x-text="db.students.filter(s => s.completed_count > 0).length"></span> siswa aktif mengikuti STS</p>
                 </div>
                 <div @click="openSubjectDetail('KALAM')" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm cursor-pointer hover:border-emerald-500 hover:shadow-md transition group">
                     <div class="flex items-center justify-between">
@@ -277,8 +277,8 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-amber-200 bg-amber-50/40 shadow-sm">
                     <p class="text-xs font-semibold text-amber-800">Perhatian Nilai Kosong / Susulan</p>
-                    <p class="text-sm font-extrabold text-amber-900 mt-1">2 Siswa Belum Lengkap</p>
-                    <p class="text-[11px] text-amber-700 mt-0.5">Faza (17 mapel) & Nur Farihatul (2 mapel)</p>
+                    <p class="text-sm font-extrabold text-amber-900 mt-1">1 Siswa Belum Lengkap</p>
+                    <p class="text-[11px] text-amber-700 mt-0.5">Nur Farihatul Laili (2 mapel susulan)</p>
                 </div>
             </div>
 
@@ -355,7 +355,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <div x-show="isWalas" class="mb-4 p-3 rounded-xl bg-amber-50 border border-amber-200 flex flex-wrap items-center justify-between gap-2 no-print">
                     <div class="text-xs text-amber-900 font-semibold">
                         👁️ Mode Pratinjau Wali Kelas • Peringkat Kelas Siswa Ini:
-                        <span class="font-extrabold underline" x-text="currentStudent.rank ? 'Peringkat ' + currentStudent.rank + ' dari 33 Siswa' : 'Belum Ada Nilai'"></span>
+                        <span class="font-extrabold underline" x-text="currentStudent.rank ? 'Peringkat ' + currentStudent.rank + ' dari ' + db.students.length + ' Siswa' : 'Belum Ada Nilai'"></span>
                         <span class="text-amber-700 font-normal">(Angka peringkat ini disembunyikan dari layar siswa/wali murid)</span>
                     </div>
                     <div class="flex items-center gap-2">
@@ -517,12 +517,12 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
             </div>
         </template>
 
-        <!-- ================= 4. MODE CETAK MASSAL 33 SISWA SEKALIGUS (A4 PAGE-BREAK) ================= -->
+        <!-- ================= 4. MODE CETAK MASSAL SISWA (A4 PAGE-BREAK) ================= -->
         <template x-if="mode === 'print_all'">
             <div class="space-y-8">
                 <div class="p-4 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-between no-print">
                     <div class="text-xs text-amber-900">
-                        <strong>Mode Cetak Massal 33 Siswa Aktif:</strong> Tekan tombol <strong>"Cetak Semua (33 Hal A4)"</strong> di kanan atas atau tekan <code>Ctrl + P</code>. Setiap siswa otomatis terpisah menjadi 1 halaman A4 utuh.
+                        <strong>Mode Cetak Massal <span x-text="db.students.length"></span> Siswa Aktif:</strong> Tekan tombol <strong>"Cetak Semua (<span x-text="db.students.length"></span> Hal A4)"</strong> di kanan atas atau tekan <code>Ctrl + P</code>. Setiap siswa otomatis terpisah menjadi 1 halaman A4 utuh.
                     </div>
                     <button @click="mode = 'walas'" class="px-3 py-1.5 rounded-lg bg-slate-800 text-white text-xs font-bold">← Kembali ke Dashboard</button>
                 </div>
@@ -746,11 +746,11 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             <div class="mt-3.5 pt-3 border-t border-slate-100">
                                 <div class="flex items-center justify-between text-[11px] mb-1">
                                     <span class="text-slate-500 font-medium">Peserta Dinilai:</span>
-                                    <span class="font-bold text-slate-800" x-text="sub.count + '/33 Siswa'"></span>
+                                    <span class="font-bold text-slate-800" x-text="sub.count + '/' + db.students.length + ' Siswa'"></span>
                                 </div>
-                                <template x-if="sub.count < 33">
+                                <template x-if="sub.count < db.students.length">
                                     <p class="text-[10px] text-amber-700 font-semibold mb-1">
-                                        ⚠️ Terdapat <span x-text="33 - sub.count"></span> siswa belum memiliki nilai (susulan)
+                                        ⚠️ Terdapat <span x-text="db.students.length - sub.count"></span> siswa belum memiliki nilai (susulan)
                                     </p>
                                 </template>
                             </div>
@@ -1082,7 +1082,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
                                 <div>
                                     <h3 class="font-extrabold text-sm text-slate-900">Daftar Nilai Lengkap Siswa Kelas X.13</h3>
-                                    <p class="text-xs text-slate-500">Data nilai 33 siswa lengkap dengan peringkat mata pelajaran dan deviasi.</p>
+                                    <p class="text-xs text-slate-500">Data nilai <span x-text="db.students.length"></span> siswa lengkap dengan peringkat mata pelajaran dan deviasi.</p>
                                 </div>
 
                                 <!-- Filter & Sort Ledger (Non-print) -->
