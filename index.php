@@ -259,15 +259,15 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
             <!-- Statistik Ringkas Kelas -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                    <p class="text-xs font-semibold text-slate-500">Rata-Rata Akademik</p>
+                    <p class="text-xs font-semibold text-slate-500">Rerata Komposit Kelas</p>
                     <p class="text-2xl font-extrabold text-emerald-700 mt-1" x-text="db.meta.class_overall_avg"></p>
-                    <p class="text-[11px] text-slate-400 mt-0.5">Dari <span x-text="db.students.filter(s => s.completed_count > 0).length"></span> siswa aktif STS</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">Komposit: 17 Mapel + Presensi (<span x-text="db.students.filter(s => s.completed_count > 0).length"></span> siswa)</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl border border-emerald-200 bg-emerald-50/30 shadow-sm">
-                    <p class="text-xs font-bold text-emerald-900">Kehadiran (Non-Akad)</p>
-                    <p class="text-2xl font-extrabold text-emerald-800 mt-1" x-text="(db.meta.class_attendance_avg || 98.16) + '%'"></p>
+                    <p class="text-xs font-bold text-emerald-900">Rerata Presensi (Semua Bulan)</p>
+                    <p class="text-2xl font-extrabold text-emerald-800 mt-1" x-text="(db.meta.class_attendance_avg || 98.0) + '%'"></p>
                     <p class="text-[11px] text-emerald-700 mt-0.5 font-medium"
-                       x-text="'Total: S:' + (db.meta.class_attendance_totals?.sakit || 60) + ' | I:' + (db.meta.class_attendance_totals?.izin || 20) + ' | A:' + (db.meta.class_attendance_totals?.alpa || 0)"></p>
+                       x-text="'Total: S:' + (db.meta.class_attendance_totals?.sakit || 60) + ' | I:' + (db.meta.class_attendance_totals?.izin || 20) + ' | A:' + (db.meta.class_attendance_totals?.alpa || 0) + ' (Semester 125 hr)'"></p>
                 </div>
                 <div @click="openSubjectDetail('KALAM')" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm cursor-pointer hover:border-emerald-500 hover:shadow-md transition group">
                     <div class="flex items-center justify-between">
@@ -316,13 +316,13 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <th class="py-2.5 px-3">Username</th>
                                 <th class="py-2.5 px-3">Nama Siswa</th>
                                 <th class="py-2.5 px-2 text-center">JK</th>
-                                <th class="py-2.5 px-3 text-center bg-emerald-900">Rank</th>
-                                <th class="py-2.5 px-3 text-center">Total</th>
-                                <th class="py-2.5 px-3 text-center">Rata-Rata</th>
-                                <th class="py-2.5 px-2 text-center" title="Sakit (Hari)">S</th>
-                                <th class="py-2.5 px-2 text-center" title="Izin (Hari)">I</th>
-                                <th class="py-2.5 px-2 text-center" title="Alpa / Tanpa Keterangan (Hari)">A</th>
-                                <th class="py-2.5 px-3 text-center">Kehadiran</th>
+                                <th class="py-2.5 px-3 text-center bg-emerald-900" title="Peringkat Komposit (17 Mapel + Presensi Kehadiran)">Rank</th>
+                                <th class="py-2.5 px-3 text-center" title="Total Nilai Komposit: Nilai Mapel + Skor Kehadiran (%)">Total Komposit</th>
+                                <th class="py-2.5 px-3 text-center" title="Rerata Akhir: Total Komposit / (Jumlah Mapel + 1)">Rerata Akhir</th>
+                                <th class="py-2.5 px-2 text-center" title="Sakit - Seluruh Bulan Semester Ganjil (Hari)">S</th>
+                                <th class="py-2.5 px-2 text-center" title="Izin - Seluruh Bulan Semester Ganjil (Hari)">I</th>
+                                <th class="py-2.5 px-2 text-center" title="Alpa / Tanpa Keterangan - Seluruh Bulan (Hari)">A</th>
+                                <th class="py-2.5 px-3 text-center" title="Persentase Kehadiran Semester Ganjil (Non-Akad)">Kehadiran (%)</th>
                                 <th class="py-2.5 px-3 text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -433,14 +433,19 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     <!-- KARTU RINGKASAN EKSEKUTIF -->
                     <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-5">
                         <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-center">
-                            <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Rata2 Akademik</p>
-                            <p class="text-xl font-extrabold text-emerald-950 mt-0.5" x-text="currentStudent.avg.toFixed(2)"></p>
-                            <p class="text-[10px] text-emerald-700">Total Skor: <strong x-text="currentStudent.total"></strong></p>
+                            <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-800">Rata-Rata Akhir</p>
+                            <p class="text-xl font-black text-emerald-950 mt-0.5" x-text="currentStudent.avg.toFixed(2)"></p>
+                            <p class="text-[10px] text-emerald-700">Total: <strong x-text="currentStudent.total"></strong> (<span x-text="currentStudent.completed_count + 1"></span> Komponen)</p>
                         </div>
-                        <div class="p-3 rounded-xl bg-emerald-100/60 border border-emerald-300 text-center">
-                            <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-800">Nilai Non-Akad</p>
-                            <p class="text-xl font-black text-emerald-900 mt-0.5" x-text="(currentStudent.attendance?.persentase || 100).toFixed(2) + '%'"></p>
-                            <p class="text-[10px] font-semibold text-emerald-700" x-text="'Presensi: ' + (currentStudent.attendance?.predikat || 'A') + ' (' + (currentStudent.attendance?.total_absen ? currentStudent.attendance.total_absen + ' hr absen' : 'Nihil absen') + ')'"></p>
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Rerata Akademik</p>
+                            <p class="text-xl font-extrabold text-slate-800 mt-0.5" x-text="(currentStudent.academic_avg || (currentStudent.completed_count ? (currentStudent.total - (currentStudent.attendance?.persentase||100)) / currentStudent.completed_count : 0)).toFixed(2)"></p>
+                            <p class="text-[10px] text-slate-500">Dari <strong x-text="currentStudent.completed_count"></strong> Mapel Tuntas</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-teal-50 border border-teal-200 text-center">
+                            <p class="text-[10px] font-bold uppercase tracking-wider text-teal-800">Nilai Kehadiran (%)</p>
+                            <p class="text-xl font-black text-teal-900 mt-0.5" x-text="(currentStudent.attendance?.persentase || 100).toFixed(2) + '%'"></p>
+                            <p class="text-[10px] font-semibold text-teal-700" x-text="'Presensi: ' + (currentStudent.attendance?.predikat || 'A') + ' (' + (currentStudent.attendance?.total_absen ? currentStudent.attendance.total_absen + ' hr absen' : 'Nihil absen') + ')'"></p>
                         </div>
                         <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
                             <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Rata-Rata Kelas</p>
@@ -448,15 +453,10 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             <p class="text-[10px] font-semibold" :class="currentStudent.avg >= db.meta.class_overall_avg ? 'text-emerald-700' : 'text-amber-700'"
                                x-text="currentStudent.avg >= db.meta.class_overall_avg ? 'Di Atas Rata-Rata' : 'Perlu Ditingkatkan'"></p>
                         </div>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Melampaui Rata2</p>
-                            <p class="text-xl font-extrabold text-teal-800 mt-0.5"><span x-text="currentStudent.above_class_avg_count"></span> <span class="text-xs font-semibold text-slate-500">/ <span x-text="currentStudent.completed_count"></span> Mapel</span></p>
-                            <p class="text-[10px] text-slate-500">Posisi Relatif Mapel</p>
-                        </div>
-                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
-                            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Capaian Tertinggi</p>
-                            <p class="text-xs font-extrabold text-slate-900 mt-1 truncate" x-text="currentStudent.top_subjects.length ? currentStudent.top_subjects[0].name : '-'"></p>
-                            <p class="text-[11px] font-bold text-emerald-700" x-text="currentStudent.top_subjects.length ? 'Nilai: ' + currentStudent.top_subjects[0].score : '-'"></p>
+                        <div class="p-3 rounded-xl bg-amber-50/70 border border-amber-200 text-center">
+                            <p class="text-[10px] font-bold uppercase tracking-wider text-amber-800">Peringkat Kelas</p>
+                            <p class="text-xl font-black text-amber-900 mt-0.5" x-text="currentStudent.rank ? '#' + currentStudent.rank : '-'"></p>
+                            <p class="text-[10px] font-bold text-amber-700">Dari <span x-text="db.students.length"></span> Siswa</p>
                         </div>
                     </div>
 
@@ -519,7 +519,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     <div class="mb-5 border border-slate-300 rounded-xl overflow-hidden break-inside-avoid">
                         <div class="bg-slate-200/90 px-3 py-1.5 font-extrabold text-slate-800 text-[11px] flex flex-wrap justify-between items-center gap-2">
                             <span>C. NILAI NON AKADEMIK & KEDISIPLINAN (PRESENSI KEHADIRAN)</span>
-                            <span class="text-[10px] text-slate-600 font-semibold">Periode Evaluasi: Juli - September 2026 (136 Jam Tatap Muka)</span>
+                            <span class="text-[10px] text-slate-600 font-semibold">Periode Evaluasi: Seluruh Semester Ganjil (Juli - Desember, 125 Hari Efektif)</span>
                         </div>
                         <div class="grid grid-cols-2 sm:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 bg-white p-3 text-center text-xs">
                             <div class="p-1.5">
@@ -545,14 +545,45 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                       x-text="(currentStudent.attendance?.predikat || 'A') + ' • ' + (currentStudent.attendance?.keterangan || 'Sangat Baik')"></span>
                             </div>
                         </div>
-                        <!-- Rincian Rekapitulasi per Bulan (Sesuai Excel Presensi) -->
-                        <div class="bg-slate-50 border-t border-slate-200 px-3.5 py-2 text-[11px] text-slate-600 flex flex-wrap justify-between items-center gap-2">
-                            <span class="font-bold text-slate-700">Rincian Riwayat Absensi (Juli - September):</span>
-                            <div class="flex items-center gap-3 sm:gap-4 text-slate-700 font-semibold flex-wrap">
-                                <span class="bg-white px-2 py-0.5 rounded border border-slate-200">Juli: <strong class="text-slate-900" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.juli?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.juli?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.juli?.alpa || 0)"></strong></span>
-                                <span class="bg-white px-2 py-0.5 rounded border border-slate-200">Agustus: <strong class="text-slate-900" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.alpa || 0)"></strong></span>
-                                <span class="bg-white px-2 py-0.5 rounded border border-slate-200">September: <strong class="text-slate-900" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.september?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.september?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.september?.alpa || 0)"></strong></span>
-                                <span class="bg-emerald-50 text-emerald-900 px-2 py-0.5 rounded border border-emerald-200">Total: <strong x-text="(currentStudent.attendance?.total_absen || 0) + ' Hari Absen'"></strong></span>
+                        <!-- Rincian Rekapitulasi Seluruh 6 Bulan (Sesuai File Excel Resmi) -->
+                        <div class="bg-slate-50 border-t border-slate-200 px-3.5 py-2.5 text-[11px] text-slate-700">
+                            <div class="flex items-center justify-between mb-2 flex-wrap gap-1">
+                                <span class="font-bold text-slate-800 flex items-center gap-1.5">
+                                    <span>🗓️</span> Rincian Riwayat Ketidakhadiran Seluruh Bulan (Semester Ganjil):
+                                </span>
+                                <span class="text-[10px] text-emerald-800 font-bold bg-emerald-100/80 px-2 py-0.5 rounded">
+                                    ★ Komponen Pembagi Rerata: 17 Mapel + 1 Presensi = 18 Komponen
+                                </span>
+                            </div>
+                            <div class="grid grid-cols-2 sm:grid-cols-6 gap-2 text-center text-[10px]">
+                                <div class="bg-white p-1.5 rounded border border-slate-200">
+                                    <span class="block text-slate-500 font-semibold">Juli (24 hr)</span>
+                                    <strong class="text-slate-800" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.juli?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.juli?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.juli?.alpa || 0)"></strong>
+                                </div>
+                                <div class="bg-white p-1.5 rounded border border-slate-200">
+                                    <span class="block text-slate-500 font-semibold">Agustus (27 hr)</span>
+                                    <strong class="text-slate-800" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.agustus?.alpa || 0)"></strong>
+                                </div>
+                                <div class="bg-white p-1.5 rounded border border-slate-200">
+                                    <span class="block text-slate-500 font-semibold">September (20 hr)</span>
+                                    <strong class="text-slate-800" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.september?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.september?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.september?.alpa || 0)"></strong>
+                                </div>
+                                <div class="bg-white p-1.5 rounded border border-slate-200">
+                                    <span class="block text-slate-500 font-semibold">Oktober (26 hr)</span>
+                                    <strong class="text-slate-800" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.oktober?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.oktober?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.oktober?.alpa || 0)"></strong>
+                                </div>
+                                <div class="bg-white p-1.5 rounded border border-slate-200">
+                                    <span class="block text-slate-500 font-semibold">November (26 hr)</span>
+                                    <strong class="text-slate-800" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.november?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.november?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.november?.alpa || 0)"></strong>
+                                </div>
+                                <div class="bg-white p-1.5 rounded border border-slate-200">
+                                    <span class="block text-slate-500 font-semibold">Desember (2 hr)</span>
+                                    <strong class="text-slate-800" x-text="'S:' + (currentStudent.attendance?.rincian_bulanan?.desember?.sakit || 0) + ' I:' + (currentStudent.attendance?.rincian_bulanan?.desember?.izin || 0) + ' A:' + (currentStudent.attendance?.rincian_bulanan?.desember?.alpa || 0)"></strong>
+                                </div>
+                            </div>
+                            <div class="mt-2 text-[10px] text-slate-600 flex flex-wrap justify-between items-center gap-1 border-t border-slate-200 pt-1.5">
+                                <span>Total Ketidakhadiran Kumulatif: <strong class="text-slate-900" x-text="(currentStudent.attendance?.total_absen || 0) + ' Hari'"></strong> (Sakit: <span x-text="currentStudent.attendance?.sakit || 0"></span>, Izin: <span x-text="currentStudent.attendance?.izin || 0"></span>, Alpa: <span x-text="currentStudent.attendance?.alpa || 0"></span>)</span>
+                                <span class="text-emerald-800 font-bold">Rerata Akhir = (Total Skor Akademik + Skor Presensi %) / (<span x-text="currentStudent.completed_count + 1"></span>)</span>
                             </div>
                         </div>
                     </div>
@@ -615,8 +646,8 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <p>Username STS: <strong class="font-mono text-emerald-800" x-text="st.username"></strong> (Absen <span x-text="st.absen"></span>)</p>
                             </div>
                             <div class="text-right">
-                                <p>Kelas: <strong x-text="db.meta.kelas"></strong></p>
-                                <p>Rata-Rata Siswa: <strong x-text="st.avg.toFixed(2)"></strong> (Rata2 Kelas: <span x-text="db.meta.class_overall_avg"></span>)</p>
+                                <p>Kelas: <strong x-text="db.meta.kelas"></strong> • Peringkat: <strong class="text-emerald-900" x-text="st.rank ? '#' + st.rank : '-'"></strong> / <span x-text="db.students.length"></span></p>
+                                <p>Rerata Akhir (Komposit): <strong x-text="st.avg.toFixed(2)"></strong> (Total: <span x-text="st.total"></span>) • Rata2 Kelas: <span x-text="db.meta.class_overall_avg"></span></p>
                             </div>
                         </div>
 
@@ -648,11 +679,17 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         </table>
 
                         <!-- REKAP PRESENSI & NON AKADEMIK (PRINT MASSAL) -->
-                        <div class="grid grid-cols-4 gap-2 border border-slate-300 p-2 rounded-lg bg-slate-50 text-[10px] text-center mb-3">
-                            <div>Sakit (S): <strong x-text="(st.attendance?.s || 0) + ' hr'"></strong></div>
-                            <div>Izin (I): <strong x-text="(st.attendance?.i || 0) + ' hr'"></strong></div>
-                            <div>Alpa (A): <strong x-text="(st.attendance?.a || 0) + ' hr'"></strong></div>
-                            <div>Nilai Kehadiran: <strong class="text-emerald-800" x-text="(st.attendance?.persentase || 100).toFixed(2) + '% (' + (st.attendance?.predikat || 'A') + ')'"></strong></div>
+                        <div class="border border-slate-300 p-2 rounded-lg bg-slate-50 text-[10px] mb-3">
+                            <div class="grid grid-cols-4 gap-2 text-center pb-1.5 border-b border-slate-200">
+                                <div>Sakit (S): <strong x-text="(st.attendance?.s || 0) + ' hr'"></strong></div>
+                                <div>Izin (I): <strong x-text="(st.attendance?.i || 0) + ' hr'"></strong></div>
+                                <div>Alpa (A): <strong x-text="(st.attendance?.a || 0) + ' hr'"></strong></div>
+                                <div>Skor Kehadiran: <strong class="text-emerald-800" x-text="(st.attendance?.persentase || 100).toFixed(2) + '% (' + (st.attendance?.predikat || 'A') + ')'"></strong></div>
+                            </div>
+                            <div class="flex justify-between items-center pt-1 text-[9px] text-slate-500">
+                                <span>*Presensi dievaluasi seluruh semester ganjil (125 hari efektif) sesuai ledger resmi madrasah.</span>
+                                <span class="font-bold text-emerald-800">Skor kehadiran ikut dibagi sebagai komponen penentu peringkat siswa.</span>
+                            </div>
                         </div>
 
                         <!-- CATATAN WALAS -->
@@ -949,8 +986,8 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Rata-Rata Kelas</p>
                                 <p class="text-2xl font-black text-emerald-950 mt-0.5" x-text="activeSubjectStats.avg.toFixed(2)"></p>
                                 <p class="text-[10px] font-semibold"
-                                   :class="activeSubjectStats.avg >= db.meta.class_overall_avg ? 'text-emerald-700' : 'text-amber-700'"
-                                   x-text="activeSubjectStats.avg >= db.meta.class_overall_avg ? '▲ Di Atas Mean Kelas' : '▼ Di Bawah Mean Kelas'"></p>
+                                   :class="activeSubjectStats.avg >= (db.meta.class_academic_avg || db.meta.class_overall_avg) ? 'text-emerald-700' : 'text-amber-700'"
+                                   x-text="activeSubjectStats.avg >= (db.meta.class_academic_avg || db.meta.class_overall_avg) ? '▲ Di Atas Mean Mapel' : '▼ Di Bawah Mean Mapel'"></p>
                             </div>
 
                             <!-- 2. Nilai Tertinggi -->
@@ -1299,9 +1336,9 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <!-- Input Nilai Non-Akademik (Presensi Kehadiran) -->
                 <div class="mb-4 p-3.5 bg-slate-50 rounded-xl border border-slate-200" x-show="editingStudent.attendance">
                     <div class="flex items-center justify-between mb-2">
-                        <label class="block text-xs font-bold text-slate-800">Presensi Kehadiran (Nilai Non-Akademik STS):</label>
+                        <label class="block text-xs font-bold text-slate-800">Presensi Kehadiran (Semester Ganjil - 125 Hari):</label>
                         <span class="text-[11px] font-bold text-emerald-800"
-                              x-text="'Persentase: ' + (((136 - ((Number(editingStudent.attendance?.s)||0) + (Number(editingStudent.attendance?.i)||0) + (Number(editingStudent.attendance?.a)||0))) / 136) * 100).toFixed(2) + '%'"></span>
+                              x-text="'Persentase: ' + (((125 - ((Number(editingStudent.attendance?.s)||0) + (Number(editingStudent.attendance?.i)||0) + (Number(editingStudent.attendance?.a)||0))) / 125) * 100).toFixed(2) + '%'"></span>
                     </div>
                     <div class="grid grid-cols-3 gap-3 text-xs">
                         <div>
@@ -1914,7 +1951,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             const i = Math.max(0, parseInt(this.editingStudent.attendance.i || 0, 10));
                             const a = Math.max(0, parseInt(this.editingStudent.attendance.a || 0, 10));
                             const tot = s + i + a;
-                            const totalSessions = this.db.meta.total_effective_sessions || 136;
+                            const totalSessions = this.db.meta.total_effective_sessions || 125;
                             const pct = Number((((totalSessions - tot) / totalSessions) * 100).toFixed(2));
                             let predikat = 'A';
                             let keterangan = 'Sangat Baik (Disiplin Tinggi)';
@@ -1953,7 +1990,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         }
                     }
 
-                    // 2. Recalculate student totals & averages
+                    // 2. Recalculate student totals & averages (Composite: Academic Scores + Attendance %)
                     for (const st of this.db.students) {
                         const valid = [];
                         const missing = [];
@@ -1967,34 +2004,49 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         }
                         st.missing_subjects = missing;
                         st.completed_count = valid.length;
+                        const attPct = Number(st.attendance?.persentase ?? 100);
+
                         if (valid.length > 0) {
-                            const total = valid.reduce((a, b) => a + b.score, 0);
-                            st.total = Number(total.toFixed(2));
-                            st.avg = Number((total / valid.length).toFixed(2));
+                            const acadTotal = valid.reduce((a, b) => a + b.score, 0);
+                            st.academic_total = Number(acadTotal.toFixed(2));
+                            st.academic_avg = Number((acadTotal / valid.length).toFixed(2));
+
+                            // Prosentase kehadiran ikut dibagi sebagai salah satu komponen pembagi rerata & ranking
+                            const compTotal = acadTotal + attPct;
+                            const compDivisor = valid.length + 1; // Mapel tuntas + 1 presensi (17 + 1 = 18 komponen)
+
+                            st.total = Number(compTotal.toFixed(2));
+                            st.avg = Number((compTotal / compDivisor).toFixed(2));
                             st.above_class_avg_count = valid.filter(v => v.score >= v.avg).length;
                             const desc = [...valid].sort((a, b) => b.score - a.score);
                             st.top_subjects = desc.slice(0, 3);
                             const asc = [...valid].sort((a, b) => a.score - b.score);
                             st.priority_subjects = asc.slice(0, 3);
                         } else {
-                            st.total = 0;
-                            st.avg = 0;
+                            st.academic_total = 0;
+                            st.academic_avg = 0;
+                            st.total = attPct;
+                            st.avg = attPct;
                             st.above_class_avg_count = 0;
                             st.top_subjects = [];
                             st.priority_subjects = [];
                         }
                     }
 
-                    // 3. Recalculate ranks
+                    // 3. Recalculate ranks based on composite average
                     const ranked = [...this.db.students].sort((a, b) => (b.avg - a.avg) || (b.total - a.total));
                     ranked.forEach((item, i) => {
                         item.rank = item.completed_count > 0 ? (i + 1) : null;
                     });
 
-                    // 4. Class overall average
+                    // 4. Class overall averages (Composite & Academic)
                     const activeAvgs = this.db.students.filter(s => s.completed_count > 0).map(s => s.avg);
                     if (activeAvgs.length > 0) {
                         this.db.meta.class_overall_avg = Number((activeAvgs.reduce((a, b) => a + b, 0) / activeAvgs.length).toFixed(2));
+                    }
+                    const activeAcadAvgs = this.db.students.filter(s => s.completed_count > 0).map(s => s.academic_avg || s.avg);
+                    if (activeAcadAvgs.length > 0) {
+                        this.db.meta.class_academic_avg = Number((activeAcadAvgs.reduce((a, b) => a + b, 0) / activeAcadAvgs.length).toFixed(2));
                     }
 
                     // 5. Class overall attendance average & totals
