@@ -393,7 +393,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     <!-- KOP MADRASAH -->
                     <div class="border-b-4 border-double border-emerald-900 pb-3 mb-4 flex items-center justify-between gap-4">
                         <div>
-                            <p class="text-[11px] font-bold uppercase tracking-widest text-emerald-800">Lembaga Pendidikan Ma'arif NU</p>
+                            <p class="text-[11px] font-bold uppercase tracking-widest text-emerald-800">Yayasan Perguruan Matholi'ul Anwar</p>
                             <h1 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight" x-text="db.meta.madrasah"></h1>
                             <p class="text-xs text-slate-600" x-text="db.meta.alamat"></p>
                         </div>
@@ -664,7 +664,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         <!-- KOP -->
                         <div class="border-b-4 border-double border-emerald-900 pb-2.5 mb-3 flex items-center justify-between">
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Lembaga Pendidikan Ma'arif NU</p>
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Yayasan Perguruan Matholi'ul Anwar</p>
                                 <h1 class="text-lg font-extrabold text-slate-900" x-text="db.meta.madrasah"></h1>
                                 <p class="text-[11px] text-slate-600" x-text="db.meta.alamat"></p>
                             </div>
@@ -971,7 +971,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         <!-- KOP MADRASAH RESMI -->
                         <div class="border-b-4 border-double border-emerald-900 pb-3 mb-5 flex items-center justify-between gap-4">
                             <div>
-                                <p class="text-[11px] font-bold uppercase tracking-widest text-emerald-800">Lembaga Pendidikan Ma'arif NU</p>
+                                <p class="text-[11px] font-bold uppercase tracking-widest text-emerald-800">Yayasan Perguruan Matholi'ul Anwar</p>
                                 <h1 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight" x-text="db.meta.madrasah"></h1>
                                 <p class="text-xs text-slate-600" x-text="db.meta.alamat"></p>
                             </div>
