@@ -473,43 +473,77 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                     <th class="py-2 px-3 border border-slate-300 w-44">Visualisasi & Posisi Relatif</th>
                                 </tr>
                             </thead>
+                            <!-- RUMPUN A: KEAGAMAAN (KAG) -->
                             <tbody>
-                                <template x-for="(groupName, gIdx) in ['Rumpun Keagamaan (KAG)', 'Rumpun Umum & Sains']" :key="groupName">
-                                    <ReactFragment>
-                                        <tr class="bg-slate-200/80 font-extrabold text-slate-800 text-[11px]">
-                                            <td colspan="6" class="py-1.5 px-3 border border-slate-300" x-text="(gIdx === 0 ? 'A. ' : 'B. ') + groupName"></td>
-                                        </tr>
-                                        <template x-for="(sub, sIdx) in getSubjectsByGroup(groupName)" :key="sub.code">
-                                            <tr class="border-b border-slate-200 hover:bg-slate-50">
-                                                <td class="py-1.5 px-2.5 border border-slate-300 text-center font-medium text-slate-600" x-text="sIdx + 1"></td>
-                                                <td class="py-1.5 px-3 border border-slate-300 font-semibold text-slate-800" x-text="sub.name"></td>
-                                                <td class="py-1.5 px-2.5 border border-slate-300 text-center font-extrabold text-sm"
-                                                    :class="getScoreColorClass(currentStudent.scores[sub.code], sub.avg)"
-                                                    x-text="currentStudent.scores[sub.code] !== null ? currentStudent.scores[sub.code] : 'Kosong'">
-                                                </td>
-                                                <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-600 font-medium" x-text="sub.avg.toFixed(1)"></td>
-                                                <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-500" x-text="sub.max"></td>
-                                                <td class="py-1.5 px-3 border border-slate-300">
-                                                    <template x-if="currentStudent.scores[sub.code] !== null">
-                                                        <div>
-                                                            <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                                                                <div class="h-2 rounded-full"
-                                                                     :class="currentStudent.scores[sub.code] >= sub.avg ? 'bg-emerald-600' : 'bg-amber-500'"
-                                                                     :style="'width: ' + Math.min(100, currentStudent.scores[sub.code]) + '%'"></div>
-                                                            </div>
-                                                            <div class="flex justify-between text-[10px] mt-0.5 font-semibold">
-                                                                <span :class="currentStudent.scores[sub.code] >= sub.avg ? 'text-emerald-700' : 'text-amber-700'"
-                                                                      x-text="currentStudent.scores[sub.code] >= sub.avg ? '✓ Di Atas Rata2 Kelas' : 'Perlu Penguatan'"></span>
-                                                            </div>
-                                                        </div>
-                                                    </template>
-                                                    <template x-if="currentStudent.scores[sub.code] === null">
-                                                        <span class="text-[10px] font-bold text-rose-600">Menunggu Nilai Susulan</span>
-                                                    </template>
-                                                </td>
-                                            </tr>
-                                        </template>
-                                    </ReactFragment>
+                                <tr class="bg-slate-200/90 font-extrabold text-slate-800 text-[11px]">
+                                    <td colspan="6" class="py-1.5 px-3 border border-slate-300 bg-slate-200 font-bold">A. Rumpun Keagamaan (KAG)</td>
+                                </tr>
+                                <template x-for="(sub, sIdx) in getSubjectsByGroup('Rumpun Keagamaan (KAG)')" :key="sub.code">
+                                    <tr class="border-b border-slate-200 hover:bg-slate-50">
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center font-medium text-slate-600" x-text="sIdx + 1"></td>
+                                        <td class="py-1.5 px-3 border border-slate-300 font-semibold text-slate-800" x-text="sub.name"></td>
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center font-extrabold text-sm"
+                                            :class="getScoreColorClass(currentStudent.scores[sub.code], sub.avg)"
+                                            x-text="currentStudent.scores[sub.code] !== null ? currentStudent.scores[sub.code] : 'Kosong'">
+                                        </td>
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-600 font-medium" x-text="sub.avg.toFixed(1)"></td>
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-500" x-text="sub.max"></td>
+                                        <td class="py-1.5 px-3 border border-slate-300">
+                                            <template x-if="currentStudent.scores[sub.code] !== null">
+                                                <div>
+                                                    <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                                        <div class="h-2 rounded-full"
+                                                             :class="currentStudent.scores[sub.code] >= sub.avg ? 'bg-emerald-600' : 'bg-amber-500'"
+                                                             :style="'width: ' + Math.min(100, currentStudent.scores[sub.code]) + '%'"></div>
+                                                    </div>
+                                                    <div class="flex justify-between text-[10px] mt-0.5 font-semibold">
+                                                        <span :class="currentStudent.scores[sub.code] >= sub.avg ? 'text-emerald-700' : 'text-amber-700'"
+                                                              x-text="currentStudent.scores[sub.code] >= sub.avg ? '✓ Di Atas Rata2 Kelas' : 'Perlu Penguatan'"></span>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                            <template x-if="currentStudent.scores[sub.code] === null">
+                                                <span class="text-[10px] font-bold text-rose-600">Menunggu Nilai Susulan</span>
+                                            </template>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+
+                            <!-- RUMPUN B: UMUM & SAINS -->
+                            <tbody>
+                                <tr class="bg-slate-200/90 font-extrabold text-slate-800 text-[11px]">
+                                    <td colspan="6" class="py-1.5 px-3 border border-slate-300 bg-slate-200 font-bold">B. Rumpun Umum & Sains</td>
+                                </tr>
+                                <template x-for="(sub, sIdx) in getSubjectsByGroup('Rumpun Umum & Sains')" :key="sub.code">
+                                    <tr class="border-b border-slate-200 hover:bg-slate-50">
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center font-medium text-slate-600" x-text="sIdx + 1"></td>
+                                        <td class="py-1.5 px-3 border border-slate-300 font-semibold text-slate-800" x-text="sub.name"></td>
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center font-extrabold text-sm"
+                                            :class="getScoreColorClass(currentStudent.scores[sub.code], sub.avg)"
+                                            x-text="currentStudent.scores[sub.code] !== null ? currentStudent.scores[sub.code] : 'Kosong'">
+                                        </td>
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-600 font-medium" x-text="sub.avg.toFixed(1)"></td>
+                                        <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-500" x-text="sub.max"></td>
+                                        <td class="py-1.5 px-3 border border-slate-300">
+                                            <template x-if="currentStudent.scores[sub.code] !== null">
+                                                <div>
+                                                    <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                                        <div class="h-2 rounded-full"
+                                                             :class="currentStudent.scores[sub.code] >= sub.avg ? 'bg-emerald-600' : 'bg-amber-500'"
+                                                             :style="'width: ' + Math.min(100, currentStudent.scores[sub.code]) + '%'"></div>
+                                                    </div>
+                                                    <div class="flex justify-between text-[10px] mt-0.5 font-semibold">
+                                                        <span :class="currentStudent.scores[sub.code] >= sub.avg ? 'text-emerald-700' : 'text-amber-700'"
+                                                              x-text="currentStudent.scores[sub.code] >= sub.avg ? '✓ Di Atas Rata2 Kelas' : 'Perlu Penguatan'"></span>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                            <template x-if="currentStudent.scores[sub.code] === null">
+                                                <span class="text-[10px] font-bold text-rose-600">Menunggu Nilai Susulan</span>
+                                            </template>
+                                        </td>
+                                    </tr>
                                 </template>
                             </tbody>
                         </table>
