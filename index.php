@@ -215,8 +215,9 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raport Mandiri STS Ganjil 2026/2027 - Kelas X.13 | MA Matholi'ul Anwar</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -307,10 +308,16 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 </template>
 
                 <template x-if="mode === 'student'">
-                    <button @click="window.print()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow transition flex items-center gap-1.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                        <span>Cetak / Simpan PDF</span>
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <button @click="downloadSingleStudentPdf(currentStudent)" class="px-3.5 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold shadow transition flex items-center gap-1.5" title="Unduh file PDF dengan teks asli (bisa diseleksi & dicari)">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                            <span>Unduh PDF (Teks)</span>
+                        </button>
+                        <button @click="window.print()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                            <span>Cetak Raport</span>
+                        </button>
+                    </div>
                 </template>
 
                 <template x-if="mode === 'subject_detail'">
@@ -1656,10 +1663,10 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             <label class="p-3 rounded-xl border cursor-pointer transition flex flex-col justify-between"
                                    :class="zipFormat === 'pdf' ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 font-bold ring-2 ring-emerald-500/20' : 'border-slate-200 hover:border-slate-300 text-slate-700'">
                                 <div class="flex items-center justify-between mb-1">
-                                    <span class="text-sm">📄 Format PDF (.pdf)</span>
+                                    <span class="text-sm">📄 Format PDF Vektor / Teks Asli (.pdf)</span>
                                     <input type="radio" value="pdf" x-model="zipFormat" class="accent-emerald-600">
                                 </div>
-                                <span class="text-[10px] font-normal text-slate-500">Standar resmi cetak A4, siap kirim via WhatsApp atau Google Drive.</span>
+                                <span class="text-[10px] font-normal text-slate-500">Standar resmi cetak A4 berbasis vektor (teks asli bisa diseleksi & dicari, font tajam, ukuran ringan ~40 KB).</span>
                             </label>
 
                             <label class="p-3 rounded-xl border cursor-pointer transition flex flex-col justify-between"
@@ -2522,6 +2529,260 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     URL.revokeObjectURL(url);
                 },
 
+                buildStudentPdfDefinition(st) {
+                    const meta = this.db.meta || {};
+                    const subjects = this.db.subjects || [];
+
+                    const tableBody = [
+                        [
+                            { text: 'NO', style: 'tableHeader', alignment: 'center' },
+                            { text: 'MATA PELAJARAN & GURU PENGAMPU', style: 'tableHeader', alignment: 'left' },
+                            { text: 'NILAI', style: 'tableHeader', alignment: 'center' },
+                            { text: 'RATA2', style: 'tableHeader', alignment: 'center' },
+                            { text: 'MAX', style: 'tableHeader', alignment: 'center' },
+                            { text: 'KETERANGAN CAPAIAN', style: 'tableHeader', alignment: 'left' }
+                        ]
+                    ];
+
+                    subjects.forEach((sub, idx) => {
+                        const score = st.scores ? st.scores[sub.code] : null;
+                        const scoreStr = (score !== null && score !== undefined && score !== '') ? String(score) : 'Kosong';
+                        const avgStr = Number(sub.avg || 0).toFixed(1);
+                        const maxStr = String(sub.max || '-');
+
+                        let ket = 'Perlu Penguatan Menuju SAS';
+                        let ketColor = '#b45309';
+                        if (score === null || score === undefined || score === '') {
+                            ket = 'Menunggu Nilai Susulan';
+                            ketColor = '#e11d48';
+                        } else if (Number(score) >= Number(sub.avg)) {
+                            ket = 'Melampaui Rata-Rata Kelas';
+                            ketColor = '#047857';
+                        }
+
+                        const isEven = (idx % 2 === 1);
+                        const rowBg = isEven ? '#f8fafc' : '#ffffff';
+
+                        tableBody.push([
+                            { text: String(idx + 1), alignment: 'center', fontSize: 8, fillColor: rowBg },
+                            {
+                                stack: [
+                                    { text: sub.name, bold: true, fontSize: 8.5, color: '#0f172a' },
+                                    sub.guru ? { text: 'Guru: ' + sub.guru, fontSize: 7, color: '#047857', italics: true, margin: [0, 1, 0, 0] } : { text: '' }
+                                ],
+                                fillColor: rowBg
+                            },
+                            { text: scoreStr, alignment: 'center', bold: true, fontSize: 8.5, color: (scoreStr === 'Kosong' ? '#e11d48' : '#0f172a'), fillColor: rowBg },
+                            { text: avgStr, alignment: 'center', fontSize: 8, color: '#475569', fillColor: rowBg },
+                            { text: maxStr, alignment: 'center', fontSize: 8, color: '#475569', fillColor: rowBg },
+                            { text: ket, fontSize: 7.5, bold: true, color: ketColor, fillColor: rowBg }
+                        ]);
+                    });
+
+                    const att = st.attendance || { s: 0, i: 0, a: 0, persentase: 100, predikat: 'A' };
+                    const attPct = Number(att.persentase || 100).toFixed(2);
+                    const attPred = att.predikat || 'A';
+
+                    return {
+                        pageSize: 'A4',
+                        pageOrientation: 'portrait',
+                        pageMargins: [28, 20, 28, 20],
+                        content: [
+                            {
+                                columns: [
+                                    {
+                                        width: '*',
+                                        stack: [
+                                            { text: meta.yayasan || "Yayasan Perguruan Matholi'ul Anwar", fontSize: 8, bold: true, color: '#065f46', characterSpacing: 1 },
+                                            { text: meta.madrasah || "MA MATHOLI'UL ANWAR", fontSize: 13, bold: true, color: '#0f172a', margin: [0, 1, 0, 1] },
+                                            { text: meta.alamat || "Jl. Raya Simo Sungelebak, Karanggeneng, Lamongan, Jawa Timur", fontSize: 8, color: '#475569' }
+                                        ]
+                                    },
+                                    {
+                                        width: 'auto',
+                                        alignment: 'right',
+                                        stack: [
+                                            {
+                                                text: 'RAPORT MANDIRI STS GANJIL 2026/2027',
+                                                fontSize: 7.5,
+                                                bold: true,
+                                                color: '#ffffff',
+                                                background: '#064e3b',
+                                                margin: [0, 4, 0, 0],
+                                                alignment: 'center'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                canvas: [
+                                    { type: 'line', x1: 0, y1: 5, x2: 539, y2: 5, lineWidth: 1.5, lineColor: '#064e3b' },
+                                    { type: 'line', x1: 0, y1: 8, x2: 539, y2: 8, lineWidth: 0.5, lineColor: '#064e3b' }
+                                ],
+                                margin: [0, 0, 0, 6]
+                            },
+                            {
+                                table: {
+                                    widths: ['50%', '50%'],
+                                    body: [
+                                        [
+                                            {
+                                                stack: [
+                                                    { text: [{ text: 'Nama Siswa: ', color: '#64748b' }, { text: st.nama || '', bold: true, color: '#0f172a' }] },
+                                                    { text: [{ text: 'Username STS: ', color: '#64748b' }, { text: st.username || '', bold: true, color: '#065f46' }, { text: ' (Absen ' + (st.absen || '-') + ')', color: '#64748b' }] }
+                                                ],
+                                                fontSize: 8.5,
+                                                margin: [4, 3, 4, 3],
+                                                fillColor: '#f8fafc',
+                                                border: [true, true, false, true],
+                                                borderColor: ['#e2e8f0', '#e2e8f0', '#e2e8f0', '#e2e8f0']
+                                            },
+                                            {
+                                                stack: [
+                                                    { text: [{ text: 'Kelas: ', color: '#64748b' }, { text: meta.kelas || 'X.13', bold: true, color: '#0f172a' }] },
+                                                    { text: [{ text: 'Rerata Akhir: ', color: '#64748b' }, { text: (st.avg !== undefined ? st.avg.toFixed(2) : '0.00'), bold: true, color: '#065f46' }, { text: ' (Total: ' + (st.total || 0) + ') \u2022 Rata2 Kelas: ' + (meta.class_overall_avg || '-'), color: '#64748b' }] }
+                                                ],
+                                                fontSize: 8.5,
+                                                alignment: 'right',
+                                                margin: [4, 3, 4, 3],
+                                                fillColor: '#f8fafc',
+                                                border: [false, true, true, true],
+                                                borderColor: ['#e2e8f0', '#e2e8f0', '#e2e8f0', '#e2e8f0']
+                                            }
+                                        ]
+                                    ]
+                                },
+                                margin: [0, 0, 0, 6]
+                            },
+                            {
+                                table: {
+                                    headerRows: 1,
+                                    widths: [20, '*', 45, 45, 45, 125],
+                                    body: tableBody
+                                },
+                                layout: {
+                                    hLineWidth: () => 0.5,
+                                    vLineWidth: () => 0.5,
+                                    hLineColor: () => '#cbd5e1',
+                                    vLineColor: () => '#cbd5e1',
+                                    paddingLeft: () => 4,
+                                    paddingRight: () => 4,
+                                    paddingTop: () => 2,
+                                    paddingBottom: () => 2
+                                },
+                                margin: [0, 0, 0, 6]
+                            },
+                            {
+                                table: {
+                                    widths: ['25%', '25%', '25%', '25%'],
+                                    body: [
+                                        [
+                                            { text: [{ text: 'Sakit (S): ', color: '#64748b' }, { text: (att.s || 0) + ' hr', bold: true }], alignment: 'center', fontSize: 8 },
+                                            { text: [{ text: 'Izin (I): ', color: '#64748b' }, { text: (att.i || 0) + ' hr', bold: true }], alignment: 'center', fontSize: 8 },
+                                            { text: [{ text: 'Alpa (A): ', color: '#64748b' }, { text: (att.a || 0) + ' hr', bold: true }], alignment: 'center', fontSize: 8 },
+                                            { text: [{ text: 'Skor Kehadiran: ', color: '#64748b' }, { text: attPct + '% (' + attPred + ')', bold: true, color: '#065f46' }], alignment: 'center', fontSize: 8 }
+                                        ],
+                                        [
+                                            {
+                                                colSpan: 4,
+                                                text: [
+                                                    { text: '*Presensi dievaluasi seluruh semester ganjil (125 hari efektif) sesuai ledger resmi madrasah. ', color: '#64748b' },
+                                                    { text: 'Skor kehadiran ikut dibagi sebagai komponen penentu rerata nilai akhir siswa.', bold: true, color: '#065f46' }
+                                                ],
+                                                fontSize: 7,
+                                                margin: [0, 2, 0, 0]
+                                            },
+                                            {}, {}, {}
+                                        ]
+                                    ]
+                                },
+                                layout: {
+                                    fillColor: () => '#f8fafc',
+                                    hLineWidth: () => 0.5,
+                                    vLineWidth: () => 0.5,
+                                    hLineColor: () => '#cbd5e1',
+                                    vLineColor: () => '#cbd5e1',
+                                    paddingLeft: () => 4,
+                                    paddingRight: () => 4,
+                                    paddingTop: () => 2.5,
+                                    paddingBottom: () => 2.5
+                                },
+                                margin: [0, 0, 0, 5]
+                            },
+                            {
+                                table: {
+                                    widths: ['*'],
+                                    body: [
+                                        [
+                                            {
+                                                stack: [
+                                                    { text: 'Catatan & Evaluasi Wali Kelas:', bold: true, fontSize: 8, color: '#064e3b', margin: [0, 0, 0, 1] },
+                                                    { text: st.catatan_walas || 'Tingkatkan terus prestasi dan semangat belajarmu.', italics: true, fontSize: 8, color: '#1e293b' }
+                                                ],
+                                                fillColor: '#f8fafc',
+                                                border: [true, true, true, true],
+                                                borderColor: ['#cbd5e1', '#cbd5e1', '#cbd5e1', '#cbd5e1'],
+                                                margin: [4, 3, 4, 3]
+                                            }
+                                        ]
+                                    ]
+                                },
+                                margin: [0, 0, 0, 8]
+                            },
+                            {
+                                columns: [
+                                    {
+                                        width: '50%',
+                                        alignment: 'center',
+                                        fontSize: 8,
+                                        stack: [
+                                            { text: 'Orang Tua / Wali Siswa', color: '#475569' },
+                                            { text: '', margin: [0, 20, 0, 0] },
+                                            { text: '( ..................................................... )', color: '#64748b' }
+                                        ]
+                                    },
+                                    {
+                                        width: '50%',
+                                        alignment: 'center',
+                                        fontSize: 8,
+                                        stack: [
+                                            { text: 'Lamongan, ' + (meta.tanggal_cetak || 'Oktober 2026') + ' \u2022 Wali Kelas X.13', color: '#475569' },
+                                            { text: '', margin: [0, 20, 0, 0] },
+                                            { text: meta.wali_kelas || 'Dr. Zainul Hakim, M.H.I.', bold: true, decoration: 'underline', color: '#0f172a' }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        styles: {
+                            tableHeader: {
+                                bold: true,
+                                fontSize: 8,
+                                color: '#ffffff',
+                                fillColor: '#022c22'
+                            }
+                        },
+                        defaultStyle: {
+                            font: 'Roboto',
+                            lineHeight: 1.15
+                        }
+                    };
+                },
+
+                downloadSingleStudentPdf(st) {
+                    if (!st) return;
+                    if (typeof pdfMake === 'undefined') {
+                        alert('Library pdfMake belum termuat. Mohon periksa koneksi internet Anda.');
+                        return;
+                    }
+                    const cleanName = (st.nama || 'Siswa').replace(/[/\\?%*:|"<>]/g, '').trim();
+                    const absenStr = String(st.absen || '').padStart(2, '0');
+                    const filename = `Raport_STS_${absenStr ? absenStr + '_' : ''}${cleanName}.pdf`;
+                    const docDef = this.buildStudentPdfDefinition(st);
+                    pdfMake.createPdf(docDef).download(filename);
+                },
+
                 openZipExportModal() {
                     this.zipExportModal = true;
                     this.zipIsExporting = false;
@@ -2548,8 +2809,8 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         return;
                     }
 
-                    if (this.zipFormat === 'pdf' && typeof html2pdf === 'undefined') {
-                        alert('Library html2pdf belum termuat. Mohon periksa koneksi internet Anda atau pilih opsi format HTML.');
+                    if (this.zipFormat === 'pdf' && typeof pdfMake === 'undefined') {
+                        alert('Library pdfMake belum termuat. Mohon periksa koneksi internet Anda atau pilih opsi format HTML.');
                         return;
                     }
 
@@ -2586,63 +2847,22 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             // Beri waktu browser untuk merender progress bar
                             await new Promise(r => setTimeout(r, 40));
 
-                            const sheetEl = document.getElementById('raport-sheet-' + st.username);
-                            if (!sheetEl) {
-                                console.warn('Elemen raport tidak ditemukan untuk:', st.username);
-                                continue;
-                            }
-
                             if (this.zipFormat === 'pdf') {
-                                const clone = sheetEl.cloneNode(true);
-                                clone.querySelectorAll('.no-print').forEach(el => el.remove());
-                                clone.classList.remove('rounded-2xl', 'shadow', 'border', 'border-slate-200', 'p-8');
-                                clone.style.padding = '0';
-                                clone.style.margin = '0';
-                                clone.style.boxShadow = 'none';
-                                clone.style.border = 'none';
-                                clone.style.borderRadius = '0';
-                                clone.style.backgroundColor = '#ffffff';
-                                clone.style.width = '750px';
-
-                                const host = document.createElement('div');
-                                host.style.position = 'fixed';
-                                host.style.left = '0';
-                                host.style.top = '0';
-                                host.style.width = '750px';
-                                host.style.zIndex = '-9999';
-                                host.style.opacity = '1';
-                                host.style.backgroundColor = '#ffffff';
-                                host.appendChild(clone);
-                                document.body.appendChild(host);
-
-                                const opt = {
-                                    margin: [8, 8, 8, 8],
-                                    filename: `${baseFilename}.pdf`,
-                                    image: { type: 'jpeg', quality: 0.98 },
-                                    html2canvas: {
-                                        scale: 2,
-                                        useCORS: true,
-                                        logging: false,
-                                        scrollY: 0,
-                                        scrollX: 0,
-                                        windowWidth: 750
-                                    },
-                                    jsPDF: {
-                                        unit: 'mm',
-                                        format: 'a4',
-                                        orientation: 'portrait'
+                                const docDef = this.buildStudentPdfDefinition(st);
+                                const pdfBlob = await new Promise((resolve, reject) => {
+                                    try {
+                                        pdfMake.createPdf(docDef).getBlob(blob => resolve(blob));
+                                    } catch (e) {
+                                        reject(e);
                                     }
-                                };
-
-                                try {
-                                    const pdfBlob = await html2pdf().set(opt).from(clone).output('blob');
-                                    zip.file(`${baseFilename}.pdf`, pdfBlob);
-                                } finally {
-                                    if (document.body.contains(host)) {
-                                        document.body.removeChild(host);
-                                    }
-                                }
+                                });
+                                zip.file(`${baseFilename}.pdf`, pdfBlob);
                             } else {
+                                const sheetEl = document.getElementById('raport-sheet-' + st.username);
+                                if (!sheetEl) {
+                                    console.warn('Elemen raport tidak ditemukan untuk:', st.username);
+                                    continue;
+                                }
                                 const clone = sheetEl.cloneNode(true);
                                 clone.querySelectorAll('.no-print').forEach(el => el.remove());
                                 clone.classList.remove('rounded-2xl', 'shadow', 'border', 'border-slate-200', 'p-8');
