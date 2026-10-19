@@ -88,6 +88,10 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 break-inside: avoid !important;
                 page-break-inside: avoid !important;
             }
+            .executive-summary-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            }
         }
     </style>
 </head>
@@ -376,7 +380,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     <div class="text-xs text-amber-900 font-semibold">
                         👁️ Mode Pratinjau Wali Kelas • Peringkat Kelas Siswa Ini:
                         <span class="font-extrabold underline" x-text="currentStudent.rank ? 'Peringkat ' + currentStudent.rank + ' dari ' + db.students.length + ' Siswa' : 'Belum Ada Nilai'"></span>
-                        <span class="text-amber-700 font-normal">(Angka peringkat ini disembunyikan dari layar siswa/wali murid)</span>
+                        <span class="text-amber-700 font-normal">(Peringkat aktif di web, disembunyikan otomatis saat dicetak ke lembar fisik/PDF)</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <button @click="openEditModal(currentStudent)" class="px-3 py-1 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold">
@@ -431,7 +435,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     </template>
 
                     <!-- KARTU RINGKASAN EKSEKUTIF -->
-                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-5">
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-5 executive-summary-grid">
                         <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-center">
                             <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-800">Rata-Rata Akhir</p>
                             <p class="text-xl font-black text-emerald-950 mt-0.5" x-text="currentStudent.avg.toFixed(2)"></p>
@@ -453,10 +457,11 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             <p class="text-[10px] font-semibold" :class="currentStudent.avg >= db.meta.class_overall_avg ? 'text-emerald-700' : 'text-amber-700'"
                                x-text="currentStudent.avg >= db.meta.class_overall_avg ? 'Di Atas Rata-Rata' : 'Perlu Ditingkatkan'"></p>
                         </div>
-                        <div class="p-3 rounded-xl bg-amber-50/70 border border-amber-200 text-center">
+                        <!-- Peringkat Kelas: Tampil di Web, Disembunyikan Saat Cetak Raport Fisik -->
+                        <div class="p-3 rounded-xl bg-amber-50/70 border border-amber-200 text-center no-print">
                             <p class="text-[10px] font-bold uppercase tracking-wider text-amber-800">Peringkat Kelas</p>
                             <p class="text-xl font-black text-amber-900 mt-0.5" x-text="currentStudent.rank ? '#' + currentStudent.rank : '-'"></p>
-                            <p class="text-[10px] font-bold text-amber-700">Dari <span x-text="db.students.length"></span> Siswa</p>
+                            <p class="text-[10px] font-bold text-amber-700">Dari <span x-text="db.students.length"></span> Siswa <span class="text-[9px] font-normal text-slate-500 block">(Khusus Tampilan Web)</span></p>
                         </div>
                     </div>
 
@@ -680,7 +685,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <p>Username STS: <strong class="font-mono text-emerald-800" x-text="st.username"></strong> (Absen <span x-text="st.absen"></span>)</p>
                             </div>
                             <div class="text-right">
-                                <p>Kelas: <strong x-text="db.meta.kelas"></strong> • Peringkat: <strong class="text-emerald-900" x-text="st.rank ? '#' + st.rank : '-'"></strong> / <span x-text="db.students.length"></span></p>
+                                <p>Kelas: <strong x-text="db.meta.kelas"></strong><span class="no-print"> • Peringkat: <strong class="text-emerald-900" x-text="st.rank ? '#' + st.rank : '-'"></strong> / <span x-text="db.students.length"></span></span></p>
                                 <p>Rerata Akhir (Komposit): <strong x-text="st.avg.toFixed(2)"></strong> (Total: <span x-text="st.total"></span>) • Rata2 Kelas: <span x-text="db.meta.class_overall_avg"></span></p>
                             </div>
                         </div>
@@ -722,7 +727,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             </div>
                             <div class="flex justify-between items-center pt-1 text-[9px] text-slate-500">
                                 <span>*Presensi dievaluasi seluruh semester ganjil (125 hari efektif) sesuai ledger resmi madrasah.</span>
-                                <span class="font-bold text-emerald-800">Skor kehadiran ikut dibagi sebagai komponen penentu peringkat siswa.</span>
+                                <span class="font-bold text-emerald-800">Skor kehadiran ikut dibagi sebagai komponen penentu rerata nilai akhir siswa.</span>
                             </div>
                         </div>
 
