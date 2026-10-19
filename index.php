@@ -39,6 +39,173 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_GET['action']) && $
     exit;
 }
 
+// Endpoint API untuk Export ZIP Langsung dari Server (Format HTML Mandiri Siap Cetak Tiap Siswa)
+if (isset($_GET['action']) && $_GET['action'] === 'export_zip_server') {
+    $current_data = file_exists($json_file) ? json_decode(file_get_contents($json_file), true) : null;
+    if (!$current_data || empty($current_data['students'])) {
+        http_response_code(404);
+        exit('Data siswa tidak ditemukan.');
+    }
+
+    $naming = $_GET['naming'] ?? 'name_only';
+    $zip = new ZipArchive();
+    $temp_zip = tempnam(sys_get_temp_dir(), 'raport_zip_');
+    if ($zip->open($temp_zip, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
+        http_response_code(500);
+        exit('Gagal membuat arsip ZIP di server.');
+    }
+
+    $meta = $current_data['meta'] ?? [];
+    $subjects = $current_data['subjects'] ?? [];
+
+    foreach ($current_data['students'] as $idx => $st) {
+        $clean_name = preg_replace('/[\/\\\\?%*:|"<>]/', '', trim($st['nama']));
+        $fn = ($naming === 'absen_name') ? sprintf("%02d. %s.html", $st['absen'] ?? ($idx + 1), $clean_name) : $clean_name . '.html';
+
+        ob_start();
+        ?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raport STS - <?= htmlspecialchars($st['nama']) ?> (<?= htmlspecialchars($st['username']) ?>)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; padding: 16px 0; }
+        .font-arab { font-family: 'Amiri', serif; }
+        @media print {
+            @page { size: A4 portrait; margin: 8mm 10mm; }
+            body { background: #fff !important; padding: 0 !important; }
+            .no-print { display: none !important; }
+            .raport-sheet { box-shadow: none !important; border: none !important; padding: 0 !important; width: 100% !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print max-w-[210mm] mx-auto mb-4 px-4 flex items-center justify-between">
+        <span class="text-xs text-slate-500 font-semibold">Lembar Raport Mandiri STS: <strong><?= htmlspecialchars($st['nama']) ?></strong></span>
+        <button onclick="window.print()" class="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow transition">
+            🖨️ Cetak / Simpan PDF Lembar Ini
+        </button>
+    </div>
+    <div class="raport-sheet max-w-[210mm] mx-auto bg-white p-8 rounded-2xl shadow border border-slate-200">
+        <!-- KOP -->
+        <div class="border-b-4 border-double border-emerald-900 pb-2.5 mb-3 flex items-center justify-between">
+            <div>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-800"><?= htmlspecialchars($meta['yayasan'] ?? "Yayasan Perguruan Matholi'ul Anwar") ?></p>
+                <h1 class="text-lg font-extrabold text-slate-900"><?= htmlspecialchars($meta['madrasah'] ?? 'MA MATHOLI\'UL ANWAR') ?></h1>
+                <p class="text-[11px] text-slate-600"><?= htmlspecialchars($meta['alamat'] ?? '') ?></p>
+            </div>
+            <div class="text-right">
+                <span class="inline-block px-2.5 py-0.5 rounded bg-emerald-900 text-white font-bold text-[10px] uppercase">Raport Mandiri STS Ganjil 2026/2027</span>
+            </div>
+        </div>
+
+        <!-- IDENTITAS -->
+        <div class="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-lg border border-slate-200 mb-3 text-[11px]">
+            <div>
+                <p>Nama Siswa: <strong><?= htmlspecialchars($st['nama']) ?></strong></p>
+                <p>Username STS: <strong class="font-mono text-emerald-800"><?= htmlspecialchars($st['username']) ?></strong> (Absen <?= htmlspecialchars($st['absen']) ?>)</p>
+            </div>
+            <div class="text-right">
+                <p>Kelas: <strong><?= htmlspecialchars($meta['kelas'] ?? '') ?></strong></p>
+                <p>Rerata Akhir (Komposit): <strong><?= number_format((float)($st['avg'] ?? 0), 2) ?></strong> (Total: <?= htmlspecialchars($st['total'] ?? '') ?>) • Rata2 Kelas: <?= htmlspecialchars($meta['class_overall_avg'] ?? '') ?></p>
+            </div>
+        </div>
+
+        <!-- TABEL 17 MAPEL -->
+        <table class="w-full text-left border-collapse text-[11px] border border-slate-300 mb-3">
+            <thead>
+                <tr class="bg-emerald-950 text-white text-[10px] uppercase">
+                    <th class="py-1 px-2 border border-slate-300 text-center w-8">No</th>
+                    <th class="py-1 px-2.5 border border-slate-300">Mata Pelajaran & Guru Pengampu</th>
+                    <th class="py-1 px-2 border border-slate-300 text-center w-20">Nilai Siswa</th>
+                    <th class="py-1 px-2 border border-slate-300 text-center w-20">Rata2 Kelas</th>
+                    <th class="py-1 px-2 border border-slate-300 text-center w-20">Tertinggi</th>
+                    <th class="py-1 px-2.5 border border-slate-300">Keterangan Capaian</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($subjects as $sidx => $sub): 
+                    $score = $st['scores'][$sub['code']] ?? null;
+                    $score_display = ($score !== null) ? $score : 'Kosong';
+                    $sub_avg = (float)($sub['avg'] ?? 0);
+                    $sub_max = $sub['max'] ?? '-';
+                    $ket = ($score === null) ? 'Menunggu Nilai Susulan' : (($score >= $sub_avg) ? '✓ Melampaui Rata-Rata Kelas' : 'Perlu Penguatan Menuju SAS');
+                ?>
+                <tr class="border-b border-slate-200">
+                    <td class="py-1 px-2 border border-slate-300 text-center"><?= $sidx + 1 ?></td>
+                    <td class="py-1 px-2.5 border border-slate-300">
+                        <div class="font-semibold text-slate-900 leading-tight"><?= htmlspecialchars($sub['name']) ?></div>
+                        <?php if (!empty($sub['guru'])): ?>
+                        <div class="text-[9px] text-slate-500 font-normal leading-tight mt-0.5">
+                            <span class="text-emerald-800 font-medium">Guru:</span> <?= htmlspecialchars($sub['guru']) ?>
+                        </div>
+                        <?php endif; ?>
+                    </td>
+                    <td class="py-1 px-2 border border-slate-300 text-center font-bold"><?= htmlspecialchars($score_display) ?></td>
+                    <td class="py-1 px-2 border border-slate-300 text-center"><?= number_format($sub_avg, 1) ?></td>
+                    <td class="py-1 px-2 border border-slate-300 text-center"><?= htmlspecialchars($sub_max) ?></td>
+                    <td class="py-1 px-2.5 border border-slate-300 text-[10px] font-semibold"><?= htmlspecialchars($ket) ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <!-- REKAP PRESENSI -->
+        <div class="border border-slate-300 p-2 rounded-lg bg-slate-50 text-[10px] mb-3">
+            <div class="grid grid-cols-4 gap-2 text-center pb-1.5 border-b border-slate-200">
+                <div>Sakit (S): <strong><?= (int)($st['attendance']['s'] ?? 0) ?> hr</strong></div>
+                <div>Izin (I): <strong><?= (int)($st['attendance']['i'] ?? 0) ?> hr</strong></div>
+                <div>Alpa (A): <strong><?= (int)($st['attendance']['a'] ?? 0) ?> hr</strong></div>
+                <div>Skor Kehadiran: <strong class="text-emerald-800"><?= number_format((float)($st['attendance']['persentase'] ?? 100), 2) ?>% (<?= htmlspecialchars($st['attendance']['predikat'] ?? 'A') ?>)</strong></div>
+            </div>
+            <div class="flex justify-between items-center pt-1 text-[9px] text-slate-500">
+                <span>*Presensi dievaluasi seluruh semester ganjil (125 hari efektif) sesuai ledger resmi madrasah.</span>
+                <span class="font-bold text-emerald-800">Skor kehadiran ikut dibagi sebagai komponen penentu rerata nilai akhir siswa.</span>
+            </div>
+        </div>
+
+        <!-- CATATAN WALAS -->
+        <div class="p-3 rounded-lg bg-slate-50 border border-slate-300 mb-4 text-[11px]">
+            <p class="font-bold text-emerald-950 mb-0.5">Catatan & Evaluasi Wali Kelas:</p>
+            <p class="italic text-slate-800"><?= htmlspecialchars($st['catatan_walas'] ?? '') ?></p>
+        </div>
+
+        <!-- TTD -->
+        <div class="grid grid-cols-2 gap-8 text-[11px] text-center">
+            <div>
+                <p>Orang Tua / Wali Siswa</p>
+                <div class="h-14"></div>
+                <p>( ..................................................... )</p>
+            </div>
+            <div>
+                <p>Lamongan, <?= htmlspecialchars($meta['tanggal_cetak'] ?? 'Oktober 2026') ?> • Wali Kelas X.13</p>
+                <div class="h-14"></div>
+                <p class="font-bold underline"><?= htmlspecialchars($meta['wali_kelas'] ?? '') ?></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+        <?php
+        $sheet_html = ob_get_clean();
+        $zip->addFromString($fn, $sheet_html);
+    }
+
+    $zip->close();
+    header('Content-Type: application/zip');
+    header('Content-Disposition: attachment; filename="Raport_STS_X13_Semua_Siswa.zip"');
+    header('Content-Length: ' . filesize($temp_zip));
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    readfile($temp_zip);
+    @unlink($temp_zip);
+    exit;
+}
+
 $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
 ?>
 <!DOCTYPE html>
@@ -48,6 +215,8 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raport Mandiri STS Ganjil 2026/2027 - Kelas X.13 | MA Matholi'ul Anwar</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -125,10 +294,22 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 </button>
 
                 <!-- Tombol Cetak Sesuai Mode Aktif -->
-                <template x-if="mode === 'student' || mode === 'print_all'">
+                <template x-if="mode === 'print_all'">
+                    <div class="flex items-center gap-2">
+                        <button @click="openZipExportModal()" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow transition flex items-center gap-1.5">
+                            <span>📦 Export ZIP (Per Siswa)</span>
+                        </button>
+                        <button @click="window.print()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow transition flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                            <span x-text="'Cetak Semua (' + db.students.length + ' Hal A4)'"></span>
+                        </button>
+                    </div>
+                </template>
+
+                <template x-if="mode === 'student'">
                     <button @click="window.print()" class="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow transition flex items-center gap-1.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                        <span x-text="mode === 'print_all' ? 'Cetak Semua (' + db.students.length + ' Hal A4)' : 'Cetak / Simpan PDF'"></span>
+                        <span>Cetak / Simpan PDF</span>
                     </button>
                 </template>
 
@@ -256,6 +437,9 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     </button>
                     <button @click="mode = 'print_all'" class="px-3.5 py-2 rounded-xl bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold shadow transition">
                         🖨️ Cetak Massal (<span x-text="db.students.length"></span> Siswa)
+                    </button>
+                    <button @click="openZipExportModal()" class="px-3.5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow transition flex items-center gap-1.5">
+                        <span>📦</span> Export ZIP (Per Siswa)
                     </button>
                 </div>
             </div>
@@ -667,15 +851,31 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
         <!-- ================= 4. MODE CETAK MASSAL SISWA (A4 PAGE-BREAK) ================= -->
         <template x-if="mode === 'print_all'">
             <div class="space-y-8">
-                <div class="p-4 rounded-xl bg-amber-50 border border-amber-300 flex items-center justify-between no-print">
-                    <div class="text-xs text-amber-900">
-                        <strong>Mode Cetak Massal <span x-text="db.students.length"></span> Siswa Aktif:</strong> Tekan tombol <strong>"Cetak Semua (<span x-text="db.students.length"></span> Hal A4)"</strong> di kanan atas atau tekan <code>Ctrl + P</code>. Setiap siswa otomatis terpisah menjadi 1 halaman A4 utuh.
+                <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-300 flex flex-wrap items-center justify-between gap-3 no-print">
+                    <div class="text-xs text-emerald-950">
+                        <strong class="text-emerald-900 font-extrabold flex items-center gap-1.5 text-sm">
+                            <span>🖨️</span> Mode Cetak & Export Massal (<span x-text="db.students.length"></span> Siswa Aktif)
+                        </strong>
+                        <p class="mt-0.5 text-emerald-800">
+                            Unduh seluruh lembar raport menjadi <strong>file-file terpisah per siswa dalam format ZIP</strong> (PDF/HTML), atau tekan <strong>"Cetak Semua"</strong> untuk cetak fisik sekaligus.
+                        </p>
                     </div>
-                    <button @click="mode = 'walas'" class="px-3 py-1.5 rounded-lg bg-slate-800 text-white text-xs font-bold">← Kembali ke Dashboard</button>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <button @click="openZipExportModal()" class="px-3.5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold shadow transition flex items-center gap-1.5">
+                            <span>📦</span> Export ZIP (File Per Siswa)
+                        </button>
+                        <button @click="window.print()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow transition flex items-center gap-1.5">
+                            <span>🖨️</span> Cetak Semua (<span x-text="db.students.length"></span> Hal A4)
+                        </button>
+                        <button @click="mode = 'walas'" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold">
+                            ← Kembali ke Dashboard
+                        </button>
+                    </div>
                 </div>
 
                 <template x-for="st in db.students" :key="st.username">
-                    <div class="raport-sheet page-break bg-white rounded-2xl shadow border border-slate-200 p-8 print:p-0">
+                    <div class="raport-sheet page-break bg-white rounded-2xl shadow border border-slate-200 p-8 print:p-0"
+                         :id="'raport-sheet-' + st.username">
                         <!-- KOP -->
                         <div class="border-b-4 border-double border-emerald-900 pb-2.5 mb-3 flex items-center justify-between">
                             <div>
@@ -1428,6 +1628,158 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
         </template>
     </div>
 
+    <!-- MODAL EXPORT MASSAL KE ZIP (FILE TERPISAH PER SISWA) -->
+    <div x-show="zipExportModal" x-cloak class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto no-print">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 my-8">
+            <!-- Header Modal -->
+            <div class="flex items-start justify-between border-b border-slate-200 pb-3 mb-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl shrink-0 font-bold shadow-xs">
+                        📦
+                    </div>
+                    <div>
+                        <h3 class="text-base font-extrabold text-slate-900">Export Massal Raport (ZIP)</h3>
+                        <p class="text-xs text-slate-500">Unduh raport <strong x-text="db.students.length"></strong> siswa dalam file terpisah yang digabung dalam ZIP</p>
+                    </div>
+                </div>
+                <button @click="if (!zipIsExporting) zipExportModal = false" :disabled="zipIsExporting"
+                        class="text-slate-400 hover:text-slate-700 font-bold text-lg disabled:opacity-40">✕</button>
+            </div>
+
+            <!-- Kondisi Saat Tidak Sedang Exporting dan Belum Selesai -->
+            <template x-if="!zipIsExporting && !zipExportDone">
+                <div class="space-y-4 text-xs">
+                    <!-- Pilihan Format File -->
+                    <div>
+                        <label class="block font-bold text-slate-800 mb-1.5">1. Pilih Format File:</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="p-3 rounded-xl border cursor-pointer transition flex flex-col justify-between"
+                                   :class="zipFormat === 'pdf' ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 font-bold ring-2 ring-emerald-500/20' : 'border-slate-200 hover:border-slate-300 text-slate-700'">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm">📄 Format PDF (.pdf)</span>
+                                    <input type="radio" value="pdf" x-model="zipFormat" class="accent-emerald-600">
+                                </div>
+                                <span class="text-[10px] font-normal text-slate-500">Standar resmi cetak A4, siap kirim via WhatsApp atau Google Drive.</span>
+                            </label>
+
+                            <label class="p-3 rounded-xl border cursor-pointer transition flex flex-col justify-between"
+                                   :class="zipFormat === 'html' ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 font-bold ring-2 ring-emerald-500/20' : 'border-slate-200 hover:border-slate-300 text-slate-700'">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-sm">🌐 Format HTML (.html)</span>
+                                    <input type="radio" value="html" x-model="zipFormat" class="accent-emerald-600">
+                                </div>
+                                <span class="text-[10px] font-normal text-slate-500">Halaman web mandiri siap cetak offline, proses sangat cepat.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Pilihan Penamaan File -->
+                    <div>
+                        <label class="block font-bold text-slate-800 mb-1.5">2. Format Nama File:</label>
+                        <div class="space-y-1.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" value="name_only" x-model="zipNaming" class="accent-emerald-600">
+                                <div>
+                                    <span class="font-semibold text-slate-800">Nama Siswa Saja (Sesuai Permintaan)</span>
+                                    <span class="block text-[10px] text-slate-500">Contoh: <code>ACHMAD ARIF FATHONI.pdf</code></span>
+                                </div>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer pt-1 border-t border-slate-200">
+                                <input type="radio" value="absen_name" x-model="zipNaming" class="accent-emerald-600">
+                                <div>
+                                    <span class="font-semibold text-slate-800">Nomor Absen. Nama Siswa (Terurut Rapi)</span>
+                                    <span class="block text-[10px] text-slate-500">Contoh: <code>01. ACHMAD ARIF FATHONI.pdf</code></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ringkasan Paket Ekspor -->
+                    <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-900 text-[11px] flex items-start gap-2">
+                        <span class="text-sm">ℹ️</span>
+                        <div>
+                            <p><strong>Arsip yang akan dihasilkan:</strong> File <code>Raport_STS_X13_[FORMAT]_Semua_Siswa.zip</code> yang di dalamnya berisi <strong><span x-text="db.students.length"></span> file</strong> terpisah untuk masing-masing siswa (tanpa peringkat kelas pada lembar cetak).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-3 border-t border-slate-200">
+                        <a :href="'index.php?action=export_zip_server&naming=' + zipNaming"
+                           class="text-[11px] text-emerald-700 hover:text-emerald-900 font-semibold underline flex items-center gap-1"
+                           title="Unduh langsung arsip HTML ZIP dari server">
+                            <span>⚡ Ekspor Instan Server (HTML ZIP)</span>
+                        </a>
+
+                        <div class="flex gap-2">
+                            <button @click="zipExportModal = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition">
+                                Batal
+                            </button>
+                            <button @click="startZipExport()" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold shadow transition flex items-center gap-1.5">
+                                <span>🚀 Mulai Export ZIP</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Tampilan Saat Proses Ekspor Sedang Berjalan -->
+            <template x-if="zipIsExporting">
+                <div class="space-y-4 py-2">
+                    <div class="text-center space-y-2">
+                        <div class="inline-block animate-spin text-3xl">⏳</div>
+                        <h4 class="font-bold text-slate-900 text-sm">Sedang Mengekspor File Raport...</h4>
+                        <p class="text-xs text-slate-600 truncate max-w-sm mx-auto" x-text="zipCurrentStudent"></p>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-semibold text-slate-700">
+                            <span>Progress: <span x-text="zipCurrentIndex"></span> / <span x-text="zipTotal"></span> Siswa</span>
+                            <span class="text-emerald-800 font-extrabold" x-text="zipProgress + '%'"></span>
+                        </div>
+                        <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+                            <div class="bg-emerald-600 h-3 rounded-full transition-all duration-150"
+                                 :style="'width: ' + zipProgress + '%'"></div>
+                        </div>
+                        <p class="text-[10px] text-slate-500 text-center mt-1">Harap jangan menutup browser selama proses ekspor berlangsung.</p>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-200 text-center">
+                        <button @click="cancelZipExport()" class="px-4 py-1.5 rounded-lg bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 text-xs font-bold transition">
+                            ✕ Batalkan Proses
+                        </button>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Tampilan Saat Selesai -->
+            <template x-if="zipExportDone">
+                <div class="space-y-4 py-2 text-center">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-extrabold text-slate-900 text-base">Export ZIP Berhasil!</h4>
+                        <p class="text-xs text-slate-600 mt-1">
+                            File arsip <strong><span x-text="'Raport_STS_X13_' + zipFormat.toUpperCase() + '_Semua_Siswa.zip'"></span></strong> telah diunduh secara otomatis ke komputer Anda.
+                        </p>
+                        <p class="text-[11px] text-emerald-800 font-semibold mt-1">
+                            Berisi <span x-text="zipTotal"></span> file raport terpisah dengan nama masing-masing siswa.
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-200 flex justify-center gap-2">
+                        <button @click="startZipExport()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
+                            🔄 Ekspor Ulang
+                        </button>
+                        <button @click="zipExportModal = false" class="px-5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold transition">
+                            Tutup
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+
     <!-- FOOTER (NON-PRINT) -->
     <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500 no-print mt-8">
         <p>Sistem Informasi Raport Mandiri Kelas X.13 • <strong>MA Matholi'ul Anwar Lamongan</strong></p>
@@ -1463,6 +1815,18 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 subjectStudentSort: 'rank',
                 subjectStudentSearch: '',
                 activeSubjectStats: null,
+
+                // State Export Massal ke ZIP
+                zipExportModal: false,
+                zipFormat: 'pdf', // 'pdf' | 'html'
+                zipNaming: 'name_only', // 'name_only' | 'absen_name'
+                zipIsExporting: false,
+                zipProgress: 0,
+                zipCurrentIndex: 0,
+                zipTotal: 0,
+                zipCurrentStudent: '',
+                zipExportDone: false,
+                zipCancelled: false,
 
                 initApp() {
                     const params = new URLSearchParams(window.location.search);
@@ -2156,6 +2520,205 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     a.download = 'data_x13.json';
                     a.click();
                     URL.revokeObjectURL(url);
+                },
+
+                openZipExportModal() {
+                    this.zipExportModal = true;
+                    this.zipIsExporting = false;
+                    this.zipProgress = 0;
+                    this.zipCurrentIndex = 0;
+                    this.zipTotal = this.db.students ? this.db.students.length : 0;
+                    this.zipCurrentStudent = '';
+                    this.zipExportDone = false;
+                    this.zipCancelled = false;
+                    if (this.mode !== 'print_all') {
+                        this.mode = 'print_all';
+                    }
+                },
+
+                cancelZipExport() {
+                    this.zipCancelled = true;
+                    this.zipIsExporting = false;
+                    this.showToast('Proses export ZIP dibatalkan.', 'error');
+                },
+
+                async startZipExport() {
+                    if (typeof JSZip === 'undefined') {
+                        alert('Library JSZip belum termuat. Mohon periksa koneksi internet Anda atau gunakan tombol Ekspor Instan Server.');
+                        return;
+                    }
+
+                    if (this.zipFormat === 'pdf' && typeof html2pdf === 'undefined') {
+                        alert('Library html2pdf belum termuat. Mohon periksa koneksi internet Anda atau pilih opsi format HTML.');
+                        return;
+                    }
+
+                    this.zipIsExporting = true;
+                    this.zipExportDone = false;
+                    this.zipCancelled = false;
+                    this.zipProgress = 0;
+                    this.zipTotal = this.db.students.length;
+
+                    // Pastikan DOM sudah ter-render sempurna
+                    await this.$nextTick();
+                    await new Promise(r => setTimeout(r, 150));
+
+                    const zip = new JSZip();
+
+                    try {
+                        for (let i = 0; i < this.db.students.length; i++) {
+                            if (this.zipCancelled) {
+                                break;
+                            }
+
+                            const st = this.db.students[i];
+                            const cleanName = (st.nama || 'Siswa').replace(/[/\\?%*:|"<>]/g, '').trim();
+                            let baseFilename = cleanName;
+                            if (this.zipNaming === 'absen_name') {
+                                const absenStr = String(st.absen || (i + 1)).padStart(2, '0');
+                                baseFilename = `${absenStr}. ${cleanName}`;
+                            }
+
+                            this.zipCurrentIndex = i + 1;
+                            this.zipCurrentStudent = `${baseFilename}.${this.zipFormat}`;
+                            this.zipProgress = Math.round((i / this.zipTotal) * 100);
+
+                            // Beri waktu browser untuk merender progress bar
+                            await new Promise(r => setTimeout(r, 40));
+
+                            const sheetEl = document.getElementById('raport-sheet-' + st.username);
+                            if (!sheetEl) {
+                                console.warn('Elemen raport tidak ditemukan untuk:', st.username);
+                                continue;
+                            }
+
+                            if (this.zipFormat === 'pdf') {
+                                const clone = sheetEl.cloneNode(true);
+                                clone.querySelectorAll('.no-print').forEach(el => el.remove());
+                                clone.classList.remove('rounded-2xl', 'shadow', 'border', 'border-slate-200', 'p-8');
+                                clone.style.padding = '0';
+                                clone.style.margin = '0';
+                                clone.style.boxShadow = 'none';
+                                clone.style.border = 'none';
+                                clone.style.borderRadius = '0';
+                                clone.style.backgroundColor = '#ffffff';
+                                clone.style.width = '750px';
+
+                                const host = document.createElement('div');
+                                host.style.position = 'fixed';
+                                host.style.left = '0';
+                                host.style.top = '0';
+                                host.style.width = '750px';
+                                host.style.zIndex = '-9999';
+                                host.style.opacity = '1';
+                                host.style.backgroundColor = '#ffffff';
+                                host.appendChild(clone);
+                                document.body.appendChild(host);
+
+                                const opt = {
+                                    margin: [8, 8, 8, 8],
+                                    filename: `${baseFilename}.pdf`,
+                                    image: { type: 'jpeg', quality: 0.98 },
+                                    html2canvas: {
+                                        scale: 2,
+                                        useCORS: true,
+                                        logging: false,
+                                        scrollY: 0,
+                                        scrollX: 0,
+                                        windowWidth: 750
+                                    },
+                                    jsPDF: {
+                                        unit: 'mm',
+                                        format: 'a4',
+                                        orientation: 'portrait'
+                                    }
+                                };
+
+                                try {
+                                    const pdfBlob = await html2pdf().set(opt).from(clone).output('blob');
+                                    zip.file(`${baseFilename}.pdf`, pdfBlob);
+                                } finally {
+                                    if (document.body.contains(host)) {
+                                        document.body.removeChild(host);
+                                    }
+                                }
+                            } else {
+                                const clone = sheetEl.cloneNode(true);
+                                clone.querySelectorAll('.no-print').forEach(el => el.remove());
+                                clone.classList.remove('rounded-2xl', 'shadow', 'border', 'border-slate-200', 'p-8');
+                                clone.style.padding = '8mm 10mm';
+                                clone.style.maxWidth = '210mm';
+                                clone.style.margin = '0 auto';
+
+                                const htmlString = `<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raport STS - ${st.nama} (${st.username})</title>
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; padding: 16px 0; }
+        .font-arab { font-family: 'Amiri', serif; }
+        @media print {
+            @page { size: A4 portrait; margin: 8mm 10mm; }
+            body { background: #fff !important; padding: 0 !important; }
+            .no-print { display: none !important; }
+            .print-sheet { box-shadow: none !important; border: none !important; padding: 0 !important; width: 100% !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print max-w-[210mm] mx-auto mb-4 px-4 flex items-center justify-between">
+        <span class="text-xs text-slate-500 font-semibold">Lembar Raport Mandiri STS: <strong>${st.nama}</strong> (${st.username})</span>
+        <button onclick="window.print()" class="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow transition">
+            🖨️ Cetak / Simpan PDF Lembar Ini
+        </button>
+    </div>
+    <div class="print-sheet max-w-[210mm] mx-auto bg-white p-8 rounded-2xl shadow border border-slate-200">
+        ${clone.innerHTML}
+    </div>
+</body>
+</html>`;
+
+                                zip.file(`${baseFilename}.html`, htmlString);
+                            }
+                        }
+
+                        if (this.zipCancelled) {
+                            this.zipIsExporting = false;
+                            return;
+                        }
+
+                        this.zipProgress = 100;
+                        this.zipCurrentStudent = 'Sedang mengompresi dan membuat file ZIP...';
+                        await new Promise(r => setTimeout(r, 60));
+
+                        const zipBlob = await zip.generateAsync({
+                            type: 'blob',
+                            compression: 'DEFLATE',
+                            compressionOptions: { level: 6 }
+                        });
+
+                        const zipFilename = `Raport_STS_X13_${this.zipFormat.toUpperCase()}_Semua_Siswa.zip`;
+                        const downloadUrl = URL.createObjectURL(zipBlob);
+                        const link = document.createElement('a');
+                        link.href = downloadUrl;
+                        link.download = zipFilename;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        setTimeout(() => URL.revokeObjectURL(downloadUrl), 3000);
+
+                        this.zipIsExporting = false;
+                        this.zipExportDone = true;
+                        this.showToast(`Berhasil mengunduh ${this.db.students.length} file dalam ${zipFilename}!`, 'success');
+                    } catch (err) {
+                        console.error('Error saat export ZIP:', err);
+                        alert('Terjadi kesalahan saat memproses ZIP: ' + (err.message || err));
+                        this.zipIsExporting = false;
+                    }
                 }
             };
         }
