@@ -881,95 +881,272 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 </div>
 
                 <template x-for="st in db.students" :key="st.username">
-                    <div class="raport-sheet page-break bg-white rounded-2xl shadow border border-slate-200 p-8 print:p-0"
+                    <div class="raport-sheet page-break bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-10 print:p-0 mb-8 print:mb-0"
                          :id="'raport-sheet-' + st.username">
-                        <!-- KOP -->
-                        <div class="border-b-4 border-double border-emerald-900 pb-2.5 mb-3 flex items-center justify-between">
+                        <!-- KOP MADRASAH -->
+                        <div class="border-b-4 border-double border-emerald-900 pb-3 mb-4 flex items-center justify-between gap-4">
                             <div>
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-emerald-800">Yayasan Perguruan Matholi'ul Anwar</p>
-                                <h1 class="text-lg font-extrabold text-slate-900" x-text="db.meta.madrasah"></h1>
-                                <p class="text-[11px] text-slate-600" x-text="db.meta.alamat"></p>
+                                <p class="text-[11px] font-bold uppercase tracking-widest text-emerald-800">Yayasan Perguruan Matholi'ul Anwar</p>
+                                <h1 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight" x-text="db.meta.madrasah"></h1>
+                                <p class="text-xs text-slate-600" x-text="db.meta.alamat"></p>
                             </div>
                             <div class="text-right">
-                                <span class="inline-block px-2.5 py-0.5 rounded bg-emerald-900 text-white font-bold text-[10px] uppercase">Raport Mandiri STS Ganjil 2026/2027</span>
+                                <span class="inline-block px-3 py-1 rounded-lg bg-emerald-900 text-white font-bold text-xs uppercase tracking-wider">
+                                    Raport Mandiri Wali Kelas
+                                </span>
+                                <p class="text-[11px] text-slate-500 mt-1 font-semibold">Sumatif Tengah Semester (STS) Ganjil 2026/2027</p>
                             </div>
                         </div>
 
-                        <!-- IDENTITAS -->
-                        <div class="grid grid-cols-2 gap-2 bg-slate-50 p-3 rounded-lg border border-slate-200 mb-3 text-[11px]">
-                            <div>
-                                <p>Nama Siswa: <strong x-text="st.nama"></strong></p>
-                                <p>Username STS: <strong class="font-mono text-emerald-800" x-text="st.username"></strong> (Absen <span x-text="st.absen"></span>)</p>
+                        <!-- IDENTITAS SISWA -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-slate-50 p-3.5 rounded-xl border border-slate-200 mb-4 text-xs">
+                            <div class="space-y-1">
+                                <div class="flex"><span class="w-28 text-slate-500 font-medium">Nama Lengkap</span><span class="font-bold text-slate-900">: <span x-text="st.nama"></span></span></div>
+                                <div class="flex"><span class="w-28 text-slate-500 font-medium">Username STS</span><span class="font-mono font-bold text-emerald-800">: <span x-text="st.username"></span></span></div>
+                                <div class="flex"><span class="w-28 text-slate-500 font-medium">Nomor Urut / JK</span><span class="font-semibold text-slate-800">: Absen <span x-text="st.absen"></span> (<span x-text="st.jk === 'L' ? 'Laki-laki' : 'Perempuan'"></span>)</span></div>
                             </div>
-                            <div class="text-right">
-                                <p>Kelas: <strong x-text="db.meta.kelas"></strong><span class="no-print"> • Peringkat: <strong class="text-emerald-900" x-text="st.rank ? '#' + st.rank : '-'"></strong> / <span x-text="db.students.length"></span></span></p>
-                                <p>Rerata Akhir (Komposit): <strong x-text="st.avg.toFixed(2)"></strong> (Total: <span x-text="st.total"></span>) • Rata2 Kelas: <span x-text="db.meta.class_overall_avg"></span></p>
+                            <div class="space-y-1">
+                                <div class="flex"><span class="w-28 text-slate-500 font-medium">Kelas / Program</span><span class="font-bold text-slate-900">: <span x-text="db.meta.kelas"></span></span></div>
+                                <div class="flex"><span class="w-28 text-slate-500 font-medium">Semester / T.A.</span><span class="font-semibold text-slate-800">: <span x-text="db.meta.semester + ' / ' + db.meta.tahun_ajaran"></span></span></div>
+                                <div class="flex"><span class="w-28 text-slate-500 font-medium">Wali Kelas</span><span class="font-bold text-emerald-900">: <span x-text="db.meta.wali_kelas"></span></span></div>
                             </div>
                         </div>
 
-                        <!-- TABEL RINGKAS 17 MAPEL -->
-                        <table class="w-full text-left border-collapse text-[11px] border border-slate-300 mb-3">
-                            <thead>
-                                <tr class="bg-emerald-950 text-white text-[10px] uppercase">
-                                    <th class="py-1 px-2 border border-slate-300 text-center w-8">No</th>
-                                    <th class="py-1 px-2.5 border border-slate-300">Mata Pelajaran & Guru Pengampu</th>
-                                    <th class="py-1 px-2 border border-slate-300 text-center w-20">Nilai Siswa</th>
-                                    <th class="py-1 px-2 border border-slate-300 text-center w-20">Rata2 Kelas</th>
-                                    <th class="py-1 px-2 border border-slate-300 text-center w-20">Tertinggi</th>
-                                    <th class="py-1 px-2.5 border border-slate-300">Keterangan Capaian</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <template x-for="(sub, idx) in db.subjects" :key="sub.code">
-                                    <tr class="border-b border-slate-200">
-                                        <td class="py-1 px-2 border border-slate-300 text-center" x-text="idx + 1"></td>
-                                        <td class="py-1 px-2.5 border border-slate-300">
-                                            <div class="font-semibold text-slate-900 leading-tight" x-text="sub.name"></div>
-                                            <div class="text-[9px] text-slate-500 font-normal leading-tight mt-0.5" x-show="sub.guru">
-                                                <span class="text-emerald-800 font-medium">Guru:</span> <span x-text="sub.guru"></span>
-                                            </div>
-                                        </td>
-                                        <td class="py-1 px-2 border border-slate-300 text-center font-bold" x-text="st.scores[sub.code] !== null ? st.scores[sub.code] : 'Kosong'"></td>
-                                        <td class="py-1 px-2 border border-slate-300 text-center" x-text="sub.avg.toFixed(1)"></td>
-                                        <td class="py-1 px-2 border border-slate-300 text-center" x-text="sub.max"></td>
-                                        <td class="py-1 px-2.5 border border-slate-300 text-[10px] font-semibold"
-                                            x-text="st.scores[sub.code] === null ? 'Menunggu Nilai Susulan' : (st.scores[sub.code] >= sub.avg ? '✓ Melampaui Rata-Rata Kelas' : 'Perlu Penguatan Menuju SAS')"></td>
+                        <!-- PERINGATAN NILAI SUSULAN JIKA ADA -->
+                        <template x-if="st.missing_subjects && st.missing_subjects.length > 0">
+                            <div class="mb-4 p-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-xs flex items-start gap-2.5">
+                                <span class="text-base leading-none">⚠️</span>
+                                <div>
+                                    <p class="font-bold">Pemberitahuan Nilai Susulan / Belum Terinput:</p>
+                                    <p class="mt-0.5">Terdapat <strong x-text="st.missing_subjects.length"></strong> mata pelajaran yang belum memiliki nilai STS: <span class="font-semibold underline" x-text="st.missing_subjects.join(', ')"></span>. Mohon ananda segera menghubungi guru pengampu mata pelajaran terkait.</p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <!-- KARTU RINGKASAN EKSEKUTIF -->
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-5 executive-summary-grid">
+                            <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-200 text-center">
+                                <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-800">Rata-Rata Akhir</p>
+                                <p class="text-xl font-black text-emerald-950 mt-0.5" x-text="st.avg.toFixed(2)"></p>
+                                <p class="text-[10px] text-emerald-700">Total: <strong x-text="st.total"></strong> (<span x-text="(st.completed_count || 17) + 1"></span> Komponen)</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                                <p class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Rerata Akademik</p>
+                                <p class="text-xl font-extrabold text-slate-800 mt-0.5" x-text="(st.academic_avg || (st.completed_count ? (st.total - (st.attendance?.persentase||100)) / st.completed_count : 0)).toFixed(2)"></p>
+                                <p class="text-[10px] text-slate-500">Dari <strong x-text="st.completed_count || 17"></strong> Mapel Tuntas</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-teal-50 border border-teal-200 text-center">
+                                <p class="text-[10px] font-bold uppercase tracking-wider text-teal-800">Nilai Kehadiran (%)</p>
+                                <p class="text-xl font-black text-teal-900 mt-0.5" x-text="(st.attendance?.persentase || 100).toFixed(2) + '%'"></p>
+                                <p class="text-[10px] font-semibold text-teal-700" x-text="'Presensi: ' + (st.attendance?.predikat || 'A') + ' (' + (st.attendance?.total_absen ? st.attendance.total_absen + ' hr absen' : 'Nihil absen') + ')'"></p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+                                <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Rata-Rata Kelas</p>
+                                <p class="text-xl font-extrabold text-slate-800 mt-0.5" x-text="db.meta.class_overall_avg"></p>
+                                <p class="text-[10px] font-semibold" :class="st.avg >= db.meta.class_overall_avg ? 'text-emerald-700' : 'text-amber-700'"
+                                   x-text="st.avg >= db.meta.class_overall_avg ? 'Di Atas Rata-Rata' : 'Perlu Ditingkatkan'"></p>
+                            </div>
+                            <!-- Peringkat Kelas: Tampil di Web, Disembunyikan Saat Cetak Raport Fisik -->
+                            <div class="p-3 rounded-xl bg-amber-50/70 border border-amber-200 text-center no-print">
+                                <p class="text-[10px] font-bold uppercase tracking-wider text-amber-800">Peringkat Kelas</p>
+                                <p class="text-xl font-black text-amber-900 mt-0.5" x-text="st.rank ? '#' + st.rank : '-'"></p>
+                                <p class="text-[10px] font-bold text-amber-700">Dari <span x-text="db.students.length"></span> Siswa <span class="text-[9px] font-normal text-slate-500 block">(Khusus Tampilan Web)</span></p>
+                            </div>
+                        </div>
+
+                        <!-- TABEL NILAI 17 MATA PELAJARAN -->
+                        <div class="overflow-x-auto mb-5">
+                            <table class="w-full text-left border-collapse text-xs border border-slate-300">
+                                <thead>
+                                    <tr class="bg-emerald-950 text-white text-[10px] uppercase tracking-wider">
+                                        <th class="py-2 px-2.5 border border-slate-300 text-center w-8">No</th>
+                                        <th class="py-2 px-3 border border-slate-300">Mata Pelajaran & Guru Pengampu</th>
+                                        <th class="py-2 px-2.5 border border-slate-300 text-center w-20">Nilai Ananda</th>
+                                        <th class="py-2 px-2.5 border border-slate-300 text-center w-20">Rata-Rata Kelas</th>
+                                        <th class="py-2 px-2.5 border border-slate-300 text-center w-20">Tertinggi Kelas</th>
+                                        <th class="py-2 px-3 border border-slate-300 w-44">Visualisasi & Posisi Relatif</th>
                                     </tr>
-                                </template>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <!-- RUMPUN A: KEAGAMAAN (KAG) -->
+                                <tbody>
+                                    <tr class="bg-slate-200/90 font-extrabold text-slate-800 text-[11px]">
+                                        <td colspan="6" class="py-1.5 px-3 border border-slate-300 bg-slate-200 font-bold">A. Rumpun Keagamaan (KAG)</td>
+                                    </tr>
+                                    <template x-for="(sub, sIdx) in getSubjectsByGroup('Rumpun Keagamaan (KAG)')" :key="sub.code">
+                                        <tr class="border-b border-slate-200 hover:bg-slate-50">
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center font-medium text-slate-600" x-text="sIdx + 1"></td>
+                                            <td class="py-1.5 px-3 border border-slate-300">
+                                                <div class="font-bold text-slate-900 leading-tight" x-text="sub.name"></div>
+                                                <div class="text-[10px] text-slate-500 font-normal leading-tight mt-0.5" x-show="sub.guru">
+                                                    <span class="text-emerald-800 font-medium">Guru:</span> <span x-text="sub.guru"></span>
+                                                </div>
+                                            </td>
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center font-extrabold text-sm"
+                                                :class="getScoreColorClass(st.scores[sub.code], sub.avg)"
+                                                x-text="st.scores[sub.code] !== null ? st.scores[sub.code] : 'Kosong'">
+                                            </td>
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-600 font-medium" x-text="sub.avg.toFixed(1)"></td>
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-500" x-text="sub.max"></td>
+                                            <td class="py-1.5 px-3 border border-slate-300">
+                                                <template x-if="st.scores[sub.code] !== null">
+                                                    <div>
+                                                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                                            <div class="h-2 rounded-full"
+                                                                 :class="st.scores[sub.code] >= sub.avg ? 'bg-emerald-600' : 'bg-amber-500'"
+                                                                 :style="'width: ' + Math.min(100, st.scores[sub.code]) + '%'"></div>
+                                                        </div>
+                                                        <div class="flex justify-between text-[10px] mt-0.5 font-semibold">
+                                                            <span :class="st.scores[sub.code] >= sub.avg ? 'text-emerald-700' : 'text-amber-700'"
+                                                                  x-text="st.scores[sub.code] >= sub.avg ? '✓ Di Atas Rata2 Kelas' : 'Perlu Penguatan'"></span>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                                <template x-if="st.scores[sub.code] === null">
+                                                    <span class="text-[10px] font-bold text-rose-600">Menunggu Nilai Susulan</span>
+                                                </template>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
 
-                        <!-- REKAP PRESENSI & NON AKADEMIK (PRINT MASSAL) -->
-                        <div class="border border-slate-300 p-2 rounded-lg bg-slate-50 text-[10px] mb-3">
-                            <div class="grid grid-cols-4 gap-2 text-center pb-1.5 border-b border-slate-200">
-                                <div>Sakit (S): <strong x-text="(st.attendance?.s || 0) + ' hr'"></strong></div>
-                                <div>Izin (I): <strong x-text="(st.attendance?.i || 0) + ' hr'"></strong></div>
-                                <div>Alpa (A): <strong x-text="(st.attendance?.a || 0) + ' hr'"></strong></div>
-                                <div>Skor Kehadiran: <strong class="text-emerald-800" x-text="(st.attendance?.persentase || 100).toFixed(2) + '% (' + (st.attendance?.predikat || 'A') + ')'"></strong></div>
+                                <!-- RUMPUN B: UMUM & SAINS -->
+                                <tbody>
+                                    <tr class="bg-slate-200/90 font-extrabold text-slate-800 text-[11px]">
+                                        <td colspan="6" class="py-1.5 px-3 border border-slate-300 bg-slate-200 font-bold">B. Rumpun Umum & Sains</td>
+                                    </tr>
+                                    <template x-for="(sub, sIdx) in getSubjectsByGroup('Rumpun Umum & Sains')" :key="sub.code">
+                                        <tr class="border-b border-slate-200 hover:bg-slate-50">
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center font-medium text-slate-600" x-text="sIdx + 1"></td>
+                                            <td class="py-1.5 px-3 border border-slate-300">
+                                                <div class="font-bold text-slate-900 leading-tight" x-text="sub.name"></div>
+                                                <div class="text-[10px] text-slate-500 font-normal leading-tight mt-0.5" x-show="sub.guru">
+                                                    <span class="text-emerald-800 font-medium">Guru:</span> <span x-text="sub.guru"></span>
+                                                </div>
+                                            </td>
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center font-extrabold text-sm"
+                                                :class="getScoreColorClass(st.scores[sub.code], sub.avg)"
+                                                x-text="st.scores[sub.code] !== null ? st.scores[sub.code] : 'Kosong'">
+                                            </td>
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-600 font-medium" x-text="sub.avg.toFixed(1)"></td>
+                                            <td class="py-1.5 px-2.5 border border-slate-300 text-center text-slate-500" x-text="sub.max"></td>
+                                            <td class="py-1.5 px-3 border border-slate-300">
+                                                <template x-if="st.scores[sub.code] !== null">
+                                                    <div>
+                                                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                                            <div class="h-2 rounded-full"
+                                                                 :class="st.scores[sub.code] >= sub.avg ? 'bg-emerald-600' : 'bg-amber-500'"
+                                                                 :style="'width: ' + Math.min(100, st.scores[sub.code]) + '%'"></div>
+                                                        </div>
+                                                        <div class="flex justify-between text-[10px] mt-0.5 font-semibold">
+                                                            <span :class="st.scores[sub.code] >= sub.avg ? 'text-emerald-700' : 'text-amber-700'"
+                                                                  x-text="st.scores[sub.code] >= sub.avg ? '✓ Di Atas Rata2 Kelas' : 'Perlu Penguatan'"></span>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                                <template x-if="st.scores[sub.code] === null">
+                                                    <span class="text-[10px] font-bold text-rose-600">Menunggu Nilai Susulan</span>
+                                                </template>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- C. REKAPITULASI PRESENSI & NILAI NON AKADEMIK -->
+                        <div class="mb-5 border border-slate-300 rounded-xl overflow-hidden break-inside-avoid">
+                            <div class="bg-slate-200/90 px-3 py-1.5 font-extrabold text-slate-800 text-[11px] flex flex-wrap justify-between items-center gap-2">
+                                <span>C. NILAI NON AKADEMIK & KEDISIPLINAN (PRESENSI KEHADIRAN)</span>
+                                <span class="text-[10px] text-slate-600 font-semibold">Periode Evaluasi: Seluruh Semester Ganjil (Juli - Desember, 125 Hari Efektif)</span>
                             </div>
-                            <div class="flex justify-between items-center pt-1 text-[9px] text-slate-500">
-                                <span>*Presensi dievaluasi seluruh semester ganjil (125 hari efektif) sesuai ledger resmi madrasah.</span>
-                                <span class="font-bold text-emerald-800">Skor kehadiran ikut dibagi sebagai komponen penentu rerata nilai akhir siswa.</span>
+                            <div class="grid grid-cols-2 sm:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 bg-white p-3 text-center text-xs">
+                                <div class="p-1.5">
+                                    <span class="text-[10px] text-slate-500 font-semibold block uppercase tracking-wider">Sakit (S)</span>
+                                    <span class="text-sm font-extrabold text-slate-800" x-text="(st.attendance?.s || 0) + ' Hari'"></span>
+                                </div>
+                                <div class="p-1.5">
+                                    <span class="text-[10px] text-slate-500 font-semibold block uppercase tracking-wider">Izin (I)</span>
+                                    <span class="text-sm font-extrabold text-slate-800" x-text="(st.attendance?.i || 0) + ' Hari'"></span>
+                                </div>
+                                <div class="p-1.5">
+                                    <span class="text-[10px] text-slate-500 font-semibold block uppercase tracking-wider">Tanpa Keterangan (A)</span>
+                                    <span class="text-sm font-extrabold text-emerald-700" x-text="(st.attendance?.a || 0) + ' Hari'"></span>
+                                </div>
+                                <div class="p-1.5 bg-emerald-50/60 rounded-xl">
+                                    <span class="text-[10px] text-emerald-800 font-bold block uppercase tracking-wider">Nilai Non Akad (Kehadiran)</span>
+                                    <span class="text-base font-black text-emerald-900" x-text="(st.attendance?.persentase || 100).toFixed(2) + '%'"></span>
+                                </div>
+                                <div class="p-1.5">
+                                    <span class="text-[10px] text-slate-500 font-semibold block uppercase tracking-wider">Predikat & Keterangan</span>
+                                    <span class="inline-block mt-0.5 px-2 py-0.5 rounded text-[11px] font-extrabold"
+                                          :class="(st.attendance?.persentase || 100) >= 95 ? 'bg-emerald-100 text-emerald-800' : ((st.attendance?.persentase || 100) >= 90 ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800')"
+                                          x-text="(st.attendance?.predikat || 'A') + ' • ' + (st.attendance?.keterangan || 'Sangat Baik')"></span>
+                                </div>
+                            </div>
+                            <!-- Rincian Rekapitulasi Seluruh 6 Bulan (Sesuai File Excel Resmi) -->
+                            <div class="bg-slate-50 border-t border-slate-200 px-3.5 py-2.5 text-[11px] text-slate-700">
+                                <div class="flex items-center justify-between mb-2 flex-wrap gap-1">
+                                    <span class="font-bold text-slate-800 flex items-center gap-1.5">
+                                        <span>🗓️</span> Rincian Riwayat Ketidakhadiran Seluruh Bulan (Semester Ganjil):
+                                    </span>
+                                    <span class="text-[10px] text-emerald-800 font-bold bg-emerald-100/80 px-2 py-0.5 rounded">
+                                        ★ Komponen Pembagi Rerata: 17 Mapel + 1 Presensi = 18 Komponen
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-2 sm:grid-cols-6 gap-2 text-center text-[10px]">
+                                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                                        <span class="block text-slate-500 font-semibold">Juli (24 hr)</span>
+                                        <strong class="text-slate-800" x-text="'S:' + (st.attendance?.rincian_bulanan?.juli?.sakit || 0) + ' I:' + (st.attendance?.rincian_bulanan?.juli?.izin || 0) + ' A:' + (st.attendance?.rincian_bulanan?.juli?.alpa || 0)"></strong>
+                                    </div>
+                                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                                        <span class="block text-slate-500 font-semibold">Agustus (27 hr)</span>
+                                        <strong class="text-slate-800" x-text="'S:' + (st.attendance?.rincian_bulanan?.agustus?.sakit || 0) + ' I:' + (st.attendance?.rincian_bulanan?.agustus?.izin || 0) + ' A:' + (st.attendance?.rincian_bulanan?.agustus?.alpa || 0)"></strong>
+                                    </div>
+                                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                                        <span class="block text-slate-500 font-semibold">September (20 hr)</span>
+                                        <strong class="text-slate-800" x-text="'S:' + (st.attendance?.rincian_bulanan?.september?.sakit || 0) + ' I:' + (st.attendance?.rincian_bulanan?.september?.izin || 0) + ' A:' + (st.attendance?.rincian_bulanan?.september?.alpa || 0)"></strong>
+                                    </div>
+                                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                                        <span class="block text-slate-500 font-semibold">Oktober (26 hr)</span>
+                                        <strong class="text-slate-800" x-text="'S:' + (st.attendance?.rincian_bulanan?.oktober?.sakit || 0) + ' I:' + (st.attendance?.rincian_bulanan?.oktober?.izin || 0) + ' A:' + (st.attendance?.rincian_bulanan?.oktober?.alpa || 0)"></strong>
+                                    </div>
+                                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                                        <span class="block text-slate-500 font-semibold">November (26 hr)</span>
+                                        <strong class="text-slate-800" x-text="'S:' + (st.attendance?.rincian_bulanan?.november?.sakit || 0) + ' I:' + (st.attendance?.rincian_bulanan?.november?.izin || 0) + ' A:' + (st.attendance?.rincian_bulanan?.november?.alpa || 0)"></strong>
+                                    </div>
+                                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                                        <span class="block text-slate-500 font-semibold">Desember (2 hr)</span>
+                                        <strong class="text-slate-800" x-text="'S:' + (st.attendance?.rincian_bulanan?.desember?.sakit || 0) + ' I:' + (st.attendance?.rincian_bulanan?.desember?.izin || 0) + ' A:' + (st.attendance?.rincian_bulanan?.desember?.alpa || 0)"></strong>
+                                    </div>
+                                </div>
+                                <div class="mt-2 text-[10px] text-slate-600 flex flex-wrap justify-between items-center gap-1 border-t border-slate-200 pt-1.5">
+                                    <span>Total Ketidakhadiran Kumulatif: <strong class="text-slate-900" x-text="(st.attendance?.total_absen || 0) + ' Hari'"></strong> (Sakit: <span x-text="st.attendance?.s || 0"></span>, Izin: <span x-text="st.attendance?.i || 0"></span>, Alpa: <span x-text="st.attendance?.a || 0"></span>)</span>
+                                    <span class="text-emerald-800 font-bold">Rerata Akhir = (Total Skor Akademik + Skor Presensi %) / (<span x-text="(st.completed_count || 17) + 1"></span>)</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- CATATAN WALAS -->
-                        <div class="p-3 rounded-lg bg-slate-50 border border-slate-300 mb-4 text-[11px]">
-                            <p class="font-bold text-emerald-950 mb-0.5">Catatan & Evaluasi Wali Kelas:</p>
-                            <p class="italic text-slate-800" x-text="st.catatan_walas"></p>
+                        <!-- KOTAK CATATAN & EVALUASI WALI KELAS -->
+                        <div class="p-4 rounded-xl bg-emerald-50/50 border border-emerald-300 mb-6">
+                            <h3 class="text-xs font-extrabold uppercase tracking-wider text-emerald-900 mb-1 flex items-center gap-1.5">
+                                <span>📌</span> Catatan & Motivasi Wali Kelas
+                            </h3>
+                            <p class="text-xs text-slate-800 leading-relaxed italic" x-text="st.catatan_walas"></p>
                         </div>
 
-                        <!-- TTD -->
-                        <div class="grid grid-cols-2 gap-8 text-[11px] text-center">
+                        <!-- BLOK TANDA TANGAN -->
+                        <div class="grid grid-cols-2 gap-8 text-xs text-center pt-2">
                             <div>
-                                <p>Orang Tua / Wali Siswa</p>
-                                <div class="h-14"></div>
-                                <p>( ..................................................... )</p>
+                                <p class="text-slate-600">Mengetahui,</p>
+                                <p class="font-bold text-slate-800">Orang Tua / Wali Siswa</p>
+                                <div class="h-16"></div>
+                                <p class="font-semibold text-slate-700">( ..................................................... )</p>
                             </div>
                             <div>
-                                <p>Lamongan, <span x-text="db.meta.tanggal_cetak"></span> • Wali Kelas X.13</p>
-                                <div class="h-14"></div>
-                                <p class="font-bold underline" x-text="db.meta.wali_kelas"></p>
+                                <p class="text-slate-600">Lamongan, <span x-text="db.meta.tanggal_cetak"></span></p>
+                                <p class="font-bold text-slate-800">Wali Kelas X.13</p>
+                                <div class="h-16"></div>
+                                <p class="font-extrabold text-slate-900 underline" x-text="db.meta.wali_kelas"></p>
                             </div>
                         </div>
                     </div>
@@ -2532,70 +2709,155 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 buildStudentPdfDefinition(st) {
                     const meta = this.db.meta || {};
                     const subjects = this.db.subjects || [];
+                    const kagSubs = subjects.filter(s => s.group === 'Rumpun Keagamaan (KAG)');
+                    const umumSubs = subjects.filter(s => s.group === 'Rumpun Umum & Sains');
 
                     const tableBody = [
                         [
                             { text: 'NO', style: 'tableHeader', alignment: 'center' },
                             { text: 'MATA PELAJARAN & GURU PENGAMPU', style: 'tableHeader', alignment: 'left' },
-                            { text: 'NILAI', style: 'tableHeader', alignment: 'center' },
-                            { text: 'RATA2', style: 'tableHeader', alignment: 'center' },
-                            { text: 'MAX', style: 'tableHeader', alignment: 'center' },
-                            { text: 'KETERANGAN CAPAIAN', style: 'tableHeader', alignment: 'left' }
+                            { text: 'NILAI ANANDA', style: 'tableHeader', alignment: 'center' },
+                            { text: 'RATA-RATA KELAS', style: 'tableHeader', alignment: 'center' },
+                            { text: 'TERTINGGI KELAS', style: 'tableHeader', alignment: 'center' },
+                            { text: 'VISUALISASI & POSISI RELATIF', style: 'tableHeader', alignment: 'left' }
+                        ],
+                        [
+                            { text: 'A. Rumpun Keagamaan (KAG)', colSpan: 6, bold: true, fontSize: 8, fillColor: '#e2e8f0', color: '#1e293b' },
+                            {}, {}, {}, {}, {}
                         ]
                     ];
 
-                    subjects.forEach((sub, idx) => {
+                    kagSubs.forEach((sub, sIdx) => {
                         const score = st.scores ? st.scores[sub.code] : null;
                         const scoreStr = (score !== null && score !== undefined && score !== '') ? String(score) : 'Kosong';
                         const avgStr = Number(sub.avg || 0).toFixed(1);
                         const maxStr = String(sub.max || '-');
 
-                        let ket = 'Perlu Penguatan Menuju SAS';
-                        let ketColor = '#b45309';
+                        let statusText = 'Perlu Penguatan';
+                        let statusColor = '#b45309';
+                        let barColor = '#f59e0b';
                         if (score === null || score === undefined || score === '') {
-                            ket = 'Menunggu Nilai Susulan';
-                            ketColor = '#e11d48';
+                            statusText = 'Menunggu Nilai Susulan';
+                            statusColor = '#e11d48';
+                            barColor = '#e2e8f0';
                         } else if (Number(score) >= Number(sub.avg)) {
-                            ket = 'Melampaui Rata-Rata Kelas';
-                            ketColor = '#047857';
+                            statusText = '✓ Di Atas Rata2 Kelas';
+                            statusColor = '#047857';
+                            barColor = '#059669';
                         }
 
-                        const isEven = (idx % 2 === 1);
+                        const isEven = (sIdx % 2 === 1);
                         const rowBg = isEven ? '#f8fafc' : '#ffffff';
+                        const scoreNum = Number(score) || 0;
+                        const barWidth = Math.min(100, Math.max(0, scoreNum));
 
                         tableBody.push([
-                            { text: String(idx + 1), alignment: 'center', fontSize: 8, fillColor: rowBg },
+                            { text: String(sIdx + 1), alignment: 'center', fontSize: 7.5, fillColor: rowBg },
                             {
                                 stack: [
-                                    { text: sub.name, bold: true, fontSize: 8.5, color: '#0f172a' },
-                                    sub.guru ? { text: 'Guru: ' + sub.guru, fontSize: 7, color: '#047857', italics: true, margin: [0, 1, 0, 0] } : { text: '' }
+                                    { text: sub.name, bold: true, fontSize: 8, color: '#0f172a' },
+                                    sub.guru ? { text: 'Guru: ' + sub.guru, fontSize: 6.5, color: '#047857', italics: true, margin: [0, 0.5, 0, 0] } : { text: '' }
                                 ],
                                 fillColor: rowBg
                             },
-                            { text: scoreStr, alignment: 'center', bold: true, fontSize: 8.5, color: (scoreStr === 'Kosong' ? '#e11d48' : '#0f172a'), fillColor: rowBg },
-                            { text: avgStr, alignment: 'center', fontSize: 8, color: '#475569', fillColor: rowBg },
-                            { text: maxStr, alignment: 'center', fontSize: 8, color: '#475569', fillColor: rowBg },
-                            { text: ket, fontSize: 7.5, bold: true, color: ketColor, fillColor: rowBg }
+                            { text: scoreStr, alignment: 'center', bold: true, fontSize: 8, color: (scoreStr === 'Kosong' ? '#e11d48' : '#0f172a'), fillColor: rowBg },
+                            { text: avgStr, alignment: 'center', fontSize: 7.5, color: '#475569', fillColor: rowBg },
+                            { text: maxStr, alignment: 'center', fontSize: 7.5, color: '#475569', fillColor: rowBg },
+                            {
+                                stack: [
+                                    {
+                                        canvas: [
+                                            { type: 'rect', x: 0, y: 0, w: 100, h: 3, color: '#e2e8f0' },
+                                            { type: 'rect', x: 0, y: 0, w: barWidth, h: 3, color: barColor }
+                                        ],
+                                        margin: [0, 1, 0, 1]
+                                    },
+                                    { text: statusText, fontSize: 6.5, bold: true, color: statusColor }
+                                ],
+                                fillColor: rowBg
+                            }
                         ]);
                     });
 
-                    const att = st.attendance || { s: 0, i: 0, a: 0, persentase: 100, predikat: 'A' };
+                    tableBody.push([
+                        { text: 'B. Rumpun Umum & Sains', colSpan: 6, bold: true, fontSize: 8, fillColor: '#e2e8f0', color: '#1e293b' },
+                        {}, {}, {}, {}, {}
+                    ]);
+
+                    umumSubs.forEach((sub, sIdx) => {
+                        const score = st.scores ? st.scores[sub.code] : null;
+                        const scoreStr = (score !== null && score !== undefined && score !== '') ? String(score) : 'Kosong';
+                        const avgStr = Number(sub.avg || 0).toFixed(1);
+                        const maxStr = String(sub.max || '-');
+
+                        let statusText = 'Perlu Penguatan';
+                        let statusColor = '#b45309';
+                        let barColor = '#f59e0b';
+                        if (score === null || score === undefined || score === '') {
+                            statusText = 'Menunggu Nilai Susulan';
+                            statusColor = '#e11d48';
+                            barColor = '#e2e8f0';
+                        } else if (Number(score) >= Number(sub.avg)) {
+                            statusText = '✓ Di Atas Rata2 Kelas';
+                            statusColor = '#047857';
+                            barColor = '#059669';
+                        }
+
+                        const isEven = (sIdx % 2 === 1);
+                        const rowBg = isEven ? '#f8fafc' : '#ffffff';
+                        const scoreNum = Number(score) || 0;
+                        const barWidth = Math.min(100, Math.max(0, scoreNum));
+
+                        tableBody.push([
+                            { text: String(sIdx + 1), alignment: 'center', fontSize: 7.5, fillColor: rowBg },
+                            {
+                                stack: [
+                                    { text: sub.name, bold: true, fontSize: 8, color: '#0f172a' },
+                                    sub.guru ? { text: 'Guru: ' + sub.guru, fontSize: 6.5, color: '#047857', italics: true, margin: [0, 0.5, 0, 0] } : { text: '' }
+                                ],
+                                fillColor: rowBg
+                            },
+                            { text: scoreStr, alignment: 'center', bold: true, fontSize: 8, color: (scoreStr === 'Kosong' ? '#e11d48' : '#0f172a'), fillColor: rowBg },
+                            { text: avgStr, alignment: 'center', fontSize: 7.5, color: '#475569', fillColor: rowBg },
+                            { text: maxStr, alignment: 'center', fontSize: 7.5, color: '#475569', fillColor: rowBg },
+                            {
+                                stack: [
+                                    {
+                                        canvas: [
+                                            { type: 'rect', x: 0, y: 0, w: 100, h: 3, color: '#e2e8f0' },
+                                            { type: 'rect', x: 0, y: 0, w: barWidth, h: 3, color: barColor }
+                                        ],
+                                        margin: [0, 1, 0, 1]
+                                    },
+                                    { text: statusText, fontSize: 6.5, bold: true, color: statusColor }
+                                ],
+                                fillColor: rowBg
+                            }
+                        ]);
+                    });
+
+                    const att = st.attendance || { s: 0, i: 0, a: 0, persentase: 100, predikat: 'A', keterangan: 'Sangat Baik' };
                     const attPct = Number(att.persentase || 100).toFixed(2);
                     const attPred = att.predikat || 'A';
+                    const attKet = att.keterangan || 'Sangat Baik';
+                    const rincian = att.rincian_bulanan || {};
+
+                    const completedCount = st.completed_count || 17;
+                    const academicAvg = (st.academic_avg || ((st.total - (att.persentase || 100)) / (completedCount || 1))).toFixed(2);
 
                     return {
                         pageSize: 'A4',
                         pageOrientation: 'portrait',
-                        pageMargins: [28, 20, 28, 20],
+                        pageMargins: [26, 16, 26, 16],
                         content: [
                             {
                                 columns: [
                                     {
                                         width: '*',
                                         stack: [
-                                            { text: meta.yayasan || "Yayasan Perguruan Matholi'ul Anwar", fontSize: 8, bold: true, color: '#065f46', characterSpacing: 1 },
+                                            { text: meta.yayasan || "Yayasan Perguruan Matholi'ul Anwar", fontSize: 8, bold: true, color: '#065f46', characterSpacing: 0.8 },
                                             { text: meta.madrasah || "MA MATHOLI'UL ANWAR", fontSize: 13, bold: true, color: '#0f172a', margin: [0, 1, 0, 1] },
-                                            { text: meta.alamat || "Jl. Raya Simo Sungelebak, Karanggeneng, Lamongan, Jawa Timur", fontSize: 8, color: '#475569' }
+                                            { text: meta.alamat || "Jl. Raya Simo Sungelebak, Karanggeneng, Lamongan, Jawa Timur", fontSize: 7.5, color: '#475569' }
                                         ]
                                     },
                                     {
@@ -2603,24 +2865,25 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                         alignment: 'right',
                                         stack: [
                                             {
-                                                text: 'RAPORT MANDIRI STS GANJIL 2026/2027',
+                                                text: 'RAPORT MANDIRI WALI KELAS',
                                                 fontSize: 7.5,
                                                 bold: true,
                                                 color: '#ffffff',
                                                 background: '#064e3b',
-                                                margin: [0, 4, 0, 0],
+                                                margin: [0, 2, 0, 0],
                                                 alignment: 'center'
-                                            }
+                                            },
+                                            { text: 'Sumatif Tengah Semester (STS) Ganjil 2026/2027', fontSize: 7, color: '#64748b', margin: [0, 2, 0, 0] }
                                         ]
                                     }
                                 ]
                             },
                             {
                                 canvas: [
-                                    { type: 'line', x1: 0, y1: 5, x2: 539, y2: 5, lineWidth: 1.5, lineColor: '#064e3b' },
-                                    { type: 'line', x1: 0, y1: 8, x2: 539, y2: 8, lineWidth: 0.5, lineColor: '#064e3b' }
+                                    { type: 'line', x1: 0, y1: 4, x2: 543, y2: 4, lineWidth: 1.5, lineColor: '#064e3b' },
+                                    { type: 'line', x1: 0, y1: 6.5, x2: 543, y2: 6.5, lineWidth: 0.5, lineColor: '#064e3b' }
                                 ],
-                                margin: [0, 0, 0, 6]
+                                margin: [0, 0, 0, 4]
                             },
                             {
                                 table: {
@@ -2629,23 +2892,24 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                         [
                                             {
                                                 stack: [
-                                                    { text: [{ text: 'Nama Siswa: ', color: '#64748b' }, { text: st.nama || '', bold: true, color: '#0f172a' }] },
-                                                    { text: [{ text: 'Username STS: ', color: '#64748b' }, { text: st.username || '', bold: true, color: '#065f46' }, { text: ' (Absen ' + (st.absen || '-') + ')', color: '#64748b' }] }
+                                                    { text: [{ text: 'Nama Lengkap: ', color: '#64748b' }, { text: st.nama || '', bold: true, color: '#0f172a' }] },
+                                                    { text: [{ text: 'Username STS: ', color: '#64748b' }, { text: st.username || '', bold: true, color: '#065f46' }] },
+                                                    { text: [{ text: 'Nomor Urut / JK: ', color: '#64748b' }, { text: 'Absen ' + (st.absen || '-') + ' (' + (st.jk === 'L' ? 'Laki-laki' : 'Perempuan') + ')', color: '#1e293b', bold: true }] }
                                                 ],
-                                                fontSize: 8.5,
-                                                margin: [4, 3, 4, 3],
+                                                fontSize: 7.5,
+                                                margin: [4, 2, 4, 2],
                                                 fillColor: '#f8fafc',
                                                 border: [true, true, false, true],
                                                 borderColor: ['#e2e8f0', '#e2e8f0', '#e2e8f0', '#e2e8f0']
                                             },
                                             {
                                                 stack: [
-                                                    { text: [{ text: 'Kelas: ', color: '#64748b' }, { text: meta.kelas || 'X.13', bold: true, color: '#0f172a' }] },
-                                                    { text: [{ text: 'Rerata Akhir: ', color: '#64748b' }, { text: (st.avg !== undefined ? st.avg.toFixed(2) : '0.00'), bold: true, color: '#065f46' }, { text: ' (Total: ' + (st.total || 0) + ') \u2022 Rata2 Kelas: ' + (meta.class_overall_avg || '-'), color: '#64748b' }] }
+                                                    { text: [{ text: 'Kelas / Program: ', color: '#64748b' }, { text: meta.kelas || 'X.13', bold: true, color: '#0f172a' }] },
+                                                    { text: [{ text: 'Semester / T.A.: ', color: '#64748b' }, { text: (meta.semester || 'Ganjil') + ' / ' + (meta.tahun_ajaran || '2026/2027'), color: '#1e293b' }] },
+                                                    { text: [{ text: 'Wali Kelas: ', color: '#64748b' }, { text: meta.wali_kelas || 'Dr. Zainul Hakim, M.H.I.', bold: true, color: '#065f46' }] }
                                                 ],
-                                                fontSize: 8.5,
-                                                alignment: 'right',
-                                                margin: [4, 3, 4, 3],
+                                                fontSize: 7.5,
+                                                margin: [4, 2, 4, 2],
                                                 fillColor: '#f8fafc',
                                                 border: [false, true, true, true],
                                                 borderColor: ['#e2e8f0', '#e2e8f0', '#e2e8f0', '#e2e8f0']
@@ -2653,12 +2917,62 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                         ]
                                     ]
                                 },
-                                margin: [0, 0, 0, 6]
+                                margin: [0, 0, 0, 4]
+                            },
+                            {
+                                table: {
+                                    widths: ['25%', '25%', '25%', '25%'],
+                                    body: [
+                                        [
+                                            {
+                                                stack: [
+                                                    { text: 'RATA-RATA AKHIR', fontSize: 6.5, bold: true, color: '#065f46' },
+                                                    { text: st.avg.toFixed(2), fontSize: 11, bold: true, color: '#022c22', margin: [0, 1, 0, 1] },
+                                                    { text: 'Total: ' + st.total + ' (' + (completedCount + 1) + ' Komp)', fontSize: 6.5, color: '#047857' }
+                                                ],
+                                                alignment: 'center',
+                                                fillColor: '#ecfdf5',
+                                                borderColor: ['#a7f3d0', '#a7f3d0', '#a7f3d0', '#a7f3d0']
+                                            },
+                                            {
+                                                stack: [
+                                                    { text: 'RERATA AKADEMIK', fontSize: 6.5, bold: true, color: '#475569' },
+                                                    { text: academicAvg, fontSize: 11, bold: true, color: '#0f172a', margin: [0, 1, 0, 1] },
+                                                    { text: 'Dari ' + completedCount + ' Mapel Tuntas', fontSize: 6.5, color: '#64748b' }
+                                                ],
+                                                alignment: 'center',
+                                                fillColor: '#f8fafc',
+                                                borderColor: ['#e2e8f0', '#e2e8f0', '#e2e8f0', '#e2e8f0']
+                                            },
+                                            {
+                                                stack: [
+                                                    { text: 'NILAI KEHADIRAN (%)', fontSize: 6.5, bold: true, color: '#0f766e' },
+                                                    { text: attPct + '%', fontSize: 11, bold: true, color: '#134e4a', margin: [0, 1, 0, 1] },
+                                                    { text: 'Presensi: ' + attPred + ' (' + attKet + ')', fontSize: 6.5, color: '#0f766e' }
+                                                ],
+                                                alignment: 'center',
+                                                fillColor: '#f0fdfa',
+                                                borderColor: ['#99f6e4', '#99f6e4', '#99f6e4', '#99f6e4']
+                                            },
+                                            {
+                                                stack: [
+                                                    { text: 'RATA-RATA KELAS', fontSize: 6.5, bold: true, color: '#475569' },
+                                                    { text: String(meta.class_overall_avg || '78.5'), fontSize: 11, bold: true, color: '#0f172a', margin: [0, 1, 0, 1] },
+                                                    { text: (st.avg >= Number(meta.class_overall_avg || 0) ? 'Di Atas Rata-Rata' : 'Perlu Ditingkatkan'), fontSize: 6.5, bold: true, color: (st.avg >= Number(meta.class_overall_avg || 0) ? '#047857' : '#b45309') }
+                                                ],
+                                                alignment: 'center',
+                                                fillColor: '#f8fafc',
+                                                borderColor: ['#e2e8f0', '#e2e8f0', '#e2e8f0', '#e2e8f0']
+                                            }
+                                        ]
+                                    ]
+                                },
+                                margin: [0, 0, 0, 4]
                             },
                             {
                                 table: {
                                     headerRows: 1,
-                                    widths: [20, '*', 45, 45, 45, 125],
+                                    widths: [18, '*', 42, 42, 42, 115],
                                     body: tableBody
                                 },
                                 layout: {
@@ -2666,49 +2980,73 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                     vLineWidth: () => 0.5,
                                     hLineColor: () => '#cbd5e1',
                                     vLineColor: () => '#cbd5e1',
-                                    paddingLeft: () => 4,
-                                    paddingRight: () => 4,
-                                    paddingTop: () => 2,
-                                    paddingBottom: () => 2
+                                    paddingLeft: () => 3,
+                                    paddingRight: () => 3,
+                                    paddingTop: () => 1.5,
+                                    paddingBottom: () => 1.5
                                 },
-                                margin: [0, 0, 0, 6]
+                                margin: [0, 0, 0, 4]
                             },
                             {
                                 table: {
-                                    widths: ['25%', '25%', '25%', '25%'],
+                                    widths: ['*'],
                                     body: [
                                         [
-                                            { text: [{ text: 'Sakit (S): ', color: '#64748b' }, { text: (att.s || 0) + ' hr', bold: true }], alignment: 'center', fontSize: 8 },
-                                            { text: [{ text: 'Izin (I): ', color: '#64748b' }, { text: (att.i || 0) + ' hr', bold: true }], alignment: 'center', fontSize: 8 },
-                                            { text: [{ text: 'Alpa (A): ', color: '#64748b' }, { text: (att.a || 0) + ' hr', bold: true }], alignment: 'center', fontSize: 8 },
-                                            { text: [{ text: 'Skor Kehadiran: ', color: '#64748b' }, { text: attPct + '% (' + attPred + ')', bold: true, color: '#065f46' }], alignment: 'center', fontSize: 8 }
+                                            {
+                                                text: [
+                                                    { text: 'C. NILAI NON AKADEMIK & KEDISIPLINAN (PRESENSI KEHADIRAN)  ', bold: true, fontSize: 7, color: '#0f172a' },
+                                                    { text: '• Periode Evaluasi: Seluruh Semester Ganjil (Juli - Desember, 125 Hari Efektif)', fontSize: 6.5, color: '#475569' }
+                                                ],
+                                                fillColor: '#e2e8f0',
+                                                margin: [4, 1.5, 4, 1.5]
+                                            }
                                         ],
                                         [
                                             {
-                                                colSpan: 4,
-                                                text: [
-                                                    { text: '*Presensi dievaluasi seluruh semester ganjil (125 hari efektif) sesuai ledger resmi madrasah. ', color: '#64748b' },
-                                                    { text: 'Skor kehadiran ikut dibagi sebagai komponen penentu rerata nilai akhir siswa.', bold: true, color: '#065f46' }
+                                                columns: [
+                                                    { width: '20%', text: [{ text: 'Sakit (S)\n', fontSize: 6.5, color: '#64748b' }, { text: (att.s || 0) + ' Hari', bold: true, fontSize: 8 }], alignment: 'center' },
+                                                    { width: '20%', text: [{ text: 'Izin (I)\n', fontSize: 6.5, color: '#64748b' }, { text: (att.i || 0) + ' Hari', bold: true, fontSize: 8 }], alignment: 'center' },
+                                                    { width: '20%', text: [{ text: 'Tanpa Ket. (A)\n', fontSize: 6.5, color: '#64748b' }, { text: (att.a || 0) + ' Hari', bold: true, fontSize: 8, color: '#047857' }], alignment: 'center' },
+                                                    { width: '20%', text: [{ text: 'Skor Kehadiran\n', fontSize: 6.5, color: '#065f46' }, { text: attPct + '%', bold: true, fontSize: 8.5, color: '#064e3b' }], alignment: 'center' },
+                                                    { width: '20%', text: [{ text: 'Predikat\n', fontSize: 6.5, color: '#64748b' }, { text: attPred + ' (' + attKet + ')', bold: true, fontSize: 8, color: '#047857' }], alignment: 'center' }
                                                 ],
-                                                fontSize: 7,
-                                                margin: [0, 2, 0, 0]
-                                            },
-                                            {}, {}, {}
+                                                fillColor: '#ffffff',
+                                                margin: [2, 2, 2, 2]
+                                            }
+                                        ],
+                                        [
+                                            {
+                                                columns: [
+                                                    { width: '16.6%', text: [{ text: 'Juli (24 hr)\n', fontSize: 6, color: '#64748b' }, { text: 'S:' + (rincian.juli?.sakit || 0) + ' I:' + (rincian.juli?.izin || 0) + ' A:' + (rincian.juli?.alpa || 0), fontSize: 6.5, bold: true }], alignment: 'center' },
+                                                    { width: '16.6%', text: [{ text: 'Agst (27 hr)\n', fontSize: 6, color: '#64748b' }, { text: 'S:' + (rincian.agustus?.sakit || 0) + ' I:' + (rincian.agustus?.izin || 0) + ' A:' + (rincian.agustus?.alpa || 0), fontSize: 6.5, bold: true }], alignment: 'center' },
+                                                    { width: '16.6%', text: [{ text: 'Sept (20 hr)\n', fontSize: 6, color: '#64748b' }, { text: 'S:' + (rincian.september?.sakit || 0) + ' I:' + (rincian.september?.izin || 0) + ' A:' + (rincian.september?.alpa || 0), fontSize: 6.5, bold: true }], alignment: 'center' },
+                                                    { width: '16.6%', text: [{ text: 'Okt (26 hr)\n', fontSize: 6, color: '#64748b' }, { text: 'S:' + (rincian.oktober?.sakit || 0) + ' I:' + (rincian.oktober?.izin || 0) + ' A:' + (rincian.oktober?.alpa || 0), fontSize: 6.5, bold: true }], alignment: 'center' },
+                                                    { width: '16.6%', text: [{ text: 'Nov (26 hr)\n', fontSize: 6, color: '#64748b' }, { text: 'S:' + (rincian.november?.sakit || 0) + ' I:' + (rincian.november?.izin || 0) + ' A:' + (rincian.november?.alpa || 0), fontSize: 6.5, bold: true }], alignment: 'center' },
+                                                    { width: '16.6%', text: [{ text: 'Des (2 hr)\n', fontSize: 6, color: '#64748b' }, { text: 'S:' + (rincian.desember?.sakit || 0) + ' I:' + (rincian.desember?.izin || 0) + ' A:' + (rincian.desember?.alpa || 0), fontSize: 6.5, bold: true }], alignment: 'center' }
+                                                ],
+                                                fillColor: '#f8fafc',
+                                                margin: [2, 1.5, 2, 1.5]
+                                            }
+                                        ],
+                                        [
+                                            {
+                                                text: [
+                                                    { text: '*Total Ketidakhadiran: ' + (att.total_absen || 0) + ' Hari. ', fontSize: 6, color: '#64748b' },
+                                                    { text: 'Rerata Akhir = (Total Skor Akademik + Skor Presensi %) / (' + (completedCount + 1) + ')', fontSize: 6, bold: true, color: '#065f46' }
+                                                ],
+                                                fillColor: '#f1f5f9',
+                                                margin: [4, 1, 4, 1]
+                                            }
                                         ]
                                     ]
                                 },
                                 layout: {
-                                    fillColor: () => '#f8fafc',
                                     hLineWidth: () => 0.5,
                                     vLineWidth: () => 0.5,
                                     hLineColor: () => '#cbd5e1',
-                                    vLineColor: () => '#cbd5e1',
-                                    paddingLeft: () => 4,
-                                    paddingRight: () => 4,
-                                    paddingTop: () => 2.5,
-                                    paddingBottom: () => 2.5
+                                    vLineColor: () => '#cbd5e1'
                                 },
-                                margin: [0, 0, 0, 5]
+                                margin: [0, 0, 0, 4]
                             },
                             {
                                 table: {
@@ -2717,38 +3055,40 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                         [
                                             {
                                                 stack: [
-                                                    { text: 'Catatan & Evaluasi Wali Kelas:', bold: true, fontSize: 8, color: '#064e3b', margin: [0, 0, 0, 1] },
-                                                    { text: st.catatan_walas || 'Tingkatkan terus prestasi dan semangat belajarmu.', italics: true, fontSize: 8, color: '#1e293b' }
+                                                    { text: 'D. CATATAN & MOTIVASI WALI KELAS:', bold: true, fontSize: 7, color: '#064e3b', margin: [0, 0, 0, 1] },
+                                                    { text: st.catatan_walas || 'Tingkatkan terus prestasi dan semangat belajarmu.', italics: true, fontSize: 7.5, color: '#1e293b' }
                                                 ],
                                                 fillColor: '#f8fafc',
                                                 border: [true, true, true, true],
                                                 borderColor: ['#cbd5e1', '#cbd5e1', '#cbd5e1', '#cbd5e1'],
-                                                margin: [4, 3, 4, 3]
+                                                margin: [4, 2.5, 4, 2.5]
                                             }
                                         ]
                                     ]
                                 },
-                                margin: [0, 0, 0, 8]
+                                margin: [0, 0, 0, 5]
                             },
                             {
                                 columns: [
                                     {
                                         width: '50%',
                                         alignment: 'center',
-                                        fontSize: 8,
+                                        fontSize: 7.5,
                                         stack: [
-                                            { text: 'Orang Tua / Wali Siswa', color: '#475569' },
-                                            { text: '', margin: [0, 20, 0, 0] },
+                                            { text: 'Mengetahui,', color: '#64748b' },
+                                            { text: 'Orang Tua / Wali Siswa', color: '#1e293b', bold: true },
+                                            { text: '', margin: [0, 18, 0, 0] },
                                             { text: '( ..................................................... )', color: '#64748b' }
                                         ]
                                     },
                                     {
                                         width: '50%',
                                         alignment: 'center',
-                                        fontSize: 8,
+                                        fontSize: 7.5,
                                         stack: [
-                                            { text: 'Lamongan, ' + (meta.tanggal_cetak || 'Oktober 2026') + ' \u2022 Wali Kelas X.13', color: '#475569' },
-                                            { text: '', margin: [0, 20, 0, 0] },
+                                            { text: 'Lamongan, ' + (meta.tanggal_cetak || 'Oktober 2026'), color: '#64748b' },
+                                            { text: 'Wali Kelas X.13', color: '#1e293b', bold: true },
+                                            { text: '', margin: [0, 18, 0, 0] },
                                             { text: meta.wali_kelas || 'Dr. Zainul Hakim, M.H.I.', bold: true, decoration: 'underline', color: '#0f172a' }
                                         ]
                                     }
@@ -2758,14 +3098,14 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         styles: {
                             tableHeader: {
                                 bold: true,
-                                fontSize: 8,
+                                fontSize: 7.5,
                                 color: '#ffffff',
                                 fillColor: '#022c22'
                             }
                         },
                         defaultStyle: {
                             font: 'Roboto',
-                            lineHeight: 1.15
+                            lineHeight: 1.12
                         }
                     };
                 },
