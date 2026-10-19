@@ -471,7 +471,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             <thead>
                                 <tr class="bg-emerald-950 text-white text-[10px] uppercase tracking-wider">
                                     <th class="py-2 px-2.5 border border-slate-300 text-center w-8">No</th>
-                                    <th class="py-2 px-3 border border-slate-300">Mata Pelajaran</th>
+                                    <th class="py-2 px-3 border border-slate-300">Mata Pelajaran & Guru Pengampu</th>
                                     <th class="py-2 px-2.5 border border-slate-300 text-center w-20">Nilai Ananda</th>
                                     <th class="py-2 px-2.5 border border-slate-300 text-center w-20">Rata-Rata Kelas</th>
                                     <th class="py-2 px-2.5 border border-slate-300 text-center w-20">Tertinggi Kelas</th>
@@ -486,7 +486,12 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <template x-for="(sub, sIdx) in getSubjectsByGroup('Rumpun Keagamaan (KAG)')" :key="sub.code">
                                     <tr class="border-b border-slate-200 hover:bg-slate-50">
                                         <td class="py-1.5 px-2.5 border border-slate-300 text-center font-medium text-slate-600" x-text="sIdx + 1"></td>
-                                        <td class="py-1.5 px-3 border border-slate-300 font-semibold text-slate-800" x-text="sub.name"></td>
+                                        <td class="py-1.5 px-3 border border-slate-300">
+                                            <div class="font-bold text-slate-900 leading-tight" x-text="sub.name"></div>
+                                            <div class="text-[10px] text-slate-500 font-normal leading-tight mt-0.5" x-show="sub.guru">
+                                                <span class="text-emerald-800 font-medium">Guru:</span> <span x-text="sub.guru"></span>
+                                            </div>
+                                        </td>
                                         <td class="py-1.5 px-2.5 border border-slate-300 text-center font-extrabold text-sm"
                                             :class="getScoreColorClass(currentStudent.scores[sub.code], sub.avg)"
                                             x-text="currentStudent.scores[sub.code] !== null ? currentStudent.scores[sub.code] : 'Kosong'">
@@ -523,7 +528,12 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <template x-for="(sub, sIdx) in getSubjectsByGroup('Rumpun Umum & Sains')" :key="sub.code">
                                     <tr class="border-b border-slate-200 hover:bg-slate-50">
                                         <td class="py-1.5 px-2.5 border border-slate-300 text-center font-medium text-slate-600" x-text="sIdx + 1"></td>
-                                        <td class="py-1.5 px-3 border border-slate-300 font-semibold text-slate-800" x-text="sub.name"></td>
+                                        <td class="py-1.5 px-3 border border-slate-300">
+                                            <div class="font-bold text-slate-900 leading-tight" x-text="sub.name"></div>
+                                            <div class="text-[10px] text-slate-500 font-normal leading-tight mt-0.5" x-show="sub.guru">
+                                                <span class="text-emerald-800 font-medium">Guru:</span> <span x-text="sub.guru"></span>
+                                            </div>
+                                        </td>
                                         <td class="py-1.5 px-2.5 border border-slate-300 text-center font-extrabold text-sm"
                                             :class="getScoreColorClass(currentStudent.scores[sub.code], sub.avg)"
                                             x-text="currentStudent.scores[sub.code] !== null ? currentStudent.scores[sub.code] : 'Kosong'">
@@ -695,7 +705,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             <thead>
                                 <tr class="bg-emerald-950 text-white text-[10px] uppercase">
                                     <th class="py-1 px-2 border border-slate-300 text-center w-8">No</th>
-                                    <th class="py-1 px-2.5 border border-slate-300">Mata Pelajaran</th>
+                                    <th class="py-1 px-2.5 border border-slate-300">Mata Pelajaran & Guru Pengampu</th>
                                     <th class="py-1 px-2 border border-slate-300 text-center w-20">Nilai Siswa</th>
                                     <th class="py-1 px-2 border border-slate-300 text-center w-20">Rata2 Kelas</th>
                                     <th class="py-1 px-2 border border-slate-300 text-center w-20">Tertinggi</th>
@@ -706,7 +716,12 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                                 <template x-for="(sub, idx) in db.subjects" :key="sub.code">
                                     <tr class="border-b border-slate-200">
                                         <td class="py-1 px-2 border border-slate-300 text-center" x-text="idx + 1"></td>
-                                        <td class="py-1 px-2.5 border border-slate-300 font-semibold" x-text="sub.name"></td>
+                                        <td class="py-1 px-2.5 border border-slate-300">
+                                            <div class="font-semibold text-slate-900 leading-tight" x-text="sub.name"></div>
+                                            <div class="text-[9px] text-slate-500 font-normal leading-tight mt-0.5" x-show="sub.guru">
+                                                <span class="text-emerald-800 font-medium">Guru:</span> <span x-text="sub.guru"></span>
+                                            </div>
+                                        </td>
                                         <td class="py-1 px-2 border border-slate-300 text-center font-bold" x-text="st.scores[sub.code] !== null ? st.scores[sub.code] : 'Kosong'"></td>
                                         <td class="py-1 px-2 border border-slate-300 text-center" x-text="sub.avg.toFixed(1)"></td>
                                         <td class="py-1 px-2 border border-slate-300 text-center" x-text="sub.max"></td>
@@ -1363,7 +1378,8 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
                     <template x-for="sub in db.subjects" :key="sub.code">
                         <div>
-                            <label class="block text-[11px] font-semibold text-slate-600 truncate" x-text="sub.name"></label>
+                            <label class="block text-[11px] font-semibold text-slate-700 truncate" x-text="sub.name" :title="sub.name"></label>
+                            <span class="block text-[9.5px] text-slate-400 truncate" x-show="sub.guru" x-text="'Guru: ' + sub.guru" :title="sub.guru"></span>
                             <input type="number" step="0.01" min="0" max="100"
                                    x-model="editingStudent.scores[sub.code]"
                                    placeholder="Kosong"
@@ -2038,7 +2054,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                             if (val !== null && !isNaN(val)) {
                                 valid.push({ code: sub.code, name: sub.name, score: val, avg: sub.avg });
                             } else {
-                                missing.push(sub.name);
+                                missing.push(sub.guru ? `${sub.name} (Guru: ${sub.guru})` : sub.name);
                             }
                         }
                         st.missing_subjects = missing;
