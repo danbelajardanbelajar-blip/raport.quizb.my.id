@@ -8,15 +8,26 @@
 
 $json_file = __DIR__ . '/data_x13.json';
 
-// Endpoint API untuk Simpan Perubahan Data dari Mode Dashboard Wali Kelas
-if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_GET['action']) && $_GET['action'] === 'save') {
-    header('Content-Type: application/json; charset=utf-8');
-    $raw_input = file_get_contents('php://input');
-    $payload = json_decode($raw_input, true);
+// Endpoint API untuk Simpan Perubahan Data dari Mode Dashboard / Modal Edit Siswa
+$raw_input = (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') ? file_get_contents('php://input') : '';
+$payload = $raw_input ? json_decode($raw_input, true) : null;
+$is_save_request = (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') && (
+    (isset($_GET['action']) && $_GET['action'] === 'save') ||
+    (is_array($payload) && isset($payload['action']) && $payload['action'] === 'save')
+);
 
-    if (!$payload || !isset($payload['pin']) || !isset($payload['data'])) {
+if ($is_save_request) {
+    header('Content-Type: application/json; charset=utf-8');
+
+    if (!$payload || !isset($payload['pin']) || !isset($payload['data']) || !is_array($payload['data'])) {
         http_response_code(400);
-        echo json_encode(['status' => 'error', 'message' => 'Format data tidak valid.']);
+        echo json_encode(['status' => 'error', 'message' => 'Format data tidak valid atau kosong.']);
+        exit;
+    }
+
+    if (empty($payload['data']['students']) || !is_array($payload['data']['students'])) {
+        http_response_code(400);
+        echo json_encode(['status' => 'error', 'message' => 'Data siswa tidak valid. Penyimpanan dibatalkan demi keamanan integritas data.']);
         exit;
     }
 
@@ -29,12 +40,29 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && isset($_GET['action']) && $
         exit;
     }
 
-    $saved = file_put_contents($json_file, json_encode($payload['data'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    // Coba sesuaikan permission file bila sebelumnya read-only
+    if (file_exists($json_file) && !is_writable($json_file)) {
+        @chmod($json_file, 0666);
+    }
+
+    // Buat cadangan otomatis sebelum memperbarui file
+    if (file_exists($json_file)) {
+        @copy($json_file, __DIR__ . '/data_x13.json.bak');
+    }
+
+    $encoded = json_encode($payload['data'], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    $saved = @file_put_contents($json_file, $encoded);
     if ($saved !== false) {
-        echo json_encode(['status' => 'success', 'message' => 'Data nilai & catatan berhasil disimpan ke server (data_x13.json).']);
+        echo json_encode([
+            'status' => 'success',
+            'message' => 'Data nilai & catatan berhasil disimpan permanen ke server (data_x13.json).'
+        ]);
     } else {
         http_response_code(500);
-        echo json_encode(['status' => 'error', 'message' => 'Gagal menulis ke file data_x13.json. Pastikan permission file 644/666 di cPanel.']);
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'Gagal menulis ke file data_x13.json. Pastikan izin file (chmod 666 atau 644) sudah aktif pada server hosting/cPanel.'
+        ]);
     }
     exit;
 }
@@ -281,6 +309,14 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
             </div>
 
             <div class="flex items-center gap-2 flex-wrap justify-end">
+                <!-- Indikator Data Belum Disimpan ke Server -->
+                <template x-if="hasUnsavedChanges">
+                    <button @click="saveToServer()" :disabled="isSaving" class="px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-extrabold shadow flex items-center gap-1.5 animate-pulse transition" title="Ada perubahan nilai di browser yang belum tersimpan permanen ke file server. Klik untuk menyimpan sekarang!">
+                        <span>⚠️</span>
+                        <span x-text="isSaving ? 'Menyimpan...' : 'Simpan Perubahan!'"></span>
+                    </button>
+                </template>
+
                 <template x-if="mode !== 'home'">
                     <button @click="backToHome()" class="px-3 py-1.5 rounded-lg bg-emerald-800 hover:bg-emerald-700 text-xs font-semibold border border-emerald-600 transition flex items-center gap-1.5">
                         <span>←</span> Beranda / Cari Siswa
@@ -574,10 +610,13 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                         <span class="text-amber-700 font-normal">(Peringkat aktif di web, disembunyikan otomatis saat dicetak ke lembar fisik/PDF)</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button @click="openEditModal(currentStudent)" class="px-3 py-1 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold">
+                        <button @click="openEditModal(currentStudent)" class="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold shadow-xs">
                             ✏️ Edit Nilai / Catatan Siswa Ini
                         </button>
-                        <button @click="mode = 'walas'" class="px-3 py-1 rounded-lg bg-slate-800 text-white text-xs font-semibold">
+                        <button @click="saveToServer()" :disabled="isSaving" class="px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white text-xs font-bold shadow-xs flex items-center gap-1.5">
+                            <span x-text="isSaving ? 'Menyimpan...' : '💾 Simpan ke Server'"></span>
+                        </button>
+                        <button @click="mode = 'walas'" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold">
                             Kembali ke Tabel Kelas
                         </button>
                     </div>
@@ -1801,11 +1840,19 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                               class="w-full p-2.5 rounded-xl border border-slate-300 text-xs leading-relaxed"></textarea>
                 </div>
 
-                <div class="flex justify-between items-center pt-3 border-t border-slate-200">
-                    <span class="text-[11px] text-slate-500">*Rata-rata & peringkat akan dihitung ulang otomatis.</span>
-                    <div class="flex gap-2">
-                        <button @click="editingStudent = null" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold">Tutup</button>
-                        <button @click="applyStudentEdit()" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold">Terapkan Perubahan</button>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-3 pt-3 border-t border-slate-200">
+                    <div class="text-[11px] text-slate-500">
+                        <span>*Nilai & peringkat dihitung ulang otomatis.</span>
+                        <span class="block text-emerald-700 font-semibold">Klik "Simpan Permanen ke Server" agar tidak hilang saat reload halaman.</span>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto justify-end">
+                        <button @click="editingStudent = null" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">Batal</button>
+                        <button @click="saveStudentEdit(false)" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold transition" title="Terapkan perubahan hanya di browser sementara">
+                            Terapkan di Web Saja
+                        </button>
+                        <button @click="saveStudentEdit(true)" :disabled="isSaving" class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white text-xs font-bold shadow transition flex items-center gap-1.5">
+                            <span x-text="isSaving ? 'Menyimpan ke Server...' : '💾 Simpan Permanen ke Server'"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1987,6 +2034,7 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 walasSort: 'absen',
                 editingStudent: null,
                 isSaving: false,
+                hasUnsavedChanges: false,
                 toast: { show: false, message: '', type: 'success' },
 
                 // State Manajemen & Statistik Mata Pelajaran
@@ -2013,6 +2061,14 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                 zipCancelled: false,
 
                 initApp() {
+                    window.addEventListener('beforeunload', (e) => {
+                        if (window.__raportHasUnsavedChanges) {
+                            e.preventDefault();
+                            e.returnValue = 'Data perubahan nilai belum disimpan ke server (data_x13.json). Yakin ingin memuat ulang halaman?';
+                            return e.returnValue;
+                        }
+                    });
+
                     const params = new URLSearchParams(window.location.search);
                     const u = params.get('u');
                     const mapel = params.get('mapel');
@@ -2539,45 +2595,86 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     this.editingStudent = JSON.parse(JSON.stringify(st));
                 },
 
-                applyStudentEdit() {
+                async saveStudentEdit(autoSaveToServer = true) {
+                    if (!this.editingStudent) return;
                     const idx = this.db.students.findIndex(s => s.username === this.editingStudent.username);
-                    if (idx !== -1) {
-                        // Normalize scores
-                        for (const sub of this.db.subjects) {
-                            const raw = this.editingStudent.scores[sub.code];
-                            this.editingStudent.scores[sub.code] = (raw === '' || raw === null || isNaN(Number(raw))) ? null : Number(raw);
-                        }
+                    if (idx === -1) return;
 
-                        // Normalize attendance & compute non-academic score
-                        if (this.editingStudent.attendance) {
-                            const s = Math.max(0, parseInt(this.editingStudent.attendance.s || 0, 10));
-                            const i = Math.max(0, parseInt(this.editingStudent.attendance.i || 0, 10));
-                            const a = Math.max(0, parseInt(this.editingStudent.attendance.a || 0, 10));
-                            const tot = s + i + a;
-                            const totalSessions = this.db.meta.total_effective_sessions || 125;
-                            const pct = Number((((totalSessions - tot) / totalSessions) * 100).toFixed(2));
-                            let predikat = 'A';
-                            let keterangan = 'Sangat Baik (Disiplin Tinggi)';
-                            if (pct >= 95) { predikat = 'A'; keterangan = 'Sangat Baik (Disiplin Tinggi)'; }
-                            else if (pct >= 90) { predikat = 'B'; keterangan = 'Baik (Disiplin Terjaga)'; }
-                            else if (pct >= 80) { predikat = 'C'; keterangan = 'Cukup (Perlu Pengingat)'; }
-                            else { predikat = 'D'; keterangan = 'Kurang (Perlu Pembinaan Khusus)'; }
+                    const studentName = this.editingStudent.nama;
 
-                            this.editingStudent.attendance = { s, i, a, total_absen: tot, persentase: pct, predikat, keterangan };
-                            this.editingStudent.nilai_non_akademik = { kehadiran: { skor: pct, s, i, a, total_absen: tot, predikat, keterangan } };
-                        }
-
-                        this.db.students[idx] = this.editingStudent;
-                        this.recalculateAllMetrics();
-                        if (this.currentStudent && this.currentStudent.username === this.editingStudent.username) {
-                            this.currentStudent = this.db.students[idx];
-                        }
-                        if (this.activeSubjectStats) {
-                            this.updateActiveSubjectStats();
-                        }
-                        this.editingStudent = null;
-                        this.showToast('Perubahan nilai diterapkan. Klik "Simpan ke Server" untuk mempermanenkan.');
+                    // 1. Normalisasi nilai mapel
+                    for (const sub of this.db.subjects) {
+                        const raw = this.editingStudent.scores[sub.code];
+                        this.editingStudent.scores[sub.code] = (raw === '' || raw === null || isNaN(Number(raw))) ? null : Number(raw);
                     }
+
+                    // 2. Normalisasi presensi kehadiran (mempertahankan rincian_bulanan)
+                    if (this.editingStudent.attendance) {
+                        const s = Math.max(0, parseInt(this.editingStudent.attendance.s ?? this.editingStudent.attendance.sakit ?? 0, 10));
+                        const i = Math.max(0, parseInt(this.editingStudent.attendance.i ?? this.editingStudent.attendance.izin ?? 0, 10));
+                        const a = Math.max(0, parseInt(this.editingStudent.attendance.a ?? this.editingStudent.attendance.alpa ?? 0, 10));
+                        const tot = s + i + a;
+                        const totalSessions = this.db.meta.total_effective_sessions || 125;
+                        const attended = Math.max(0, totalSessions - tot);
+                        const pct = Number(((attended / totalSessions) * 100).toFixed(2));
+                        let predikat = 'A';
+                        let keterangan = 'Sangat Baik (Disiplin Tinggi)';
+                        if (pct >= 95) { predikat = 'A'; keterangan = 'Sangat Baik (Disiplin Tinggi)'; }
+                        else if (pct >= 90) { predikat = 'B'; keterangan = 'Baik (Disiplin Terjaga)'; }
+                        else if (pct >= 80) { predikat = 'C'; keterangan = 'Cukup (Perlu Pengingat)'; }
+                        else { predikat = 'D'; keterangan = 'Kurang (Perlu Pembinaan Khusus)'; }
+
+                        const prevAtt = this.editingStudent.attendance || {};
+                        this.editingStudent.attendance = {
+                            ...prevAtt,
+                            s, i, a,
+                            sakit: s, izin: i, alpa: a,
+                            total_absen: tot,
+                            persentase: pct,
+                            predikat,
+                            keterangan
+                        };
+
+                        const prevNonAkad = this.editingStudent.nilai_non_akademik?.kehadiran || {};
+                        this.editingStudent.nilai_non_akademik = {
+                            kehadiran: {
+                                ...prevNonAkad,
+                                skor: pct, s, i, a, sakit: s, izin: i, alpa: a, total_absen: tot, predikat, keterangan
+                            }
+                        };
+                    }
+
+                    // 3. Terapkan ke state utama db.students
+                    this.db.students[idx] = this.editingStudent;
+                    this.recalculateAllMetrics();
+                    if (this.currentStudent && this.currentStudent.username === this.editingStudent.username) {
+                        this.currentStudent = this.db.students[idx];
+                    }
+                    if (this.activeSubjectStats) {
+                        this.updateActiveSubjectStats();
+                    }
+
+                    this.hasUnsavedChanges = true;
+                    window.__raportHasUnsavedChanges = true;
+
+                    // 4. Jika autoSaveToServer = true, langsung kirim ke server PHP
+                    if (autoSaveToServer) {
+                        const res = await this.saveToServer('Data nilai ' + studentName + ' berhasil disimpan permanen ke server (data_x13.json)!');
+                        if (res && res.success) {
+                            this.editingStudent = null;
+                            this.hasUnsavedChanges = false;
+                            window.__raportHasUnsavedChanges = false;
+                        } else {
+                            alert('⚠️ PERHATIAN:\nNilai berhasil diterapkan di tampilan web, namun GAGAL disimpan ke file data_x13.json di server.\n\nAlasan: ' + (res?.message || 'Server PHP tidak merespons') + '\n\nJika Anda me-reload browser saat ini, nilai akan hilang! Silakan klik tombol "Unduh data_x13.json" di Dashboard untuk menyimpan cadangan.');
+                        }
+                    } else {
+                        this.editingStudent = null;
+                        this.showToast('Perubahan diterapkan sementara di web. Klik "Simpan ke Server" untuk mempermanenkan.');
+                    }
+                },
+
+                applyStudentEdit() {
+                    return this.saveStudentEdit(true);
                 },
 
                 recalculateAllMetrics() {
@@ -2672,25 +2769,34 @@ $initial_json = file_exists($json_file) ? file_get_contents($json_file) : '{}';
                     };
                 },
 
-                async saveToServer() {
+                async saveToServer(customSuccessMessage = null) {
                     this.isSaving = true;
                     try {
-                        const res = await fetch('?action=save', {
+                        const targetUrl = window.location.href.split('?')[0] + '?action=save';
+                        const res = await fetch(targetUrl, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
+                                action: 'save',
                                 pin: this.pinInput || this.db.meta.pin_walas,
                                 data: this.db
                             })
                         });
                         const result = await res.json();
                         if (res.ok && result.status === 'success') {
-                            this.showToast(result.message, 'success');
+                            this.hasUnsavedChanges = false;
+                            window.__raportHasUnsavedChanges = false;
+                            this.showToast(customSuccessMessage || result.message, 'success');
+                            return { success: true, message: result.message };
                         } else {
-                            this.showToast(result.message || 'Gagal menyimpan ke server.', 'error');
+                            const errMsg = result.message || 'Gagal menyimpan ke server.';
+                            this.showToast(errMsg, 'error');
+                            return { success: false, message: errMsg };
                         }
                     } catch (e) {
-                        this.showToast('Gagal menghubungi server PHP. Gunakan tombol Unduh JSON jika sedang mode offline.', 'error');
+                        const errMsg = 'Gagal menghubungi server PHP. Jika server offline, gunakan tombol Unduh data_x13.json.';
+                        this.showToast(errMsg, 'error');
+                        return { success: false, message: errMsg };
                     } finally {
                         this.isSaving = false;
                     }
